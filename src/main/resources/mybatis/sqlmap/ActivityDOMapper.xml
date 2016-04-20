@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.freturn.tech.dal.dao.ActivityDOMapper" >
+  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.ActivityDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="TINYINT" />
+    <result column="beginTime" property="begintime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="creatorId" property="creatorid" jdbcType="BIGINT" />
+    <result column="creatorName" property="creatorname" jdbcType="VARCHAR" />
+    <result column="tagList" property="taglist" jdbcType="VARCHAR" />
+    <result column="entryFee" property="entryfee" jdbcType="BIGINT" />
+    <result column="totalExpenditure" property="totalexpenditure" jdbcType="BIGINT" />
+    <result column="totalIncome" property="totalincome" jdbcType="BIGINT" />
+    <result column="gmtCreate" property="gmtcreate" jdbcType="TIMESTAMP" />
+    <result column="gmtModified" property="gmtmodified" jdbcType="TIMESTAMP" />
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.ActivityDO" >
+    insert into activity (id, name, enable, 
+      beginTime, endTime, creatorId, 
+      creatorName, tagList, entryFee, 
+      totalExpenditure, totalIncome, gmtCreate, 
+      gmtModified, description)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, 
+      #{begintime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, #{creatorid,jdbcType=BIGINT}, 
+      #{creatorname,jdbcType=VARCHAR}, #{taglist,jdbcType=VARCHAR}, #{entryfee,jdbcType=BIGINT}, 
+      #{totalexpenditure,jdbcType=BIGINT}, #{totalincome,jdbcType=BIGINT}, #{gmtcreate,jdbcType=TIMESTAMP}, 
+      #{gmtmodified,jdbcType=TIMESTAMP}, #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.freturn.tech.dal.dataobject.ActivityDO" >
+    update activity
+    set name = #{name,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=TINYINT},
+      beginTime = #{begintime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      creatorId = #{creatorid,jdbcType=BIGINT},
+      creatorName = #{creatorname,jdbcType=VARCHAR},
+      tagList = #{taglist,jdbcType=VARCHAR},
+      entryFee = #{entryfee,jdbcType=BIGINT},
+      totalExpenditure = #{totalexpenditure,jdbcType=BIGINT},
+      totalIncome = #{totalincome,jdbcType=BIGINT},
+      gmtCreate = #{gmtcreate,jdbcType=TIMESTAMP},
+      gmtModified = #{gmtmodified,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, name, enable, beginTime, endTime, creatorId, creatorName, tagList, entryFee, 
+    totalExpenditure, totalIncome, gmtCreate, gmtModified, description
+    from activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, enable, beginTime, endTime, creatorId, creatorName, tagList, entryFee, 
+    totalExpenditure, totalIncome, gmtCreate, gmtModified, description
+    from activity
+  </select>
+</mapper>
