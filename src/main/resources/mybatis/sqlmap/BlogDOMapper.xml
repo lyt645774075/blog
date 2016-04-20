@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.freturn.tech.dal.dao.BlogDOMapper" >
+  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.BlogDO" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.BlogDO" >
+    insert into blog (id, gmt_create, gmt_modified, 
+      name, user_id, content
+      )
+    values (#{id,jdbcType=BIGINT}, now(), now(),
+      #{name,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, gmt_create, gmt_modified, name, user_id, content
+    from blog
+  </select>
+
+  <select id="query" resultMap="BaseResultMap" parameterType="com.freturn.tech.dal.query.BlogQueryObj">
+    select id, gmt_create, gmt_modified, name, user_id, content
+    from blog where id=#{id}
+  </select>
+
+</mapper>
