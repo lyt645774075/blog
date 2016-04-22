@@ -11,6 +11,8 @@ public interface PathConstant {
 
     String USER_HOME = "screen/userhome";
 
+    String BLOG_HOME = "screen/blog";
+
 
 
 

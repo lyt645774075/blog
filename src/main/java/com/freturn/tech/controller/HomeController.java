@@ -42,7 +42,7 @@ public class HomeController {
      * @param modelMap
      * @return
      */
-    @RequestMapping("/{userId}")
+    @RequestMapping("/user/{userId}")
     public String getUserHome(@PathVariable String userId, ModelMap modelMap){
 
         modelMap.addAttribute("userId", userId);

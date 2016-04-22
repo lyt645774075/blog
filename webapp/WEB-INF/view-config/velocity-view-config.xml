@@ -20,7 +20,7 @@
               <property name="prefix" value=""/>
               <property name="suffix" value=".vm"/>
               <property name="contentType" value="text/html;charset=UTF-8"/>
-              <property name="layoutUrl" value="layout/nolayout.vm"/>
+              <property name="layoutUrl" value="layout/default.vm"/>
               <property name="order" value="1"/>
 
        </bean>
