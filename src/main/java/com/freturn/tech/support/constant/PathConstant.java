@@ -7,11 +7,24 @@ package com.freturn.tech.support.constant;
 public interface PathConstant {
 
 
+    /**=========== 全站通用页面路径 ============ **/
+
     String WEB_HOME = "screen/webhome";
 
-    String USER_HOME = "screen/userhome";
 
-    String BLOG_HOME = "screen/blog";
+    /**=========== 用户相关[前台]页面路径 ============ **/
+
+
+    /**=========== 用户相关[管理后台]页面路径 ============ **/
+    String USER_HOME = "screen/user/userhome";
+
+    String USER_ABOUTME = "screen/user/aboutme";
+
+    String USER_CONTACT = "screen/user/contact";
+
+    String BLOG_HOME = "screen/user/blog";
+
+    String USER_LOGIN = "screen/login";
 
 
 

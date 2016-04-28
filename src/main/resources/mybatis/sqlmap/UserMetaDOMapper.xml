@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.freturn.tech.dal.dao.UserMetaDOMapper" >
+  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.UserMetaDO" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.UserMetaDO" >
+    insert into user_meta (id, gmt_create, gmt_modified, 
+      user_id, type, name)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{userId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <select id="queryListByUserId" resultMap="BaseResultMap" >
+    select id, gmt_create, gmt_modified, user_id, type, name
+    from user_meta where user_id=#{userId}
+  </select>
+</mapper>

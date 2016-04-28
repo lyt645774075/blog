@@ -1,0 +1,94 @@
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+            <article id="post-111" class="post-111 page type-page status-publish hentry">
+                <header class="page-header">
+                    <h1 class="page-title">Contact</h1>
+                </header>
+                <div class="page-content">
+                    <div class="map">
+                    </div>
+                    <div class="contact-info style-content-2">
+                        <ul class="style-1 pull-left">
+                            <li>
+                                                                    <span class="text-icon-left">
+                                                                      <i class="icon-google-plus-sign">
+                                                                      </i>
+                                                                      <span>Google+</span>
+                                                                    </span>
+                                                                    <span class="pull-right">
+                                                                      <a href="http://demo.designwall.com/dw-minion/contact/#">designwall</a>
+                                                                    </span>
+                            </li>
+                            <li>
+                                                                    <span class="text-icon-left">
+                                                                      <i class="icon-skype">
+                                                                      </i>
+                                                                      <span>Skype</span>
+                                                                    </span>
+                                <span class="pull-right">john.doe</span>
+                            </li>
+                            <li>
+                                                                    <span class="text-icon-left">
+                                                                      <i class="icon-facebook-sign">
+                                                                      </i>
+                                                                      <span>Facebook</span>
+                                                                    </span>
+                                                                    <span class="pull-right">
+                                                                      <a href="http://demo.designwall.com/dw-minion/contact/#">wp.designwall</a>
+                                                                    </span>
+                            </li>
+                        </ul>
+                        <ul class="style-1 pull-right">
+                            <li>
+                                                                    <span class="text-icon-left">
+                                                                      <i class="icon-phone-sign">
+                                                                      </i>
+                                                                      <span>Mobile Phone</span>
+                                                                    </span>
+                                <span class="pull-right">1-800-233-4175</span>
+                            </li>
+                            <li>
+                                                                    <span class="text-icon-left">
+                                                                      <i class="icon-twitter-sign">
+                                                                      </i>
+                                                                      <span>Twitter</span>
+                                                                    </span>
+                                                                    <span class="pull-right">
+                                                                      <a href="http://demo.designwall.com/dw-minion/contact/#">designwall_com</a>
+                                                                    </span>
+                            </li>
+                            <li>
+                                                                    <span class="text-icon-left">
+                                                                      <i class="icon-apple">
+                                                                      </i>
+                                                                      <span>Facetime</span>
+                                                                    </span>
+                                <span class="pull-right">webmaster@example.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <form>
+                        <fieldset>
+                            <legend>Use the form below to drop me a message</legend>
+                            <p>
+                                <label>Your name<br>
+                                </label>
+                                <label>Email<br>
+                                </label>
+                                <label>Website<br>
+                                </label>
+                                <label>
+                                    <label>Your Message<br>
+                                                                        <textarea class="input-block-level">
+                                                                        </textarea>
+                                    </label>
+                                </label>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

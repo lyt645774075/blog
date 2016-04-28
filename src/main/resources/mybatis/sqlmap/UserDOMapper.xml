@@ -6,16 +6,27 @@
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pass_word" property="passWord" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="icon_url" property="iconUrl" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
   </resultMap>
   <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.UserDO" >
     insert into user (id, gmt_create, gmt_modified, 
-      email, name)
-    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{email,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+      email, pass_word, nick_name, 
+      icon_url, description)
+    values (#{id,jdbcType=BIGINT}, now(), now(),
+      #{email,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{iconUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
   </insert>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select id, gmt_create, gmt_modified, email, name
+    select id, gmt_create, gmt_modified, email, pass_word, nick_name, icon_url, description
     from user
   </select>
+
+  <select id="queryOneById" resultMap="BaseResultMap" >
+    select id, gmt_create, gmt_modified, email, pass_word, nick_name, icon_url, description
+    from user where id=#{id}
+  </select>
+
 </mapper>

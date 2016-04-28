@@ -1,0 +1,107 @@
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+            <article id="post-96" class="post-96 page type-page status-publish hentry">
+                <header class="page-header">
+                    <h1 class="page-title">About me</h1>
+                </header>
+                <div class="page-content">
+                    <p>Cras porta tempus pharetra. Etiam sollicitudin quam mauris, in sodales elit malesuada et. Curabitur orci sem, condimentum ut malesuada vitae, dapibus vitae est. Nulla elit augue, imperdiet sit amet vulputate sit amet, sodales sed ligula. Donec nulla mauris, aliquam ut dui ac, molestie dapibus diam. Aliquam erat volutpat.</p>
+                    <div class="style-content-1 right">
+                        <div class="small">
+                            <img class="alignnone" alt="" src="./aboutme_files/eee&amp;text=Photo">
+                        </div>
+                        <div class="big">
+                            <ul class="style-1">
+                                <li>DBO<span class="pull-right">23 June, 2013</span>
+                                </li>
+                                <li>Gender<span class="pull-right">Male</span>
+                                </li>
+                                <li>Nationality<span class="pull-right">United States</span>
+                                </li>
+                                <li>Relationship Status<span class="pull-right">Single</span>
+                                </li>
+                                <li>Mobile Phone<span class="pull-right">1-800-233-4175</span>
+                                </li>
+                                <li>Website<a href="http://demo.designwall.com/dw-minion/about-me/www.designwall.com">
+                                    <span class="pull-right">www.designwall.com</span>
+                                </a>
+                                </li>
+                                <li>Languages<span class="pull-right">English</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>Work and Education</h3>
+                    <p>Quisque elementum nunc et neque laoreet, sed semper enim rutrum. Nam sed urna lacus. Quisque tempus urna velit. Nam sed urna lacus. Quisque tempus urna velit. Donec eleifend lacus et ante interdum sagittis. Donec eleifend lacus et ante interdum sagittis. Curabitur orci sem, condimentum ut malesuada vitae, dapibus vitae est.</p>
+                    <ol class="timeline">
+                        <li class="tl-wrap pull-left tl-danger">
+                            <strong class="tl-title">Facebook</strong>
+                            <span class="tl-content">Founder and CEO · Feb 4, 2004 to present</span>
+                        </li>
+                        <li class="tl-wrap pull-right">
+                            <strong class="tl-title">Harvard University</strong>
+                                                      <span class="tl-content">Sep 2002 to May 2004 · Computer Science<br>
+                                                      </span>
+                        </li>
+                        <li class="tl-wrap pull-left">
+                            <strong class="tl-title">Phillips Exeter Academy</strong>
+                            <span class="tl-content">Class of 2002 · Classics</span>
+                        </li>
+                        <li class="tl-wrap pull-right">
+                            <strong class="tl-title">Scrum Alliance</strong>
+                            <span class="tl-content">Class of 2001 · Certified Scrum Master</span>
+                        </li>
+                        <li class="tl-wrap pull-left">
+                            <strong class="tl-title">Ardsley High School</strong>
+                            <span class="tl-content">Sep 1998 to Jun 2000 · Ardsley, New York</span>
+                        </li>
+                    </ol>
+                    <h3>Technical Experience</h3>
+                    <p>Sed quis risus posuere leo scelerisque viverra. Pellentesque id urna at augue porttitor laoreet eu vel arcu. Pellentesque vel iaculis augue. Quisque elementum nunc et neque laoreet, sed semper enim rutrum. Nam sed urna lacus. Quisque tempus urna velit. Donec eleifend lacus et ante interdum sagittis.</p>
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <strong>Photoshop</strong>
+                        </div>
+                        <div class="span10">
+                            <div class="progress progress-info">
+                                <div class="bar" style="width: 60%">6/10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <strong>HTML &amp; CSS</strong>
+                        </div>
+                        <div class="span10">
+                            <div class="progress progress-success">
+                                <div class="bar" style="width: 70%">7/10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <strong>JavaScript<br>
+                            </strong>
+                        </div>
+                        <div class="span10">
+                            <div class="progress progress-warning">
+                                <div class="bar" style="width: 80%">8/10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <strong>PHP</strong>
+                        </div>
+                        <div class="span10">
+                            <div class="progress progress-danger">
+                                <div class="bar" style="width: 90%">9/10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

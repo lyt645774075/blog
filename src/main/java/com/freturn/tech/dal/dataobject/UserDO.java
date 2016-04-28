@@ -11,7 +11,13 @@ public class UserDO {
 
     private String email;
 
-    private String name;
+    private String passWord;
+
+    private String nickName;
+
+    private String iconUrl;
+
+    private String description;
 
     public Long getId() {
         return id;
@@ -45,11 +51,35 @@ public class UserDO {
         this.email = email == null ? null : email.trim();
     }
 
-    public String getName() {
-        return name;
+    public String getPassWord() {
+        return passWord;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setPassWord(String passWord) {
+        this.passWord = passWord == null ? null : passWord.trim();
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
+    }
+
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl == null ? null : iconUrl.trim();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 }

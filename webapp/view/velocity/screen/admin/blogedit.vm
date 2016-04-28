@@ -1,0 +1,67 @@
+<link href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css" rel="stylesheet">
+<link href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+
+            <div id="summernote">
+                $!{activity.desc}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $('#summernote').summernote({
+
+        height: 350,
+        minHeight: null,
+        maxHeight: null,
+        onImageUpload: function (files, editor,$editable) {
+            console.log('image upload:', files, editor, $editable);
+            sendImage(files[0], editor, $editable)
+        }
+    });
+
+    function sendImage(file, editor,$editable) {
+        data = new FormData();
+        data.append("file", file);
+
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "/img/upload",
+            cache: false,
+            processData: false,
+            contentType: false,
+            datatype: 'json',
+
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+
+            error: function () {
+                console.log("error");
+            },
+            success: function (data) {
+                console.log("success" + data);
+                editor.insertImage($editable, data['url']);
+            }
+
+        });
+
+    }
+
+</script>
+
+
+<script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>

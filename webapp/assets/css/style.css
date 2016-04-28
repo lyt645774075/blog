@@ -1,702 +1,235 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900,100,200);
-
-body{
-  font-family: 'Raleway', sans-serif;
-  font-size:14px;
-  font-weight: 400;
-  overflow-y:scroll;
-  -webkit-font-smoothing: antialiased;
-}
-
-::selection {
-		background: #000;
-		color: #fff;
-		text-shadow: none;
-	}
-	
-	::-moz-selection {
-		background: #000;
-		color: #fff;
-		text-shadow: none;
-	}
-
-p{
-  font-family: 'Raleway', sans-serif;
-  font-size:14px;
-  font-weight: 400;
-}
-
-a{
-  text-decoration:none;
-  -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in; 
-	border-bottom:1px solid #dedede;
-}
-
-a:focus {
-  outline:none;
-}
-
-strong{
-  font-weight:700;
-
-}
-
-/*
-**************************
-PRELOADER
-**************************
-*/
-
-.preloader{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:100%;
-  background:white;
-  z-index:999;
-}
- 
-.preloader .item{
-  position:absolute;
-  width:50px;
-  height:50px;
-  left:50%;
-  top:50%;
-  margin-left:-25px;
-  margin-top:-25px;
-} 
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  margin: 0px auto;
-  background-color: #333;
-  border-radius: 100%;  
-  -webkit-animation: scaleout 1.0s infinite ease-in-out;
-  animation: scaleout 1.0s infinite ease-in-out;
-}
-
-@-webkit-keyframes scaleout {
-  0% { -webkit-transform: scale(0.0) }
-  100% {
-    -webkit-transform: scale(1.0);
-    opacity: 0;
-  }
-}
-
-@keyframes scaleout {
-  0% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 100% {
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-    opacity: 0;
-  }
-}
-
-
-
-
-
-/*
-**************************
-NAVIGATION OPACITY
-**************************
-*/
-
-
-
-.opacity-nav{
-  position:fixed;
-  display:none;
-  width:100%;
-  height:100%;
-  top:0;
-  z-index:9999;
-  background:rgba(0,0,0,0.95);
-}
-
-ul.menu-fullscreen{
-  width: 100%;
-  top: 50%;
-  position: absolute;
-  height: 280px;
-  margin-top: -140px;
-}
-
-ul.menu-fullscreen li{
-  font-size:35px;
-  text-align:center;
-  line-height:70px;
-  font-weight:500;
-}
-
-ul.menu-fullscreen li > a{
-  color:#999999;
-  border:0;
-}
-
-ul.menu-fullscreen li > a:hover{
-  color:#ffffff;
-}
-
-
-#full{
-  width:1140px;
-  position: relative;
-  top:0;
-  margin:0 auto;
-  z-index: 9997;
-}
-
-
-#fullscreen{
-  display:none;
-  position:absolute;
-  top:0;
-  width:100%;
-  margin:0 auto;
-  height:80px;
-  z-index: 9998;
-}
-
-/*
-**************************
-HEADER
-**************************
-*/
-
-header.boxed{
-  position:fixed;
-  width:100%;
-  margin:0 auto;
-  height:80px;
-  z-index:9999;
-  display:none;
-  background:none;
-  top:0;
-    -webkit-transition: background 0s ease-in;
-	-moz-transition: background 0s ease-in;
-	-ms-transition: background 0s ease-in;
-	-o-transition: background 0s ease-in;
-	transition: background 0s ease-in;
-}
-
-header.boxed .header-margin{
-  width:1140px;
-  margin:0 auto;
-}
-
-header.boxed .header-margin-mini{
-  width:90%;
-  margin:0 auto;
-}
-
-
-ul.social-icon{
-  float:right;
-}
-
-ul.social-icon a{
-  float:right;
-  font-size:15px;
-  border-bottom:0;
-  color:black;
-  padding-right:0px !important;
-}
-
-ul.social-icon a:hover{
-  color:#c3c3c3;
-}
-
-.menu-index{
-  position: fixed;
-  right: 5%;
-  top: 30px;
-  z-index: 99999;
-  padding:20px;
-  background:black;
-  cursor:pointer;
-}
-
-
-.menu-index i{
-  float:right;
-  font-size:18px;
-  color:white;
-  padding-right:0px !important;
-}
-
-.menu-index i:hover{
-  color:#c3c3c3;
-}
-
-
-ul.menu-icon{
-  float:right;
-}
-
-ul.menu-icon a{
-  float:right;
-  font-size:19px;
-  color:white;
-  padding-right:0px !important;
-}
-
-ul.menu-icon i{
-  padding:20px;
-  background:black;
-}
-
-ul.menu-icon a:hover{
-  color:#c3c3c3;
-}
-
-header a{
-  color:#000000;
-}
-
-ul.header-nav{
-  width:60%;
-  float:left;
-}
-
-header .logo > a{
-  font-size:23px;
-  font-weight:800;
-  float:left;
-  line-height:80px;
-  padding-right:40px;
-  border-bottom: 1px solid #f1f1f1;
-}
-
-header .logo > a:hover{
-  color:#c3c3c3;
-}
-
-header li{
-  text-transform:uppercase;
-  list-style-type: none; margin: 0 auto; float: left;
-}
-
-header li > a{
-  font-size:13px;
-  color:#c3c3c3;
-  padding-right:25px;
-  padding-left:25px;
-  font-weight:800;
-  line-height:80px;
-  display:inline-block;  
-  border-bottom:0;
-}
-
-header li > a:hover{
-  color:#000000;
-}
-
-header li > a #active{
-  color:#000000;
-}
-
-header li ul{
-  overflow: hidden; display: none; background: #f9f9f9; z-index:20;
-}
-
-header li ul li a{
-  line-height:50px;
-  padding-left:30px; 
-  width:260px;
-}
-
-header li:hover ul{
-  position: absolute; padding: 0; display: block; width: 260px;
-}
-
-
-
-/*
-**************************
-CONTENT
-**************************
-*/
-
-.hero-image{
-  position:relative; 
-  width:100%; 
-  top:0; 
-  height:400px; 
-  background: url('../img/full/full.jpg') center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
-  
-}
-
-.one-column{
-  width:40%;
-  position:relative;
-  float:left;
-}
-
-.two-column{
-  width:60%;
-  position:relative;
-  float:left;
-}
-
-.one-column p{
-  width:70% !important;
-}
-
-.two-column p{
-  width:100% !important;
-}
-
-.clear{
-  clear:both;
-}
-
-.content{
-  position:relative;
-  width:1140px;
-  margin:50px auto;
-}
-
-
-.content .text-intro{
-  width: 1140px;
-  margin-top: 150px;
-  margin: 150px auto 0;
-}
-
-.content .text-intro h1{
-  font-size:43px;
-  width:40%;
-  text-transform:uppercase;
-  color:#000000;
-  font-weight:900;
-  line-height:70px;
-}
-
-.content .text-intro p{
-  font-size:13px;
-  color:#8d8d8d;
-  margin-top:30px;
-  font-weight:400;
-  line-height:22px;
-  letter-spacing:1px;
-  width:40%;
-}
-
-        .typed-cursor{
-            opacity: 1;
-            font-weight: 900;
-            -webkit-animation: blink 0.7s infinite;
-            -moz-animation: blink 0.7s infinite;
-            -ms-animation: blink 0.7s infinite;
-            -o-animation: blink 0.7s infinite;
-            animation: blink 0.7s infinite;
-        }
-        @-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-webkit-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-moz-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-ms-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-o-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-
-/*
-**************************
-HOME SIDEBAR
-**************************
-*/
-
-.home-sidebar{
-  top:0;
-  position:absolute;
-  width:33.3333%;
-  right:0;
-  height:100%;
-  background:#f4f4f4;
-  z-index:9;
-  overflow:hidden;
-  background-size:100%;
-}
-
-.parallax{
-  position:absolute;
-}
-
-.parallax-option{
-  position:absolute; width:100%; height:100%;
-}
-
-/*
-**************************
-PORTFOLIO GRID
-**************************
-*/
-
-.prev-next{
-  width:100%;
-  max-width:1170px;
-  margin:0 auto;
-  padding-top:100px;
-}
-
-.prev-next a{
-  color:black;
-  font-weight:500;
-  padding-bottom: 15px;
-}
-
-.prev-next a:hover{
-  border-bottom:1px solid black;
-}
-
-.prev-button{
-  width:50%;
-  position:relative;
-  float:left;
-  text-align:left;
-}
-
-.next-button{
-  width:50%;
-  position:relative;
-  float:left;
-  text-align:right;
-}
-
-
-#ajax-content{width:100%;}
-
-.portfolio-grid{
-  width:1170px;
-  position:relative;
-  margin: 30px auto;
-  overflow:hidden;
-}
-
-#portfolio-sidebar{
-  width: 780px !important;
-  padding-right: 390px;
-
-}
-
-li.grid-item{
-  width:360px;
-  position:relative;
-  float:left;
-  padding:15px;
-}
-
-.grid-hover{
-  position: absolute;
-  width:360px;
-  height: 100%;
-  top:0;
-  background: white;
-  z-index: 2;
-  opacity: 0;
-  -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in; 
-}
-
-.grid-hover:hover{
-  opacity: 0.9;
-}
-
-.grid-hover h1{
-  font-size:23px;
-  bottom:80px;
-  left:40px;
-  position:absolute;
-  text-transform:uppercase;
-  color:#000000;
-  letter-spacing:1px;
-  font-weight:900;
-  line-height:50px;
-}
-
-.grid-hover p{
-  font-size:13px;
-  bottom:40px;
-  left:40px;
-  position:absolute;
-  color:#686868;
-  letter-spacing:1px;
-  font-weight:400;
-  line-height:50px;
-}
-
-li.grid-item img{
-  width:360px;
-}
-
-/*
-**************************
-FOOTER
-**************************
-*/
-
-#footer-box{height:150px; margin-top:75px;}
-
-footer{
-  background: #f1f1f1;
-  width:100%;
-  margin-top:150px;
-  height:300px;
-  overflow:hidden;
-  position:relative;
-  z-index:10;
-}
-
-.footer-margin{
-  width:1140px;
-  margin: 30px auto;
-  line-height: 100px;
-}
-
-#footer-left{text-align:left;}
-
-.footer-margin .copyright{
-  color: #686868;
-  letter-spacing: 1px;
-  font-size: 12px;
-  width: 100%;
-  text-align:center;
-  float: left;
-}
-
-.footer-margin .social-footer{
-  color: #686868;
-  letter-spacing: 1px;
-  font-size: 13px;
-  width: 100%;
-  text-align:center;
-  float: left;
-}
-
-.footer-margin .social-footer a{
-  font-size:15px;
-  color:black;
-  padding: 20px;
-}
-
-.footer-margin .social-footer a:hover{
-  color:#c3c3c3;
-}
-
-
-/*
-**************************
-CONTACT
-**************************
-*/
-
-.contact-one, .contact-two{
-  width:30%;
-  padding-right:3%;
-  position:relative;
-  float:left;
-}
-
-.contact-three{
-  width:33%;
-  position:relative;
-  float:left;
-}
-
-.contact-one p, .contact-two p, .contact-three p{
-  width:100% !important;
-}
-
-input{
-
-  width:100%;
-  height:40px;
-  background:#f8f7f7;
-  border:0;
-  color:#000000;
-  font-weight:500;
-  line-height:40px;
-  font-family: 'Raleway', sans-serif;
-  margin-bottom:10px;
-  font-size:13px;
-  padding-left:15px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-input.button-submit{
-
-  width:220px;
-  height:40px;
-  background:#f8f7f7;
-  font-weight:500;
-  border:0;
-  font-family: 'Raleway', sans-serif;
-  color:#000000;
-  float:right;
-  font-weight:900;
-  line-height:40px;
-  font-size:13px;
-}
-
-input:focus{
-  background:#f4f4f4; 
-}
-
-textarea{
-
-  width:100%;
-  height:40px;
-  border:0;
-  line-height:40px;
-  background:#f8f7f7;
-  color:#000000;
-  font-size:13px;
-  font-family: 'Raleway', sans-serif;
-  font-weight:500;
-  margin-bottom:10px;
-  padding:0 0 0 15px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-    -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in; 
-}
-
-textarea:focus{background:#f4f4f4; height:250px;}
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Page not found | DW Minion</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://demo.designwall.com/dw-minion/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="DW Minion &raquo; Feed" href="http://demo.designwall.com/dw-minion/feed/" />
+<link rel="alternate" type="application/rss+xml" title="DW Minion &raquo; Comments Feed" href="http://demo.designwall.com/dw-minion/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/demo.designwall.com\/dw-minion\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dw-minion-qa-css'  href='http://demo.designwall.com/dw-minion/wp-content/themes/dw-minion/dist/dwqa-templates/style.css?ver=4.5' type='text/css' media='all' />
+<link rel='stylesheet' id='dw-minion-main-css'  href='http://demo.designwall.com/dw-minion/wp-content/themes/dw-minion/dist/assets/css/dw-minion.min.css?ver=4.5' type='text/css' media='all' />
+<link rel='stylesheet' id='dw-minion-style-css'  href='http://demo.designwall.com/dw-minion/wp-content/themes/dw-minion/dist/style.css?ver=4.5' type='text/css' media='all' />
+<script type='text/javascript' src='http://demo.designwall.com/dw-minion/wp-content/themes/dw-minion/dist/assets/js/modernizr.js?ver=4.5'></script>
+<script type='text/javascript' src='http://demo.designwall.com/dw-minion/wp-includes/js/jquery/jquery.js?ver=1.12.3'></script>
+<script type='text/javascript' src='http://demo.designwall.com/dw-minion/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.0'></script>
+<link rel='https://api.w.org/' href='http://demo.designwall.com/dw-minion/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://demo.designwall.com/dw-minion/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://demo.designwall.com/dw-minion/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.5" />
+</head>
+<body class="error404 group-blog">
+<div id="page" class="hfeed site">
+	<div class="container clearfix">
+				<div id="navigation" class="site-nav">
+			<div class="site-nav-inner">
+				<div class="container">
+					<header id="masthead" class="site-header" role="banner">
+						<h1 class="site-title display-logo"><a href="http://demo.designwall.com/dw-minion/" title="DW Minion" rel="home"><img alt="DW Minion" src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/logo.png" /></a></h1><p class="site-subtitle">Hello, Dolly!</p><h2 class="site-description">I'm Minion and I'm a coder. Welcome to my humble blog. I love coding and blogging and taking great photos.</h2>					</header>
+					<div id="main-sidebar" class="widget-area" role="complementary">
+		<aside id="nav_menu-2" class="widget widget_nav_menu"><div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li id="menu-item-113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-113"><a href="http://demo.designwall.com/dw-minion/">Home</a></li>
+<li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="http://demo.designwall.com/dw-minion/about-me/">About me</a></li>
+<li id="menu-item-114" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-114"><a href="#">Post Formats</a>
+<ul class="sub-menu">
+	<li id="menu-item-191" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-191"><a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/">Standard</a></li>
+	<li id="menu-item-192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-192"><a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/">Link</a></li>
+	<li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-193"><a href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/">Gallery</a></li>
+	<li id="menu-item-194" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-194"><a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/">Quote</a></li>
+	<li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-195"><a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/">Video</a></li>
+</ul>
+</li>
+<li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112"><a href="http://demo.designwall.com/dw-minion/contact/">Contact</a></li>
+</ul></div></aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-2"><a href="http://demo.designwall.com/dw-minion/category/creativity/" title="Quisque tincidunt metus aliquam orci tincidunt, ac sollicitudin massa lacinia. Nunc ligula enim, fringilla vitae neque vestibulum, fermentum semper tellus. Fusce magna nisi, tincidunt eu dui quis, tempus consequat ipsum. ">Creativity</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://demo.designwall.com/dw-minion/category/delicious/" title="Etiam sodales luctus est at consequat. Aliquam lacinia odio nec eros cursus laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse sagittis massa a mi tempus, nec euismod lacus tristique.">Delicious</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://demo.designwall.com/dw-minion/category/freelancing/" title="Pellentesque eu mollis lectus. Integer tristique quis eros ut porttitor. Aliquam gravida, dolor volutpat venenatis lobortis, diam dolor varius lorem, ut rutrum metus nibh at risus. Sed ac tortor ac velit pharetra tristique eget at risus. ">Freelancing</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://demo.designwall.com/dw-minion/category/journal/" title="Aliquam et tempus erat. Morbi convallis consequat interdum. Mauris sed gravida enim, vitae tincidunt neque. Nulla a nulla ullamcorper, sollicitudin sapien vel, egestas tellus. Mauris eu suscipit enim. Nulla at pellentesque velit, vel consectetur lacus. ">Journal</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://demo.designwall.com/dw-minion/category/photography/" title="Nullam dictum viverra metus vel mollis. Morbi ac ultrices massa. Nunc ultricies mattis lectus, a faucibus libero volutpat sit amet. Duis eget egestas lacus, in aliquet nibh. Donec elementum, augue non tincidunt facilisis.">Photography</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://demo.designwall.com/dw-minion/category/travel/" title="Maecenas hendrerit nisl ac justo scelerisque pretium. Vivamus at ultrices lorem, non imperdiet nulla. Sed gravida nisl commodo neque imperdiet pellentesque. Nam pretium viverra odio, in sollicitudin ipsum cursus.">Travel</a>
+</li>
+		</ul>
+</aside><aside id="meta-2" class="widget widget_meta"><h3 class="widget-title">Meta</h3>			<ul>
+						<li><a href="http://demo.designwall.com/dw-minion/wp-login.php">Log in</a></li>
+			<li><a href="http://demo.designwall.com/dw-minion/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://demo.designwall.com/dw-minion/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</aside></div>				</div>
+			</div>
+		</div>
+          <div id="actions" class="site-actions clearfix">
+      <div class="action show-site-nav">
+          <i class="icon-reorder"></i>
+      </div>
+      <div class="clearfix actions">
+          <div class="action search">
+              <form action="http://demo.designwall.com/dw-minion/" class="action searchform">
+                  <input type="text" placeholder="Search" id="s" name="s" class="search-query">
+                  <label for="s"></label>
+              </form>
+          </div>
+          <a class="back-top action" href="#page"><i class="icon-chevron-up"></i></a>
+                    <div class="action socials">
+              <i class="icon-link active-socials"></i>
+              <ul class="unstyled list-socials clearfix" style="width: 240px;">
+                  <li class="social"><a href="#"><i class="icon-facebook"></i></a></li>                  <li class="social"><a href="#"><i class="icon-twitter"></i></a></li>                  <li class="social"><a href="#"><i class="icon-google-plus"></i></a></li>                  <li class="social"><a href="#"><i class="icon-youtube"></i></a></li>                  <li class="social"><a href="#"><i class="icon-linkedin"></i></a></li>                  <li class="social"><a href="#"><i class="icon-github"></i></a></li>              </ul>          </div>
+      </div>
+  </div>
+  		<div id="main" class="site-main">
+			<div class="site-main-inner">
+				<div class="container clearfix">
+					<div id="primary" class="content-area">
+	<div class="primary-inner">
+		<div id="content" class="site-content" role="main">
+			<section class="error-404 not-found">
+				<header class="page-header">
+					<h1 class="page-title">Oops! That page can't be found.</h1>
+				</header>
+				<div class="page-content">
+					<p>It looks like nothing was found at this location. Maybe try one of the links below or a search?</p>
+					<form role="search" method="get" class="search-form" action="http://demo.designwall.com/dw-minion/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:">
+	</label>
+	<input type="submit" class="search-submit" value="Search">
+</form>				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<div id="secondary" class="widget-area" role="complementary">
+		<aside id="text-2" class="widget widget_text">			<div class="textwidget"><ul class="ads-125">
+                                        <li><a href="http://bit.ly/tf-wallclassic"><img alt="demo" src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/ad-2.gif"></a></li>
+                                        <li><a href="http://bit.ly/tf-wallclassic"><img alt="demo" src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/ad-2.gif"></a></li>
+                                        <li><a href="http://bit.ly/tf-wallclassic"><img alt="demo" src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/ad-2.gif"></a></li>
+                                        <li><a href="http://bit.ly/tf-wallclassic"><img alt="demo" src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/ad-2.gif"></a></li>
+                                    </ul></div>
+		</aside><aside id="dw_tabs-2" class="widget dw_tabs news-tab">      <div class="nav-tab-select-wrap">
+        <select name="nav-tabs-dw_tabs-2" class="nav-tabs-by-select visible-phone" >
+          <option data-target="#recent-posts-dw-widget-1"  value="#recent-posts-dw-widget-1" >POSTS</option><option data-target="#recent-comments-dw-widget-1"  value="#recent-comments-dw-widget-1" >COMMENTS</option><option data-target="#tag_cloud-dw-widget-1"  value="#tag_cloud-dw-widget-1" >TAGS</option>        </select>
+      </div>
+      <ul class="nav nav-tabs hidden-phone" id="nav-tabs-dw_tabs-2">
+      <li class="active"><a href="#recent-posts-dw-widget-1" data-toggle="tab">Posts</a></li><li class=""><a href="#recent-comments-dw-widget-1" data-toggle="tab">Comments</a></li><li class=""><a href="#tag_cloud-dw-widget-1" data-toggle="tab">Tags</a></li>      </ul>
+      <div class="tab-content">
+                          <div class="tab-pane widget_recent-posts-dw-widget-1 widget_recent_entries active" id="recent-posts-dw-widget-1">
+                    				<h3 class="widget-title">Posts</h3>		<ul>
+					<li>
+				<a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/">The Inside Secrets Of Millionaires Under The Age Of 29</a>
+						</li>
+					<li>
+				<a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/">Responsive WordPress Themes</a>
+						</li>
+					<li>
+				<a href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/">Finally! An Acne Cream That Actually Does What It Says</a>
+						</li>
+					<li>
+				<a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/">Unlock The Secrets Of Selling High Ticket</a>
+						</li>
+					<li>
+				<a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/">Take Advantage Of The Stock Market</a>
+						</li>
+				</ul>
+				                  </div>
+                                  <div class="tab-pane widget_recent-comments-dw-widget-1 widget_recent_comments " id="recent-comments-dw-widget-1">
+                    <h3 class="widget-title">Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Shelly Pfaff</span> on <a href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/#comment-24">Top Search Engine Optimization Strategies</a></li><li class="recentcomments"><span class="comment-author-link">Madelaine Jelks</span> on <a href="http://demo.designwall.com/dw-minion/2012/03/06/never-seen-before-tires-that-never-go/#comment-45">Never Seen Before! Tires That Never Go</a></li><li class="recentcomments"><span class="comment-author-link">Johnna Nolette</span> on <a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comment-61">The Inside Secrets Of Millionaires Under The Age Of 29</a></li><li class="recentcomments"><span class="comment-author-link">Fawn Council</span> on <a href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/#comment-39">Discover 3 Simple Ways To Reduce Your Unwanted Wrinkles</a></li><li class="recentcomments"><span class="comment-author-link">Niki Baley</span> on <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/#comment-53">Unlock The Secrets Of Selling High Ticket</a></li></ul>                  </div>
+                                  <div class="tab-pane widget_tag_cloud-dw-widget-1 widget_tag_cloud " id="tag_cloud-dw-widget-1">
+                    <h3 class="widget-title">Tags</h3><div class="tagcloud"><a href='http://demo.designwall.com/dw-minion/tag/dancing/' class='tag-link-8 tag-link-position-1' title='6 topics' style='font-size: 16.75pt;'>Dancing</a>
+<a href='http://demo.designwall.com/dw-minion/tag/meeting/' class='tag-link-9 tag-link-position-2' title='5 topics' style='font-size: 14.3pt;'>Meeting</a>
+<a href='http://demo.designwall.com/dw-minion/tag/my-family/' class='tag-link-10 tag-link-position-3' title='6 topics' style='font-size: 16.75pt;'>My family</a>
+<a href='http://demo.designwall.com/dw-minion/tag/playing/' class='tag-link-11 tag-link-position-4' title='9 topics' style='font-size: 22pt;'>Playing</a>
+<a href='http://demo.designwall.com/dw-minion/tag/shopping/' class='tag-link-12 tag-link-position-5' title='5 topics' style='font-size: 14.3pt;'>Shopping</a>
+<a href='http://demo.designwall.com/dw-minion/tag/sport/' class='tag-link-13 tag-link-position-6' title='7 topics' style='font-size: 18.5pt;'>Sport</a>
+<a href='http://demo.designwall.com/dw-minion/tag/travel/' class='tag-link-14 tag-link-position-7' title='3 topics' style='font-size: 8pt;'>Travel</a></div>
+                  </div>
+                      </div>
+  </aside><aside id="dw_accordions-4" class="widget dw_accordion news-accordion"><div class="accordion" id="accordion-dw_accordions-4">                        <div class="accordion-group">
+              <div class="accordion-heading"><a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion-dw_accordions-4" href="#dw_accordions-4-text-dw-widget-1">Instagram</a></div>
+              <div id="dw_accordions-4-text-dw-widget-1" class="widget_text-dw-widget-1  accordion-body collapse in widget_text">
+                <div class="accordion-inner">
+                <h3 class="widget-title">Instagram</h3>			<div class="textwidget"><ul class="instagram-content grid-2">
+<li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/instagram-1.png" alt=""></a></li>
+<li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/instagram-2.png" alt=""></a></li>
+<li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/instagram-3.png" alt=""></a></li>
+<li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/instagram-4.png" alt=""></a></li>
+</ul></div>
+		                </div>
+              </div>
+            </div>
+                                  <div class="accordion-group">
+              <div class="accordion-heading"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-dw_accordions-4" href="#dw_accordions-4-text-dw-widget-2">Dribbble</a></div>
+              <div id="dw_accordions-4-text-dw-widget-2" class="widget_text-dw-widget-2  accordion-body collapse  widget_text">
+                <div class="accordion-inner">
+                <h3 class="widget-title">Dribbble</h3>			<div class="textwidget"><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/email-app-shot.png" alt=""></a>
+<h5><a href="#">Email App Shot</a></h5></div>
+		                </div>
+              </div>
+            </div>
+                                  <div class="accordion-group">
+              <div class="accordion-heading"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-dw_accordions-4" href="#dw_accordions-4-text-dw-widget-3">Flickr</a></div>
+              <div id="dw_accordions-4-text-dw-widget-3" class="widget_text-dw-widget-3  accordion-body collapse  widget_text">
+                <div class="accordion-inner">
+                <h3 class="widget-title">Flickr</h3>			<div class="textwidget"><ul class="flickr-content grid-3">
+<li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/flickr-1.png" alt=""></a></li><li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/flickr-2.png" alt=""></a></li><li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/flickr-3.png" alt=""></a></li><li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/flickr-4.png" alt=""></a></li><li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/flickr-5.png" alt=""></a></li><li><a href="#"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/flickr-6.png" alt=""></a></li>
+</ul></div>
+		                </div>
+              </div>
+            </div>
+          </div></aside><aside id="text-3" class="widget widget_text">			<div class="textwidget"><a href="http://bit.ly/tf-wallclassic"><img src="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/ad-1.jpg" alt="" /></a></div>
+		</aside></div>        </div>
+      </div>
+    </div>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="site-info">
+                    <a href="http://wordpress.org/" title="A Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress</a><span class="sep">.</span>
+          Theme: DW Minion by <a href="http://www.designwall.com/" rel="nofollow">DesignWall</a>.        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34554947-2', 'auto');
+  ga('send', 'pageview');
+
+(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "https://sdk.designbold.com/button/v1.0/js/sdk.js#app_id=4e7360360d";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'db-js-sdk'));
+</script>
+<script type='text/javascript' src='http://demo.designwall.com/dw-minion/wp-content/themes/dw-minion/dist/assets/js/dw-minion.min.js?ver=4.5'></script>
+<script type='text/javascript' src='http://demo.designwall.com/dw-minion/wp-content/themes/dw-minion/dist/assets/js/main.min.js?ver=4.5'></script>
+<script type='text/javascript' src='http://demo.designwall.com/dw-minion/wp-includes/js/wp-embed.min.js?ver=4.5'></script>
+</body>
+</html>

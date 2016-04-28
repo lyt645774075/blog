@@ -1,0 +1,189 @@
+<div id="secondary" class="widget-area" role="complementary">
+
+    <aside id="dw_tabs-2" class="widget dw_tabs news-tab">
+        <div class="nav-tab-select-wrap">
+            <select name="nav-tabs-dw_tabs-2" class="nav-tabs-by-select visible-phone">
+                <option data-target="#recent-posts-dw-widget-1" value="#recent-posts-dw-widget-1">
+                    最近发表
+                </option>
+                <option data-target="#recent-comments-dw-widget-1"
+                        value="#recent-comments-dw-widget-1">评论
+                </option>
+                <option data-target="#tag_cloud-dw-widget-1" value="#tag_cloud-dw-widget-1">标签
+                </option>
+            </select>
+        </div>
+        <ul class="nav nav-tabs hidden-phone" id="nav-tabs-dw_tabs-2">
+            <li class="active"><a
+                    href="http://demo.designwall.com/dw-minion/#recent-posts-dw-widget-1"
+                    data-toggle="tab">最近发表</a></li>
+            <li class=""><a href="http://demo.designwall.com/dw-minion/#recent-comments-dw-widget-1"
+                            data-toggle="tab">评论</a></li>
+            <li class=""><a href="http://demo.designwall.com/dw-minion/#tag_cloud-dw-widget-1"
+                            data-toggle="tab">标签</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane widget_recent-posts-dw-widget-1 widget_recent_entries active"
+                 id="recent-posts-dw-widget-1">
+                <h3 class="widget-title">最近发表</h3>
+                <ul>
+                    <li>
+                        <a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/">The
+                            Inside Secrets Of Millionaires Under The Age Of 29</a>
+                    </li>
+                    <li>
+                        <a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/">Responsive
+                            WordPress Themes</a>
+                    </li>
+                    <li>
+                        <a href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/">Finally!
+                            An Acne Cream That Actually Does What It Says</a>
+                    </li>
+                    <li>
+                        <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/">Unlock
+                            The Secrets Of Selling High Ticket</a>
+                    </li>
+                    <li>
+                        <a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/">Take
+                            Advantage Of The Stock Market</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane widget_recent-comments-dw-widget-1 widget_recent_comments "
+                 id="recent-comments-dw-widget-1">
+                <h3 class="widget-title">评论</h3>
+                <ul id="recentcomments">
+                    <li class="recentcomments"><span class="comment-author-link">Shelly Pfaff</span>
+                        on
+                        <a href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/#comment-24">Top
+                            Search Engine Optimization Strategies</a></li>
+                    <li class="recentcomments"><span
+                            class="comment-author-link">Madelaine Jelks</span> on <a
+                            href="http://demo.designwall.com/dw-minion/2012/03/06/never-seen-before-tires-that-never-go/#comment-45">Never
+                        Seen Before! Tires That Never Go</a></li>
+                    <li class="recentcomments"><span
+                            class="comment-author-link">Johnna Nolette</span> on <a
+                            href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comment-61">The
+                        Inside Secrets Of Millionaires Under The Age Of 29</a></li>
+                    <li class="recentcomments"><span class="comment-author-link">Fawn Council</span>
+                        on
+                        <a href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/#comment-39">Discover
+                            3 Simple Ways To Reduce Your Unwanted Wrinkles</a></li>
+                    <li class="recentcomments"><span class="comment-author-link">Niki Baley</span>
+                        on
+                        <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/#comment-53">Unlock
+                            The Secrets Of Selling High Ticket</a></li>
+                </ul>
+            </div>
+            <div class="tab-pane widget_tag_cloud-dw-widget-1 widget_tag_cloud "
+                 id="tag_cloud-dw-widget-1">
+                <h3 class="widget-title">标签</h3>
+
+                <div class="tagcloud"><a href="http://demo.designwall.com/dw-minion/tag/dancing/"
+                                         class="tag-link-8 tag-link-position-1" title="6 topics"
+                                         style="font-size: 16.75pt;">Dancing</a>
+                    <a href="http://demo.designwall.com/dw-minion/tag/meeting/"
+                       class="tag-link-9 tag-link-position-2" title="5 topics"
+                       style="font-size: 14.3pt;">Meeting</a>
+                    <a href="http://demo.designwall.com/dw-minion/tag/my-family/"
+                       class="tag-link-10 tag-link-position-3" title="6 topics"
+                       style="font-size: 16.75pt;">My family</a>
+                    <a href="http://demo.designwall.com/dw-minion/tag/playing/"
+                       class="tag-link-11 tag-link-position-4" title="9 topics"
+                       style="font-size: 22pt;">Playing</a>
+                    <a href="http://demo.designwall.com/dw-minion/tag/shopping/"
+                       class="tag-link-12 tag-link-position-5" title="5 topics"
+                       style="font-size: 14.3pt;">Shopping</a>
+                    <a href="http://demo.designwall.com/dw-minion/tag/sport/"
+                       class="tag-link-13 tag-link-position-6" title="7 topics"
+                       style="font-size: 18.5pt;">Sport</a>
+                    <a href="http://demo.designwall.com/dw-minion/tag/travel/"
+                       class="tag-link-14 tag-link-position-7" title="3 topics"
+                       style="font-size: 8pt;">Travel</a></div>
+            </div>
+        </div>
+    </aside>
+    <aside id="dw_accordions-4" class="widget dw_accordion news-accordion">
+        <div class="accordion" id="accordion-dw_accordions-4">
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle active"
+                                                  data-toggle="collapse"
+                                                  data-parent="#accordion-dw_accordions-4"
+                                                  href="http://demo.designwall.com/dw-minion/#dw_accordions-4-text-dw-widget-1">荣誉墙</a>
+                </div>
+                <div id="dw_accordions-4-text-dw-widget-1"
+                     class="widget_text-dw-widget-1  accordion-body collapse in widget_text">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">荣誉墙</h3>
+
+                        <div class="textwidget">
+                            <ul class="instagram-content grid-2">
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/instagram-1.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/instagram-2.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/instagram-3.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/instagram-4.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle collapsed"
+                                                  data-toggle="collapse"
+                                                  data-parent="#accordion-dw_accordions-4"
+                                                  href="http://demo.designwall.com/dw-minion/#dw_accordions-4-text-dw-widget-2">相似人群</a>
+                </div>
+                <div id="dw_accordions-4-text-dw-widget-2"
+                     class="widget_text-dw-widget-2  accordion-body collapse  widget_text">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">相似人群</h3>
+
+                        <div class="textwidget"><a
+                                href="http://demo.designwall.com/dw-minion/#"><img
+                                src="./home_files/email-app-shot.png" alt=""></a>
+                            <h5><a href="http://demo.designwall.com/dw-minion/#">Email App Shot</a>
+                            </h5></div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle collapsed"
+                                                  data-toggle="collapse"
+                                                  data-parent="#accordion-dw_accordions-4"
+                                                  href="http://demo.designwall.com/dw-minion/#dw_accordions-4-text-dw-widget-3">职业推荐</a>
+                </div>
+                <div id="dw_accordions-4-text-dw-widget-3"
+                     class="widget_text-dw-widget-3  accordion-body collapse  widget_text">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">职业推荐</h3>
+
+                        <div class="textwidget">
+                            <ul class="flickr-content grid-3">
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/flickr-1.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/flickr-2.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/flickr-3.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/flickr-4.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/flickr-5.png" alt=""></a></li>
+                                <li><a href="http://demo.designwall.com/dw-minion/#"><img
+                                        src="./home_files/flickr-6.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <aside id="text-3" class="widget widget_text">
+        <div class="textwidget"><a href="http://bit.ly/tf-wallclassic"><img
+                src="./home_files/ad-1.jpg" alt=""></a></div>
+    </aside>
+</div>

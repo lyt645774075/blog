@@ -7,4 +7,6 @@ public interface UserDOMapper {
     int insert(UserDO record);
 
     List<UserDO> selectAll();
+
+    UserDO queryOneById(Long id);
 }
