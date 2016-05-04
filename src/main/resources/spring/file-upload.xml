@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+              <property name="defaultEncoding" value="utf-8" />
+              <property name="maxUploadSize" value="10485760000" />
+              <property name="maxInMemorySize" value="40960" />
+       </bean>
+
+       <bean id="ossClient" class="com.aliyun.oss.OSSClient">
+              <constructor-arg name="endpoint" value="http://oss-cn-hangzhou.aliyuncs.com"/>
+              <constructor-arg name="accessKeyId" value="IMvaEO3Apacs2MNc"/>
+              <constructor-arg name="secretAccessKey" value="XwDumsYaEnUcFmvqULpo0mndBifwW6"/>
+       </bean>
+
+
+</beans>

@@ -1,15 +1,18 @@
 package com.freturn.tech.dal.dao;
 
 import com.freturn.tech.dal.dataobject.BlogDO;
-import com.freturn.tech.dal.query.BlogQueryObj;
+import com.freturn.tech.dal.query.BlogQuery;
 
 import java.util.List;
 
 public interface BlogDOMapper {
-    int insert(BlogDO record);
+    int deleteByPrimaryKey(String id);
 
-    List<BlogDO> selectAll();
+    int insert(BlogDO blogDO);
 
+    BlogDO selectByPrimaryKey(String id);
 
-    List<BlogDO> query(BlogQueryObj queryObj);
+    int updateByPrimaryKey(BlogDO blogDO);
+
+    List<BlogDO> query(BlogQuery query);
 }

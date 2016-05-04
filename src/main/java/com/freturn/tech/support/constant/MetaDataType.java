@@ -9,7 +9,7 @@ public enum MetaDataType {
 
     CATEGORY("CATEGORY", "文章分类"),
 
-    LABEL("LABEL", "标签")
+    LABEL("LABEL", "标签"),
 
     ;
 

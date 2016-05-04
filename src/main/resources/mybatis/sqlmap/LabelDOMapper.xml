@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.freturn.tech.dal.dao.LabelDOMapper" >
+  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.LabelDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="scope" property="scope" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
+    <result column="creator_nick_name" property="creatorNickName" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, gmt_create, gmt_modified, scope, name, count, creator_id, creator_nick_name, description
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from label
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from label
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.LabelDO" >
+    insert into label (
+    <include refid="Base_Column_List"/>
+      )
+    values (#{id,jdbcType=BIGINT},now(),now(),
+      #{scope,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
+      #{creatorId,jdbcType=VARCHAR}, #{creatorNickName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <sql id="WhereCondition">
+    <where>
+
+      <if test="scope != null" >
+       and scope = #{scope,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null" >
+       and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="count != null" >
+       and  count = #{count,jdbcType=INTEGER}
+      </if>
+
+      <if test="creatorIdList != null and creatorIdList.size > 0">
+        AND creator_id in
+        <foreach collection="creatorIdList" open="(" close=")" separator="," item="creatorId">
+          #{creatorId}
+        </foreach>
+      </if>
+
+    </where>
+
+  </sql>
+
+
+  <select id="query" resultMap="BaseResultMap" parameterType="com.freturn.tech.dal.query.LabelQuery">
+    select <include refid="Base_Column_List"/> from label
+    <include refid="WhereCondition"/>
+  </select>
+
+  <update id="updateByPrimaryKey" parameterType="com.freturn.tech.dal.dataobject.LabelDO" >
+    update label
+    set
+      gmt_modified = now(),
+      scope = #{scope,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      creator_nick_name = #{creatorNickName,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

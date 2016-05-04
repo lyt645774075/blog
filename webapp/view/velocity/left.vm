@@ -1,3 +1,4 @@
+#*用户信息导航*#
 
 <div id="navigation" class="site-nav" style="display: block;">
     <div class="site-nav-inner">
@@ -5,7 +6,7 @@
             <header id="masthead" class="site-header" role="banner">
                 <h1 class="site-title display-logo">
                     <a href="#" title="DW Minion" rel="home">
-                        <img alt="DW Minion" src="http://freturn.oss-cn-hangzhou.aliyuncs.com/img/lyt.jpeg">
+                        <img alt="DW Minion" src="$!user.iconUrl">
                     </a>
                 </h1>
                 <p class="site-subtitle">$!user.nickName</p>
@@ -18,13 +19,13 @@
                         <ul id="menu-main-menu" class="menu">
                             <li id="menu-item-113"
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-113">
-                                <a href="http://demo.designwall.com/dw-minion/">主页</a></li>
+                                <a href="/user/$!user.id">主页</a></li>
                             <li id="menu-item-97"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a
-                                    href="http://demo.designwall.com/dw-minion/about-me/">关于我</a></li>
+                                    href="/user/$!user.id/aboutme">关于我</a></li>
                             <li id="menu-item-114"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-114">
-                                <a href="http://demo.designwall.com/dw-minion/#">发表文章</a>
+                                <a href="/blog/edit">写文章</a>
                                 <ul class="sub-menu">
                                     <li id="menu-item-191"
                                         class="menu-item menu-item-type-post_type menu-item-object-post menu-item-191">
@@ -50,7 +51,7 @@
                             </li>
                             <li id="menu-item-112"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112">
-                                <a href="http://demo.designwall.com/dw-minion/contact/">联系我</a></li>
+                                <a href="/user/$!user.id/contact">联系我</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -58,31 +59,19 @@
                 <aside id="categories-2" class="widget widget_categories">
                     <h3 class="widget-title">文章分类</h3>
                     <ul>
-                        <li class="cat-item cat-item-2"><a
-                                href="http://demo.designwall.com/dw-minion/category/creativity/">设计语言</a>
-                        </li>
-                        <li class="cat-item cat-item-3"><a
-                                href="http://demo.designwall.com/dw-minion/category/delicious/">数据库</a>
-                        </li>
-                        <li class="cat-item cat-item-4"><a
-                                href="http://demo.designwall.com/dw-minion/category/freelancing/">数据挖掘</a>
-                        </li>
-                        <li class="cat-item cat-item-5"><a
-                                href="http://demo.designwall.com/dw-minion/category/journal/">散文</a>
-                        </li>
-                        <li class="cat-item cat-item-6"><a
-                                href="http://demo.designwall.com/dw-minion/category/photography/"">搜索引擎</a>
-                        </li>
-                        <li class="cat-item cat-item-7"><a
-                                href="http://demo.designwall.com/dw-minion/category/travel/"">推荐系统</a>
-                        </li>
+                        #foreach($metadata in $!metadataList)
+                            <li class="cat-item"><a
+                                    href="http://demo.designwall.com/dw-minion/category/creativity/">$!metadata.name</a>
+                            </li>
+                        #end
                     </ul>
                 </aside>
                 <aside id="meta-2" class="widget widget_meta">
                     <h3 class="widget-title">个人作品</h3>
                     <ul>
-                        <li><a href="http://walkwithus.cn:8080">walkwithus</a></li>
-                        <li><a href="http://walkwithus.cn:8080">archetype</a></li>
+                        #foreach($ext in $!userExtList)
+                            <li><a href="$!ext.extValue" target="_blank">$!ext.extName</a></li>
+                        #end
 
                     </ul>
                 </aside>
@@ -102,7 +91,6 @@
                 <label for="s"></label>
             </form>
         </div>
-        <a class="back-top action" href=""><i class="icon-chevron-up"></i></a>
 
     </div>
 </div>

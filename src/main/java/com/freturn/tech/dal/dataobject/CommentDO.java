@@ -9,9 +9,25 @@ public class CommentDO {
 
     private Date gmtModified;
 
+    private Long domainId;
+
+    private Integer domainType;
+
+    private String domainName;
+
+    private Integer type;
+
     private String content;
 
-    private Long userId;
+    private Integer parentId;
+
+    private Long creatorId;
+
+    private String creatorNickName;
+
+    private Integer device;
+
+    private String location;
 
     public Long getId() {
         return id;
@@ -37,6 +53,38 @@ public class CommentDO {
         this.gmtModified = gmtModified;
     }
 
+    public Long getDomainId() {
+        return domainId;
+    }
+
+    public void setDomainId(Long domainId) {
+        this.domainId = domainId;
+    }
+
+    public Integer getDomainType() {
+        return domainType;
+    }
+
+    public void setDomainType(Integer domainType) {
+        this.domainType = domainType;
+    }
+
+    public String getDomainName() {
+        return domainName;
+    }
+
+    public void setDomainName(String domainName) {
+        this.domainName = domainName == null ? null : domainName.trim();
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public String getContent() {
         return content;
     }
@@ -45,11 +93,43 @@ public class CommentDO {
         this.content = content == null ? null : content.trim();
     }
 
-    public Long getUserId() {
-        return userId;
+    public Integer getParentId() {
+        return parentId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public Long getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getCreatorNickName() {
+        return creatorNickName;
+    }
+
+    public void setCreatorNickName(String creatorNickName) {
+        this.creatorNickName = creatorNickName == null ? null : creatorNickName.trim();
+    }
+
+    public Integer getDevice() {
+        return device;
+    }
+
+    public void setDevice(Integer device) {
+        this.device = device;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
     }
 }

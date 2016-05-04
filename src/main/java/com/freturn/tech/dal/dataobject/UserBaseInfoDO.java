@@ -2,8 +2,8 @@ package com.freturn.tech.dal.dataobject;
 
 import java.util.Date;
 
-public class UserDO {
-    private Long id;
+public class UserBaseInfoDO {
+    private String id;
 
     private Date gmtCreate;
 
@@ -13,18 +13,20 @@ public class UserDO {
 
     private String passWord;
 
+    private Long type;
+
     private String nickName;
 
     private String iconUrl;
 
-    private String description;
+    private String selfIntroduction;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public Date getGmtCreate() {
@@ -59,6 +61,14 @@ public class UserDO {
         this.passWord = passWord == null ? null : passWord.trim();
     }
 
+    public Long getType() {
+        return type;
+    }
+
+    public void setType(Long type) {
+        this.type = type;
+    }
+
     public String getNickName() {
         return nickName;
     }
@@ -75,11 +85,11 @@ public class UserDO {
         this.iconUrl = iconUrl == null ? null : iconUrl.trim();
     }
 
-    public String getDescription() {
-        return description;
+    public String getSelfIntroduction() {
+        return selfIntroduction;
     }
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+    public void setSelfIntroduction(String selfIntroduction) {
+        this.selfIntroduction = selfIntroduction == null ? null : selfIntroduction.trim();
     }
 }

@@ -10,7 +10,7 @@
 <generatorConfiguration>
     <!--数据库驱动-->
     <classPathEntry location="mysql-connector-java-5.1.38.jar"/>
-    <context id="mysql2Tables" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+    <context id="mysql2Tables" defaultModelType="flat" targetRuntime="MyBatis3">
 
         <commentGenerator>
             <property name="suppressDate" value="false"/>
@@ -37,8 +37,19 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="user_meta" domainObjectName="UserMetaDO" enableCountByExample="false"
+        <!--<table tableName="user_ext_info" domainObjectName="UserExtInfoDO" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
+        <table tableName="blog" domainObjectName="BlogDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="comment" domainObjectName="CommentDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="user_base_info" domainObjectName="UserBaseInfoDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>-->
+
+
     </context>
 </generatorConfiguration>

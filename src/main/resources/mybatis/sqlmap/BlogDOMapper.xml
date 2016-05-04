@@ -2,29 +2,94 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.freturn.tech.dal.dao.BlogDOMapper" >
   <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.BlogDO" >
-    <result column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="BIGINT" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
+    <result column="creator_nick_name" property="creatorNickName" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="see_scope" property="seeScope" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="device" property="device" jdbcType="INTEGER" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="content_map" property="contentMap" jdbcType="VARCHAR" />
+    <result column="label_id_list" property="labelIdList" jdbcType="VARCHAR" />
   </resultMap>
-  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.BlogDO" >
-    insert into blog (id, gmt_create, gmt_modified, 
-      name, user_id, content
-      )
-    values (#{id,jdbcType=BIGINT}, now(), now(),
-      #{name,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}
-      )
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select id, gmt_create, gmt_modified, name, user_id, content
+  <sql id="Base_Column_List" >
+    id, gmt_create, gmt_modified, title, creator_id, creator_nick_name, type, category, 
+    see_scope, status, device, location, content_map, label_id_list
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
     from blog
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from blog
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.BlogDO" >
+    insert into blog (<include refid="Base_Column_List"/> )
+    values (#{id,jdbcType=VARCHAR}, now(), now(),
+      #{title,jdbcType=VARCHAR}, #{creatorId,jdbcType=VARCHAR}, #{creatorNickName,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{seeScope,jdbcType=INTEGER}, 
+      #{status,jdbcType=VARCHAR}, #{device,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, 
+      #{contentMap,jdbcType=VARCHAR}, #{labelIdList,jdbcType=VARCHAR})
+  </insert>
+
+
+  <update id="updateByPrimaryKey" parameterType="com.freturn.tech.dal.dataobject.BlogDO" >
+    update blog
+    set
+      gmt_modified = now(),
+      title = #{title,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      creator_nick_name = #{creatorNickName,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      see_scope = #{seeScope,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      device = #{device,jdbcType=INTEGER},
+      location = #{location,jdbcType=VARCHAR},
+      content_map = #{contentMap,jdbcType=VARCHAR},
+      label_id_list = #{labelIdList,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <sql id="WhereCondition">
+    <where>
+
+      <if test="title != null" >
+        and title LIKE concat(concat('%',#{title}),'%')
+      </if>
+      <if test="creatorId != null" >
+        and creator_id = #{creatorId,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null" >
+        and  type = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="category != null" >
+        and  category = #{category,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null" >
+        and  status = #{status,jdbcType=VARCHAR}
+      </if>
+      <if test="seeScope != null">
+        and see_scope = #{status,jdbcType=INTEGER}
+      </if>
+
+    </where>
+
+  </sql>
+
+
+  <select id="query" resultMap="BaseResultMap" parameterType="com.freturn.tech.dal.query.BlogQuery">
+    select <include refid="Base_Column_List"/> from blog
+    <include refid="WhereCondition"/>
   </select>
 
-  <select id="query" resultMap="BaseResultMap" parameterType="com.freturn.tech.dal.query.BlogQueryObj">
-    select id, gmt_create, gmt_modified, name, user_id, content
-    from blog where id=#{id}
-  </select>
 
 </mapper>

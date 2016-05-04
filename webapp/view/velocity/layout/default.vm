@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Fast Return</title>
+    <title>形象</title>
 
     <script id="db-js-sdk" src="/js/sdk.js"></script>
     <script async="" src="/js/analytics.js"></script>
@@ -22,13 +22,12 @@
             padding: 0 !important;
         }
     </style>
-    <link rel="stylesheet" id="dw-minion-main-css"
-          href="/css/dw-minion.min.css" type="text/css" media="all">
-    <link rel="stylesheet" id="dw-minion-style-css" href="/css/style.css"
-          type="text/css" media="all">
+    <link rel="stylesheet" id="dw-minion-main-css" href="/css/dw-minion.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="dw-minion-style-css" href="/css/style.css" type="text/css" media="all">
     <script type="text/javascript" src="/js/modernizr.js"></script>
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery-migrate.min.js"></script>
+    <script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
     <link rel="stylesheet" href="/css/designit.min.css">
 </head>
 <body class="home blog group-blog">
@@ -36,7 +35,6 @@
     <div class="container clearfix">
 
         #parse("left.vm")
-
 
         <div id="main" class="site-main" style="min-height: 568px;">
             <div class="site-main-inner">
@@ -49,37 +47,10 @@
             </div>
         </div>
 
-
-
-
         #parse("/footer.vm")
     </div>
 </div>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-34554947-2', 'auto');
-    ga('send', 'pageview');
-
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://sdk.designbold.com/button/v1.0/js/sdk.js#app_id=4e7360360d";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'db-js-sdk'));
-</script>
 <script type="text/javascript" src="/js/dw-minion.min.js"></script>
 <script type="text/javascript" src="/js/main.min.js"></script>
 <script type="text/javascript" src="/js/wp-embed.min.js"></script>

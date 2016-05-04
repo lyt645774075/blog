@@ -2,7 +2,7 @@ package com.freturn.tech.dal;
 
 import java.util.List;
 
-import com.freturn.tech.dal.query.BlogQueryObj;
+import com.freturn.tech.dal.query.BlogQuery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -34,9 +34,7 @@ public class BlogDOMapperTest {
 
         BlogDO blogDO = new BlogDO();
 
-        blogDO.setName("测试博客name");
-        blogDO.setContent("测试博客内容");
-        blogDO.setUserId(11111L);
+
 
 
         blogDOMapper.insert(blogDO);
@@ -49,10 +47,10 @@ public class BlogDOMapperTest {
     @Test
     public void testQuery(){
 
-        BlogQueryObj queryObj = new BlogQueryObj();
-        queryObj.setId(6L);
+        BlogQuery queryObj = new BlogQuery();
+        queryObj.setCreatorId("11");
 
-        List<BlogDO> blogDO = blogDOMapper.query(queryObj);
+        List<BlogDO> blogDOList = blogDOMapper.query(queryObj);
 
         Assert.isTrue(true);
 

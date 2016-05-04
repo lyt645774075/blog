@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.freturn.tech.dal.dao.UserBaseInfoDOMapper" >
+  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.UserBaseInfoDO" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="pass_word" property="passWord" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="BIGINT" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="icon_url" property="iconUrl" jdbcType="VARCHAR" />
+    <result column="self_introduction" property="selfIntroduction" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, gmt_create, gmt_modified, email, pass_word, type, nick_name, icon_url, self_introduction
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_base_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_base_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.UserBaseInfoDO" >
+    insert into user_base_info (<include refid="Base_Column_List"/>)
+    values (#{id,jdbcType=VARCHAR}, now(), now(),
+      #{email,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR}, #{type,jdbcType=BIGINT}, 
+      #{nickName,jdbcType=VARCHAR}, #{iconUrl,jdbcType=VARCHAR}, #{selfIntroduction,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.freturn.tech.dal.dataobject.UserBaseInfoDO" >
+    update user_base_info
+    set
+      gmt_modified = now(),
+      pass_word = #{passWord,jdbcType=VARCHAR},
+      type = #{type,jdbcType=BIGINT},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      icon_url = #{iconUrl,jdbcType=VARCHAR},
+      self_introduction = #{selfIntroduction,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="queryByEmail" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from user_base_info
+    where email = #{email}
+
+  </select>
+
+
+</mapper>

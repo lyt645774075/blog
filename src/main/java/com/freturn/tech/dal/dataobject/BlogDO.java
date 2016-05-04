@@ -3,24 +3,40 @@ package com.freturn.tech.dal.dataobject;
 import java.util.Date;
 
 public class BlogDO {
-    private Long id;
+    private String id;
 
     private Date gmtCreate;
 
     private Date gmtModified;
 
-    private String name;
+    private String title;
 
-    private Long userId;
+    private String creatorId;
 
-    private String content;
+    private String creatorNickName;
 
-    public Long getId() {
+    private String type;
+
+    private String category;
+
+    private Integer seeScope;
+
+    private String status;
+
+    private Integer device;
+
+    private String location;
+
+    private String contentMap;
+
+    private String labelIdList;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public Date getGmtCreate() {
@@ -39,27 +55,91 @@ public class BlogDO {
         this.gmtModified = gmtModified;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getCreatorId() {
+        return creatorId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId == null ? null : creatorId.trim();
     }
 
-    public String getContent() {
-        return content;
+    public String getCreatorNickName() {
+        return creatorNickName;
     }
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+    public void setCreatorNickName(String creatorNickName) {
+        this.creatorNickName = creatorNickName == null ? null : creatorNickName.trim();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category == null ? null : category.trim();
+    }
+
+    public Integer getSeeScope() {
+        return seeScope;
+    }
+
+    public void setSeeScope(Integer seeScope) {
+        this.seeScope = seeScope;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    public Integer getDevice() {
+        return device;
+    }
+
+    public void setDevice(Integer device) {
+        this.device = device;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
+
+    public String getContentMap() {
+        return contentMap;
+    }
+
+    public void setContentMap(String contentMap) {
+        this.contentMap = contentMap == null ? null : contentMap.trim();
+    }
+
+    public String getLabelIdList() {
+        return labelIdList;
+    }
+
+    public void setLabelIdList(String labelIdList) {
+        this.labelIdList = labelIdList == null ? null : labelIdList.trim();
     }
 }
