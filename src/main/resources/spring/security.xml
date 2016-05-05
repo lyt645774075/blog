@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+       <http auto-config="true">
+
+           <!--静态资源不拦截-->
+           <intercept-url pattern="/js/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/css/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/img/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/bootstrap/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/font-awesome/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/other/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/upload/**" access="hasRole('ANONYMOUS')"/>
+
+
+
+           <!--登陆页面,注册页面不控制-->
+           <intercept-url pattern="/login" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/register*" access="hasRole('ANONYMOUS')"/>
+
+            <form-login login-page="/login" default-target-url="/"
+                    login-processing-url="/login.do"
+                    />
+
+           <logout invalidate-session="true" logout-url="/logout" logout-success-url="/"/>
+
+           <!--需要登陆才能访问的页面-->
+           <intercept-url pattern="/admin/**" access="hasRole('USER')"/>
+
+           <session-management>
+               <concurrency-control max-sessions="3"/>
+           </session-management>
+
+
+       </http>
+
+       <authentication-manager erase-credentials="false">
+              <authentication-provider user-service-ref="userAuthenticationService">
+              </authentication-provider>
+       </authentication-manager>
+
+    <!--<beans:bean id="authorizationListener"
+                class="org.springframework.security.access.event.LoggerListener" />-->
+
+   <!-- <beans:bean class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+        <beans:constructor-arg name="key" value="llyytt"/>
+        <beans:constructor-arg name="userDetailsService" ref="userAuthenticationService"/>
+    </beans:bean>-->
+
+
+    <context:component-scan base-package="com.freturn.tech.security"/>
+
+    <beans:bean id="rememberMeServices" class=
+            "org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+        <beans:constructor-arg name="userDetailsService" ref="userAuthenticationService"/>
+        <beans:constructor-arg name="key" value="liyangtao"/>
+    </beans:bean>
+
+    <beans:bean id="rememberMeAuthenticationProvider" class=
+            "org.springframework.security.authentication.RememberMeAuthenticationProvider">
+        <beans:constructor-arg name="key" value="liyangtao"/>
+    </beans:bean>
+
+
+</beans:beans>

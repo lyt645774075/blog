@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @version $Id: BlogController, v 0.1 2016-04-27 19:51 yangtao.lyt Exp $
  */
 @Controller
-public class BlogController {
+public class BlogAdminController {
 
     @Resource
     private BlogManager blogManager;

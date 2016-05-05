@@ -1,6 +1,9 @@
 package com.freturn.tech.biz.manager;
 
 import com.freturn.tech.biz.domain.Blog;
+import com.freturn.tech.biz.domain.Comment;
+
+import java.util.List;
 
 /**
  * @author yangtao.lyt
@@ -14,6 +17,15 @@ public interface BlogManager {
      * @return
      */
     public String createBlog(Blog blog);
+
+
+    public Blog getBlogById(String blogId);
+
+
+    public List<Blog> queryBlogByUserId(String userId);
+
+
+    public List<Comment> queryCommentByBlogId(String blogId);
 
 
 }

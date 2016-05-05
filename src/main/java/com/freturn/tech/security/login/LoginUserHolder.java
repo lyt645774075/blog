@@ -3,11 +3,13 @@ package com.freturn.tech.security.login;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 /**
  * @author yangtao.lyt
  * @version $Id: LoginUserHolder, v 0.1 2016-01-27 23:38 yangtao.lyt Exp $
  */
+@Component
 public class LoginUserHolder {
 
     /**
