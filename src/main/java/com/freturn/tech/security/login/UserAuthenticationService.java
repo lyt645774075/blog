@@ -3,12 +3,15 @@ package com.freturn.tech.security.login;/*
 * Copyright (c) 2004-2016 All Rights Reserved
 */
 
-import com.freturn.tech.dal.dao.UserBaseInfoDOMapper;
-import com.freturn.tech.dal.dataobject.UserBaseInfoDO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.freturn.tech.dal.dao.UserBaseInfoDOMapper;
+import com.freturn.tech.dal.dataobject.UserBaseInfoDO;
 
 /**
  * @author yangtao.lyt
@@ -18,20 +21,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserAuthenticationService implements UserDetailsService {
 
+    private final static Logger logger = LoggerFactory.getLogger(UserAuthenticationService.class);
+
     @Autowired
     private UserBaseInfoDOMapper UserBaseInfoDOMapper;
 
     @Override
-    public UserAuthDetail loadUserByUsername(String userName) throws UsernameNotFoundException {
+    public UserAuthDetail loadUserByUsername(String userName) {
 
-        UserBaseInfoDO UserBaseInfo = UserBaseInfoDOMapper.queryByEmail(userName);
+        try{
+            UserBaseInfoDO UserBaseInfo = UserBaseInfoDOMapper.queryByEmail(userName);
 
-        UserAuthDetail userAuthDetail = new UserAuthDetail();
-        userAuthDetail.setId(UserBaseInfo.getId());
-        userAuthDetail.setEmail(UserBaseInfo.getEmail());
-        userAuthDetail.setPassword(UserBaseInfo.getPassWord());
-        userAuthDetail.setNickName(UserBaseInfo.getNickName());
+            UserAuthDetail userAuthDetail = new UserAuthDetail();
+            userAuthDetail.setId(UserBaseInfo.getId());
+            userAuthDetail.setEmail(UserBaseInfo.getEmail());
+            userAuthDetail.setPassword(UserBaseInfo.getPassWord());
+            userAuthDetail.setNickName(UserBaseInfo.getNickName());
 
-        return userAuthDetail;
+            return userAuthDetail;
+        }catch (Exception e){
+            logger.error("用户登录错误:" , e);
+            return null;
+        }
+
     }
 }

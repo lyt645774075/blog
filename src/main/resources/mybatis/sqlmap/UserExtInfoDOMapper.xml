@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.freturn.tech.dal.dao.UserExtInfoDOMapper" >
-  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.UserExtInfoDO" >
+  <resultMap id="UserExtInfoResultMap" type="com.freturn.tech.dal.dataobject.UserExtInfoDO" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
@@ -16,7 +16,7 @@
     id, gmt_create, gmt_modified, user_id, user_nick_name, type, ext_name, ext_value, 
     description
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="UserExtInfoResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from user_ext_info
@@ -46,7 +46,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
 
-  <select id="queryByUserId" parameterMap="BaseResultMap">
+  <select id="queryByUserId" resultMap="UserExtInfoResultMap" parameterType="java.lang.String">
     select <include refid="Base_Column_List"/> from user_ext_info
     where user_id=#{userId, jdbcType=VARCHAR}
   </select>

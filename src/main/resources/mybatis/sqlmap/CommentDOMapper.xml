@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.freturn.tech.dal.dao.CommentDOMapper" >
-  <resultMap id="BaseResultMap" type="com.freturn.tech.dal.dataobject.CommentDO" >
+  <resultMap id="CommentResultMap" type="com.freturn.tech.dal.dataobject.CommentDO" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
@@ -20,7 +20,7 @@
     id, gmt_create, gmt_modified, domain_id, domain_type, domain_name, type, content, 
     parent_id, creator_id, creator_nick_name, device, location
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="CommentResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from comment
@@ -80,7 +80,7 @@
   </sql>
 
 
-  <select id="query" resultMap="BaseResultMap" parameterType="com.freturn.tech.dal.query.CommentQuery">
+  <select id="query" resultMap="CommentResultMap" parameterType="com.freturn.tech.dal.query.CommentQuery">
     select <include refid="Base_Column_List"/> from comment
     <include refid="WhereCondition"/>
   </select>
