@@ -10,7 +10,7 @@
                     </a>
                 </h1>
                 <p class="site-subtitle">$!user.nickName</p>
-                <h2 class="site-description">$!user.description</h2>
+                <h2 class="site-description">$!user.selfIntroduction</h2>
             </header>
 
             <div id="main-sidebar" class="widget-area" role="complementary">
@@ -59,9 +59,9 @@
                 <aside id="categories-2" class="widget widget_categories">
                     <h3 class="widget-title">文章分类</h3>
                     <ul>
-                        #foreach($metadata in $!metadataList)
-                            <li class="cat-item"><a
-                                    href="http://demo.designwall.com/dw-minion/category/creativity/">$!metadata.name</a>
+                        #foreach($entry in $!user.categoryMap.entrySet())
+                            <li class="cat-item">
+                                <a href="#">$!{entry.key} ($!{entry.value})</a>
                             </li>
                         #end
                     </ul>
@@ -69,8 +69,8 @@
                 <aside id="meta-2" class="widget widget_meta">
                     <h3 class="widget-title">个人作品</h3>
                     <ul>
-                        #foreach($ext in $!userExtList)
-                            <li><a href="$!ext.extValue" target="_blank">$!ext.extName</a></li>
+                        #foreach($entry in $!user.getLinkProMap().entrySet())
+                            <li><a href="$!entry.value" target="_blank">$!entry.key</a></li>
                         #end
 
                     </ul>

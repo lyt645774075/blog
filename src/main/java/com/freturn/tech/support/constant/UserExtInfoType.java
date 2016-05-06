@@ -2,14 +2,14 @@ package com.freturn.tech.support.constant;
 
 /**
  * @author yangtao.lyt
- * @version $Id: MetaDataType, v 0.1 2016-04-27 15:18 yangtao.lyt Exp $
+ * @version $Id: UserExtInfoType, v 0.1 2016-04-27 15:18 yangtao.lyt Exp $
  */
-public enum MetaDataType {
+public enum UserExtInfoType {
 
 
     CATEGORY("CATEGORY", "文章分类"),
 
-    LABEL("LABEL", "标签"),
+    LINK("LINK", "链接"),
 
     ;
 
@@ -17,7 +17,7 @@ public enum MetaDataType {
 
     private String label;
 
-    MetaDataType(String code, String label){
+    UserExtInfoType(String code, String label){
 
         this.code = code;
         this.label = label;

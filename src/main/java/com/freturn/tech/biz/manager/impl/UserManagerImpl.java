@@ -1,11 +1,20 @@
 package com.freturn.tech.biz.manager.impl;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
 import com.freturn.tech.biz.domain.Comment;
 import com.freturn.tech.biz.domain.User;
 import com.freturn.tech.biz.manager.UserManager;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
+import com.freturn.tech.dal.dao.UserBaseInfoDOMapper;
+import com.freturn.tech.dal.dao.UserExtInfoDOMapper;
+import com.freturn.tech.dal.dataobject.UserBaseInfoDO;
+import com.freturn.tech.dal.dataobject.UserExtInfoDO;
+import com.freturn.tech.support.domainObj.builder.UserBuilder;
+import com.google.common.base.Preconditions;
 
 /**
  * @author yangtao.lyt
@@ -13,9 +22,25 @@ import java.util.List;
  */
 @Component
 public class UserManagerImpl implements UserManager{
+
+    @Resource
+    private UserBaseInfoDOMapper userBaseInfoDOMapper;
+
+    @Resource
+    private UserExtInfoDOMapper userExtInfoDOMapper;
+
+
     @Override
     public User getUserById(String id) {
-        return null;
+
+        Preconditions.checkNotNull(id);
+
+        UserBaseInfoDO userBaseInfoDO = userBaseInfoDOMapper.selectByPrimaryKey(id);
+
+        List<UserExtInfoDO> userExtInfoDOList = userExtInfoDOMapper.queryByUserId(id);
+
+        return UserBuilder.getInstance().fromBaseInfo(userBaseInfoDO).fromExtInfo(userExtInfoDOList).build();
+
     }
 
     @Override

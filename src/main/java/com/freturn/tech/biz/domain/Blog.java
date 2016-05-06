@@ -31,7 +31,7 @@ public class Blog {
     private String creatorNickName;
 
     /** 文章类型 */
-    private BlogType type = BlogType.STANDARD;
+    private BlogType type;
 
     /** 文章分类 */
     private String category;

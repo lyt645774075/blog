@@ -1,4 +1,4 @@
-package com.freturn.tech.support.transfer;
+package com.freturn.tech.support.domainObj.transfer;
 
 import com.alibaba.fastjson.JSONObject;
 import com.freturn.tech.biz.domain.Blog;
