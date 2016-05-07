@@ -13,7 +13,7 @@ public class UserBaseInfoDO {
 
     private String passWord;
 
-    private Long type;
+    private Integer type;
 
     private String nickName;
 
@@ -61,11 +61,11 @@ public class UserBaseInfoDO {
         this.passWord = passWord == null ? null : passWord.trim();
     }
 
-    public Long getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Long type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

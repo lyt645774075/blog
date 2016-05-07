@@ -7,6 +7,7 @@ import com.freturn.tech.dal.dao.BlogDOMapper;
 import com.freturn.tech.dal.dao.CommentDOMapper;
 import com.freturn.tech.dal.dataobject.BlogDO;
 import com.freturn.tech.security.login.LoginUserHolder;
+import com.freturn.tech.support.domainObj.transfer.BlogTransfer;
 import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,16 +38,21 @@ public class BlogManagerImpl implements BlogManager {
     @Override
     public String createBlog(Blog blog) {
 
+        Preconditions.checkNotNull(blog);
 
+        blogDOMapper.insert(BlogTransfer.toDO(blog));
 
-        return null;
+        return blog.getId();
     }
 
     @Override
     public Blog getBlogById(String blogId) {
 
-       return  null;
+        Preconditions.checkNotNull(blogId);
 
+        BlogDO blogDO = blogDOMapper.selectByPrimaryKey(blogId);
+
+        return BlogTransfer.toBO(blogDO);
     }
 
     @Override

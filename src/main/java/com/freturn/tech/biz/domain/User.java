@@ -22,7 +22,7 @@ public class User {
 
     private String passWord;
 
-    private Long type;
+    private Integer type;
 
     private String nickName;
 
@@ -78,11 +78,11 @@ public class User {
         this.passWord = passWord;
     }
 
-    public Long getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Long type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

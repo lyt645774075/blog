@@ -29,20 +29,15 @@ public class UserAuthenticationService implements UserDetailsService {
     @Override
     public UserAuthDetail loadUserByUsername(String userName) {
 
-        try{
-            UserBaseInfoDO UserBaseInfo = UserBaseInfoDOMapper.queryByEmail(userName);
+        UserBaseInfoDO UserBaseInfo = UserBaseInfoDOMapper.queryByEmail(userName);
 
-            UserAuthDetail userAuthDetail = new UserAuthDetail();
-            userAuthDetail.setId(UserBaseInfo.getId());
-            userAuthDetail.setEmail(UserBaseInfo.getEmail());
-            userAuthDetail.setPassword(UserBaseInfo.getPassWord());
-            userAuthDetail.setNickName(UserBaseInfo.getNickName());
+        UserAuthDetail userAuthDetail = new UserAuthDetail();
+        userAuthDetail.setId(UserBaseInfo.getId());
+        userAuthDetail.setEmail(UserBaseInfo.getEmail());
+        userAuthDetail.setPassword(UserBaseInfo.getPassWord());
+        userAuthDetail.setNickName(UserBaseInfo.getNickName());
 
-            return userAuthDetail;
-        }catch (Exception e){
-            logger.error("用户登录错误:" , e);
-            return null;
-        }
+        return userAuthDetail;
 
     }
 }

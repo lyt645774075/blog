@@ -6,10 +6,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
     <title>Fast Return</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
 
@@ -42,6 +46,7 @@
 
         <div class="page-header">
             <h3>发表:</h3>
+            <h6 style="color: red;">$!msg</h6>
         </div>
 
         <ul class="nav nav-pills nav-stacked col-md-2" role="tablist">
@@ -62,9 +67,7 @@
         <div class="tab-content col-md-10">
             <div role="tabpanel" class="tab-pane active" id="standard">
                 <form class="form-horizontal" method="POST">
-                    <input type="hidden" name="${_csrf.parameterName}"
-                           value="${_csrf.token}">
-
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <input type="hidden" id="content" name="content" value="">
                     <input type="hidden" name="type" value="standard">
 
@@ -80,12 +83,8 @@
                         <label class="col-sm-1 control-label" for="name">分类</label>
 
                         <div class="col-sm-10">
-                            <select name="domainId" class="form-control">
-                                #foreach($team in $loginUser.allTeam)
-                                    <option value="$!team.teamId" #if($!teamId == $!team.teamId)
-                                            selected #end>$!team.teamName</option>
-                                #end
-                            </select>
+                            <input class="form-control" type="text" id="category" name="category" placeholder="请输入文章分类"
+                                   value="$!blog.category">
                         </div>
                     </div>
 
@@ -247,14 +246,21 @@
                 data = new FormData();
                 data.append("file", files[0]);
 
+                var token = $("meta[name='_csrf']").attr("content");
+                var header = $("meta[name='_csrf_header']").attr("content");
+
                 $.ajax({
                     data:data,
                     type: "POST",
-                    url: "/img/upload",
+                    url: "/upload/user/image",
                     datatype: 'json',
                     cache: false,
                     processData: false,
                     contentType: false,
+
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader(header, token);
+                    },
 
                     success: function (data) {
                         console.log("success:" + data['url']);

@@ -1,0 +1,104 @@
+#set($layout="layout/nolayout.vm")
+
+#set($layout="layout/nolayout.vm")
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>形象</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="/login/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/login/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/login/css/form-elements.css">
+    <link rel="stylesheet" href="/login/css/style.css">
+
+
+    <link rel="shortcut icon" href="/login/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/login/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/login/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/login/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/login/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+<!-- Top content -->
+<div class="top-content">
+
+    <div class="inner-bg" style="padding-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong><a href="/" style="color:white">形象</a></strong></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>注册您的账号</h3>
+                            <p style="color: red">$!msg</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" method="post" class="login-form">
+                            <input type="hidden" name="${_csrf.parameterName}"
+                                   value="${_csrf.token}" />
+                            <input type="hidden" name="_spring_security_remember_me"  value="true"/>
+
+                            <div class="form-group">
+                                <label for="email">账号</label>
+                                <input type="email" name="email" placeholder="请输入您的常用邮箱..." class="form-username form-control" id="form-username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">密码</label>
+                                <input type="password" name="passWord" placeholder="" class="form-password form-control" id="form-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">昵称</label>
+                                <input type="text" name="nickName" placeholder="" class="form-username form-control" id="form-nickname">
+                            </div>
+
+                            <button type="submit" class="btn">创建账号</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Javascript -->
+
+<script src="/login/js/jquery-1.11.1.min.js"></script>
+<script src="/login/bootstrap/js/bootstrap.min.js"></script>
+<script src="/login/js/jquery.backstretch.min.js"></script>
+<script src="/login/js/scripts.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

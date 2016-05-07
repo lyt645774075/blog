@@ -42,7 +42,7 @@ public class ImageUploadController {
     private OSSClient ossClient;
 
 
-    @RequestMapping(value = "/img/upload", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/upload/user/image", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Map<String,String> imageUpload(@RequestParam("file") MultipartFile file) {
 

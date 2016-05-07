@@ -16,17 +16,15 @@
            <intercept-url pattern="/bootstrap/**" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/font-awesome/**" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/other/**" access="hasRole('ANONYMOUS')"/>
-           <intercept-url pattern="/upload/**" access="hasRole('ANONYMOUS')"/>
-
+           <intercept-url pattern="/upload/user/**" access="hasRole('ANONYMOUS')"/>
 
 
            <!--登陆页面,注册页面不控制-->
-           <intercept-url pattern="/login" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/login*" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/register*" access="hasRole('ANONYMOUS')"/>
 
             <form-login login-page="/login" default-target-url="/"
-                    login-processing-url="/login.do"
-                    />
+                    login-processing-url="/login.do"/>
 
            <logout invalidate-session="true" logout-url="/logout" logout-success-url="/"/>
 

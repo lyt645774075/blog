@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.freturn.tech.support.constant.UserType;
+import com.freturn.tech.support.domainObj.transfer.UserTransfer;
+import com.freturn.tech.support.utils.UserIdGenerator;
 import org.springframework.stereotype.Component;
 
 import com.freturn.tech.biz.domain.Comment;
@@ -15,6 +18,7 @@ import com.freturn.tech.dal.dataobject.UserBaseInfoDO;
 import com.freturn.tech.dal.dataobject.UserExtInfoDO;
 import com.freturn.tech.support.domainObj.builder.UserBuilder;
 import com.google.common.base.Preconditions;
+import org.springframework.util.StringUtils;
 
 /**
  * @author yangtao.lyt
@@ -29,6 +33,34 @@ public class UserManagerImpl implements UserManager{
     @Resource
     private UserExtInfoDOMapper userExtInfoDOMapper;
 
+
+    @Override
+    public String register(String email, String passWord, String nickName) {
+
+        Preconditions.checkArgument(!StringUtils.isEmpty(email));
+        Preconditions.checkArgument(!StringUtils.isEmpty(passWord));
+        Preconditions.checkArgument(!StringUtils.isEmpty(nickName));
+
+        String userId = UserIdGenerator.getUserId();
+
+        UserBaseInfoDO userBaseInfoDO = new UserBaseInfoDO();
+        userBaseInfoDO.setId(userId);
+        userBaseInfoDO.setEmail(email);
+        userBaseInfoDO.setPassWord(passWord);
+        userBaseInfoDO.setNickName(nickName);
+
+        userBaseInfoDO.setType(UserType.PERSON.getCode());
+
+        userBaseInfoDOMapper.insert(userBaseInfoDO);
+
+        return userId;
+
+    }
+
+    @Override
+    public boolean isUserExist(String email) {
+        return userBaseInfoDOMapper.queryByEmail(email) != null ? true : false;
+    }
 
     @Override
     public User getUserById(String id) {

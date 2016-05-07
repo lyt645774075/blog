@@ -1,10 +1,14 @@
 package com.freturn.tech.biz.domain;
 
+import com.freturn.tech.support.constant.BlogStatus;
 import com.freturn.tech.support.constant.BlogType;
+import com.freturn.tech.support.constant.Device;
+import com.freturn.tech.support.constant.SeeScope;
 import com.google.common.collect.Lists;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author yangtao.lyt
@@ -36,8 +40,20 @@ public class Blog {
     /** 文章分类 */
     private String category;
 
+    /** 可见范围 */
+    private SeeScope seeScope;
+
+    /** 状态 */
+    private BlogStatus status;
+
+    /** 设备 */
+    private Device device;
+
+    /** 位置 */
+    private String location;
+
     /** 正文内容 */
-    private String content;
+    private Map<String, String> contentMap;
 
     /** 文章标签 */
     private List<String> labelList = Lists.newArrayList();
@@ -107,12 +123,45 @@ public class Blog {
         this.category = category;
     }
 
-    public String getContent() {
-        return content;
+
+    public SeeScope getSeeScope() {
+        return seeScope;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setSeeScope(SeeScope seeScope) {
+        this.seeScope = seeScope;
+    }
+
+    public BlogStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BlogStatus status) {
+        this.status = status;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Map<String, String> getContentMap() {
+        return contentMap;
+    }
+
+    public void setContentMap(Map<String, String> contentMap) {
+        this.contentMap = contentMap;
     }
 
     public List<String> getLabelList() {

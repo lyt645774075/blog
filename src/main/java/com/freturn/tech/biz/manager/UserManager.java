@@ -11,6 +11,12 @@ import java.util.List;
  */
 public interface UserManager {
 
+
+
+    public String register(String email, String passWord, String nickName);
+
+    public boolean isUserExist(String email);
+
     public User getUserById(String id);
 
     public List<Comment> queryCommentByUserId(String userId);

@@ -7,7 +7,7 @@
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="pass_word" property="passWord" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
     <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     <result column="icon_url" property="iconUrl" jdbcType="VARCHAR" />
     <result column="self_introduction" property="selfIntroduction" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
   <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.UserBaseInfoDO" >
     insert into user_base_info (<include refid="Base_Column_List"/>)
     values (#{id,jdbcType=VARCHAR}, now(), now(),
-      #{email,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR}, #{type,jdbcType=BIGINT}, 
+      #{email,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
       #{nickName,jdbcType=VARCHAR}, #{iconUrl,jdbcType=VARCHAR}, #{selfIntroduction,jdbcType=VARCHAR}
       )
   </insert>
@@ -38,7 +38,7 @@
     set
       gmt_modified = now(),
       pass_word = #{passWord,jdbcType=VARCHAR},
-      type = #{type,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
       nick_name = #{nickName,jdbcType=VARCHAR},
       icon_url = #{iconUrl,jdbcType=VARCHAR},
       self_introduction = #{selfIntroduction,jdbcType=VARCHAR}

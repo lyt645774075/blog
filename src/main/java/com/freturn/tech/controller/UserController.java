@@ -1,7 +1,10 @@
 package com.freturn.tech.controller;
 
-import javax.annotation.Resource;
-
+import com.freturn.tech.biz.domain.Blog;
+import com.freturn.tech.biz.domain.User;
+import com.freturn.tech.biz.manager.BlogManager;
+import com.freturn.tech.biz.manager.UserManager;
+import com.freturn.tech.support.constant.PathConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,11 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.freturn.tech.biz.domain.User;
-import com.freturn.tech.biz.manager.UserManager;
-import com.freturn.tech.dal.dao.BlogDOMapper;
-import com.freturn.tech.dal.dataobject.BlogDO;
-import com.freturn.tech.support.constant.PathConstant;
+import javax.annotation.Resource;
 
 /**
  *
@@ -32,7 +31,7 @@ public class UserController {
     private UserManager userManager;
 
     @Resource
-    private BlogDOMapper blogDOMapper;
+    private BlogManager blogManager;
 
 
     @RequestMapping("/user/{userId}")
@@ -62,10 +61,10 @@ public class UserController {
 
         User user = userManager.getUserById(userId);
 
-        BlogDO blogDO = blogDOMapper.selectByPrimaryKey(blogId);
+        Blog blog = blogManager.getBlogById(blogId);
 
         modelMap.addAttribute("user", user);
-        modelMap.addAttribute("blog", blogDO);
+        modelMap.addAttribute("blog", blog);
 
         return PathConstant.BLOG_HOME;
 

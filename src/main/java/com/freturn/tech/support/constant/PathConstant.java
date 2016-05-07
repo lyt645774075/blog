@@ -11,11 +11,13 @@ public interface PathConstant {
 
     String WEB_HOME = "screen/webhome";
 
+    String USER_LOGIN = "screen/login";
+
+    String USER_REGISTER = "screen/register";
+
 
     /**=========== 用户相关[前台]页面路径 ============ **/
 
-
-    /**=========== 用户相关[管理后台]页面路径 ============ **/
     String USER_HOME = "screen/user/userhome";
 
     String USER_ABOUTME = "screen/user/aboutme";
@@ -24,7 +26,13 @@ public interface PathConstant {
 
     String BLOG_HOME = "screen/user/blog";
 
-    String USER_LOGIN = "screen/login";
+
+    /**=========== 用户相关[管理后台]页面路径 ========== **/
+
+    String BLOG_EDIT = "screen/admin/blogedit";
+
+
+
 
 
 

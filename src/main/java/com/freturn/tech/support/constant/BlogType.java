@@ -31,7 +31,7 @@ public enum BlogType {
     }
 
 
-    public BlogType getTypeByCode(String code){
+    public static BlogType getTypeByCode(String code){
 
         for(BlogType type : values()){
             if(code.equals(type.code)){
