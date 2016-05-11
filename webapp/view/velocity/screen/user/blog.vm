@@ -1,12 +1,13 @@
 <div id="primary" class="content-area">
     <div class="primary-inner">
         <div id="content" class="site-content" role="main">
-            <article id="$!blog.id"
-                     class="post-33 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing category-photography tag-playing tag-shopping">
-                <header class="entry-header">
-                    <h1 class="entry-title">$!blog.title</h1>
 
-                    <div class="entry-meta">
+            #if($!blog.type.code == 'STANDARD')
+                <article id="$!blog.id"
+                     class="post-33 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing category-photography tag-playing tag-shopping">
+                    <header class="entry-header">
+                        <h1 class="entry-title">$!blog.title</h1>
+                        <div class="entry-meta">
                         <span class="sep">
                             <span class="post-format">
                                  <i class="icon-file-text"></i>
@@ -26,65 +27,217 @@
                             </a>
                         </span>
 
-                    </div>
-                </header>
-                <div class="entry-thumbnail">
+                        </div>
+                    </header>
+                    <div class="entry-thumbnail">
 
                     #*暂时空置,后续搞一个博客摘要提取器,来获取*#
                     #*<img width="620" height="350"
                          src="http://freturn.oss-cn-hangzhou.aliyuncs.com/img/lyt.jpeg"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="demo"
                          sizes="(max-width: 620px) 100vw, 620px">*#
-                </div>
-                <div class="entry-content">
-                    $!blog.contentMap.get("content")
-                </div>
-
-                <footer class="entry-footer">
-                    <div class="entry-tags">
-                        <span class="tags-title">标签</span>
-                        <span class="tags-links">
-                            <a href="#" rel="tag">娱乐</a>
-                            <a href="#" rel="tag">购物</a>
-                        </span>
                     </div>
-                </footer>
-            </article>
+                    <div class="entry-content">
+                        $!blog.contentMap.get("content")
+                    </div>
 
-            #*
+                    <footer class="entry-footer">
+                        <div class="entry-tags">
+                            <span class="tags-title">标签</span>
+                        <span class="tags-links">
+                            <a href="#" rel="tag">暂无1</a>
+                            <a href="#" rel="tag">暂无2</a>
+                        </span>
+                        </div>
+                    </footer>
+                </article>
 
-            <nav role="navigation" id="nav-below" class="post-navigation pager">
-                <div class="nav-previous">
-                    <a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/" rel="prev">
-                                                    <span class="meta-nav btn">
-                                                      <i class="icon-chevron-left">
-                                                      </i>
-                                                    </span>
-                        <span class="pager-title">Responsive WordPress Themes</span>
-                    </a>
-                </div>
-            </nav>*#
+
+            #elseif($!blog.type.code == 'LINK')
+                    <article id="$blog.id"
+                             class="post-13 post type-post status-publish format-link hentry category-delicious category-photography tag-dancing tag-shopping post_format-post-format-link">
+                        <header class="entry-header">
+                            <h1 class="entry-title">$!blog.contentMap.get("title")</h1>
+                        </header>
+                        <div class="entry-content">
+                            <p>
+                                <a title="$!blog.contentMap.get("title")" href="$!blog.contentMap.get("url")" target="_blank">$!blog.contentMap.get("url")</a>
+                            </p>
+                        </div>
+
+                        <footer class="entry-footer">
+                            <div class="entry-tags">
+                                <span class="tags-title">标签</span>
+                        <span class="tags-links">
+                            <a href="#" rel="tag">暂无1</a>
+                            <a href="#" rel="tag">暂无2</a>
+                        </span>
+                            </div>
+                        </footer>
+                    </article>
+
+            #elseif($!blog.type.code == 'QUOTE')
+                <article id="$blog.id" class="post-29 post type-post status-publish format-quote hentry category-freelancing category-journal tag-playing tag-sport tag-travel post_format-post-format-quote">
+                    <header class="entry-header">
+                        <div class="entry-meta">
+                            <span class="posted-on">
+                                <a href="#" title="$!blog.gmtCreate" rel="bookmark">
+                                    <i class="icon-calendar-empty"></i>
+                                    <time class="entry-date published" datetime="$!blog.gmtCreate">
+                                        $DateUtil.longFormat($!blog.gmtCreate)
+                                    </time>
+                                </a>
+                            </span>
+                            <span class="comments-link">
+                                <a href="#comments">
+                                    <i class="icon-comment-alt"></i> $!commentList.size() 评论
+                                </a>
+                            </span>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <blockquote>
+                            <p>$!blog.contentMap.get("content")</p>
+                            <div>
+                                <cite>
+                                    <strong>$!blog.contentMap.get("cite")</strong>
+                                </cite>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <footer class="entry-footer">
+                        <div class="entry-tags">
+                            <span class="tags-title">标签</span>
+                        <span class="tags-links">
+                            <a href="#" rel="tag">暂无1</a>
+                            <a href="#" rel="tag">暂无2</a>
+                        </span>
+                        </div>
+                    </footer>
+                </article>
+
+            #elseif($!blog.type.code == 'GALLERY')
+                <article id="$blog.id" class="post-190 post type-post status-publish format-gallery hentry category-freelancing category-journal tag-dancing tag-my-family tag-playing post_format-post-format-gallery">
+                    <header class="entry-header">
+                        <h1 class="entry-title">$!blog.title</h1>
+                        <div class="entry-meta">
+                        <span class="sep">
+                            <span class="post-format">
+                                 <i class="icon-file-text"></i>
+                            </span>
+                        </span>
+                        <span class="posted-on">
+                            <a href="#" title="$!blog.gmtCreate" rel="bookmark">
+                                <i class="icon-calendar-empty"></i>
+                                <time class="entry-date published" datetime="$!blog.gmtCreate">
+                                    $DateUtil.longFormat($!blog.gmtCreate)
+                                </time>
+                            </a>
+                        </span>
+                        <span class="comments-link">
+                            <a href="#comments">
+                                <i class="icon-comment-alt"></i> $!commentList.size() 评论
+                            </a>
+                        </span>
+
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <div class="entry-gallery">
+                            <div id="carousel-1" class="carousel slide carousel-190">
+                                #set($iuArray = $!blog.contentMap.get("imageUrlList"))
+                                <ol class="carousel-indicators">
+                                    #foreach($imgUrl in $iuArray)
+                                        <li class="#if($velocityCount == 1) active #end" data-slide-to="$velocityCount" data-target="#carousel-1"></li>
+                                    #end
+                                </ol>
+                                <div class="carousel-inner">
+                                    #foreach($imgUrl in $iuArray)
+                                        <div class="item #if($velocityCount == 1) active #end">
+                                            <div class="carousel-icon">
+                                                <a href="#">
+                                                    <img width="620" height="350"
+                                                            src="$imgUrl"
+                                                            class="attachment-620x350 size-620x350"
+                                                            sizes="(max-width: 620px) 100vw, 620px"></a>
+                                            </div>
+                                        </div>
+                                    #end
+
+                                </div>
+                                <a data-slide="prev" href="#carousel-1" class="carousel-control left"><i
+                                        class="icon-chevron-left"></i>
+                                </a>
+                                <a data-slide="next" href="#carousel-1" class="carousel-control right">
+                                    <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p>$!blog.contentMap.get("desc")</p>
+
+
+                    </div>
+
+                    <footer class="entry-footer">
+                        <div class="entry-tags">
+                            <span class="tags-title">标签</span>
+                        <span class="tags-links">
+                            <a href="#" rel="tag">暂无1</a>
+                            <a href="#" rel="tag">暂无2</a>
+                        </span>
+                        </div>
+                    </footer>
+                </article>
+
+
+
+            #end
+
+
+
+
+
+        #*
+        <nav role="navigation" id="nav-below" class="post-navigation pager">
+            <div class="nav-previous">
+                <a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/" rel="prev">
+                                                <span class="meta-nav btn">
+                                                  <i class="icon-chevron-left">
+                                                  </i>
+                                                </span>
+                    <span class="pager-title">Responsive WordPress Themes</span>
+                </a>
+            </div>
+        </nav>*#
 
 
             <div class="related-posts">
                 <h1 class="related-posts-title">相关文章</h1>
+
                 <div class="related-content">
                     <article class="related-post clearfix">
                         <h3 class="related-title">
                             <a href="/" rel="bookmark">暂未开放1</a>
                         </h3>
+
                         <div class="related-meta">
                             <a class="url fn n" href="/user/11" title="">李洋涛</a>
-                            <time class="related-date" style="margin-left: 10px;">$!DateUtil.shortFormat($blog.gmtCreate)</time>
+                            <time class="related-date"
+                                  style="margin-left: 10px;">$!DateUtil.shortFormat($blog.gmtCreate)</time>
                         </div>
                     </article>
                     <article class="related-post clearfix">
                         <h3 class="related-title">
                             <a href="/" rel="bookmark">暂未开放2</a>
                         </h3>
+
                         <div class="related-meta">
                             <a class="url fn n" href="/user/11" title="">天脉</a>
-                            <time class="related-date" style="margin-left: 10px;">$!DateUtil.shortFormat($blog.gmtCreate)</time>
+                            <time class="related-date"
+                                  style="margin-left: 10px;">$!DateUtil.shortFormat($blog.gmtCreate)</time>
 
                         </div>
                     </article>
@@ -96,7 +249,8 @@
                 <ol class="comment-list">
 
                     #foreach($comment in $!commentList)
-                        <li id="comment-59" class="comment byuser comment-author-cherlyn-schranz even thread-even depth-1">
+                        <li id="comment-59"
+                            class="comment byuser comment-author-cherlyn-schranz even thread-even depth-1">
                             <article id="div-comment-59" class="comment-body">
                                 <footer class="comment-meta">
                                     <div class="comment-author vcard">
@@ -118,7 +272,7 @@
                                 <a rel="nofollow"
                                    class="comment-reply-link"
                                    href="#"
-                                   onclick="return addComment.moveForm("div-comment-59", "59", "respond", "33" )"
+                                   onclick="return addComment.moveForm(" div-comment-59", "59", "respond", "33" )"
                                    aria-label="Reply to ">
                                     <i class="icon-reply">
                                     </i> 回复
@@ -145,27 +299,28 @@
                                value="${_csrf.token}">
                         <input type="hidden" name="blogId" value="$!blog.id">
                         <input type="hidden" name="blogTitle" value="$!blog.title">
-                        <input type="hidden" name="parentId"  value="">
+                        <input type="hidden" name="parentId" value="">
 
                         <p class="comment-form-comment">
                             <label for="comment">评论</label>
-                                <textarea  id="comment" name="content" rows="5" maxlength="1000" aria-required="true" required="required">
+                                <textarea id="comment" name="content" rows="5" maxlength="1000" aria-required="true"
+                                          required="required">
                                 </textarea>
                         </p>
 
-                        #*<p class="comment-form-author">
-                            <label for="author">姓名 <span class="required">*</span>
-                            </label>
-                            <input id="author" name="author" type="text" value="" size="30" maxlength="245"
-                                   aria-required="true" required="required">
-                        </p>
+                    #*<p class="comment-form-author">
+                        <label for="author">姓名 <span class="required">*</span>
+                        </label>
+                        <input id="author" name="author" type="text" value="" size="30" maxlength="245"
+                               aria-required="true" required="required">
+                    </p>
 
-                        <p class="comment-form-email">
-                            <label for="email">邮箱 <span class="required">*</span>
-                            </label>
-                            <input id="email" name="email" type="text" value="" size="30" maxlength="100"
-                                   aria-describedby="email-notes" aria-required="true" required="required">
-                        </p>*#
+                    <p class="comment-form-email">
+                        <label for="email">邮箱 <span class="required">*</span>
+                        </label>
+                        <input id="email" name="email" type="text" value="" size="30" maxlength="100"
+                               aria-describedby="email-notes" aria-required="true" required="required">
+                    </p>*#
 
                         <p class="form-submit">
                             <input name="submit" type="submit" id="submit" class="submit" value="发表评论">

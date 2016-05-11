@@ -10,19 +10,30 @@ import com.freturn.tech.dal.dataobject.CommentDO;
 import com.freturn.tech.dal.query.BlogQuery;
 import com.freturn.tech.dal.query.CommentQuery;
 import com.freturn.tech.security.login.LoginUserHolder;
+import com.freturn.tech.support.constant.BlogStatus;
+import com.freturn.tech.support.constant.BlogType;
 import com.freturn.tech.support.constant.CommentType;
 import com.freturn.tech.support.constant.Device;
 import com.freturn.tech.support.constant.DomainType;
+import com.freturn.tech.support.constant.SeeScope;
 import com.freturn.tech.support.domainObj.transfer.BlogTransfer;
 import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
+import com.freturn.tech.support.helper.ImageUploadHelper;
+import com.freturn.tech.support.utils.BlogIdGenerator;
+import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author yangtao.lyt
@@ -42,14 +53,92 @@ public class BlogManagerImpl implements BlogManager {
     @Autowired
     private LoginUserHolder loginUserHolder;
 
+    @Autowired
+    private ImageUploadHelper imageUploadHelper;
+
+
     @Override
-    public String createBlog(Blog blog) {
+    public String createStandardBlog(String title, String content) {
+        Preconditions.checkNotNull(title);
+        Preconditions.checkNotNull(content);
 
-        Preconditions.checkNotNull(blog);
+        Blog blog = new Blog();
 
-        blogDOMapper.insert(BlogTransfer.toDO(blog));
+        blog.setType(BlogType.STANDARD);
+        blog.setTitle(title);
 
-        return blog.getId();
+        Map<String, Object> contentMap = Maps.newHashMap();
+        contentMap.put("title", title);
+        contentMap.put("content", content);
+        blog.setContentMap(contentMap);
+
+        return this.createBlog(blog);
+    }
+
+    @Override
+    public String createGalleryBlog(MultipartFile[] images, String desc) {
+        Preconditions.checkNotNull(images);
+        Preconditions.checkNotNull(desc);
+
+        Blog blog = new Blog();
+
+        blog.setType(BlogType.GALLERY);
+        blog.setTitle("图集分享");
+
+        List<String> urlList = Lists.newArrayList();
+        for(MultipartFile image : images){
+            try {
+                String url = imageUploadHelper.doUpload(image);
+                urlList.add(url);
+            } catch (IOException e) {
+                logger.error("图片上传失败", e);
+            }
+        }
+
+        Map<String, Object> contentMap = Maps.newHashMap();
+        contentMap.put("imageUrlList", urlList);
+        contentMap.put("desc", desc);
+        blog.setContentMap(contentMap);
+
+        return this.createBlog(blog);
+    }
+
+    @Override
+    public String createLinkBlog(String title, String url) {
+
+        Preconditions.checkNotNull(title);
+        Preconditions.checkNotNull(url);
+
+        Blog blog = new Blog();
+
+        blog.setType(BlogType.LINK);
+        blog.setTitle(title);
+
+        Map<String, Object> contentMap = Maps.newHashMap();
+        contentMap.put("title", title);
+        contentMap.put("url", url);
+        blog.setContentMap(contentMap);
+
+        return this.createBlog(blog);
+
+    }
+
+    @Override
+    public String createQuoteBlog(String cite, String content) {
+        Preconditions.checkNotNull(cite);
+        Preconditions.checkNotNull(content);
+
+        Blog blog = new Blog();
+
+        blog.setType(BlogType.QUOTE);
+        blog.setTitle("生活感悟");
+
+        Map<String, Object> contentMap = Maps.newHashMap();
+        contentMap.put("cite", cite);
+        contentMap.put("content", content);
+        blog.setContentMap(contentMap);
+
+        return this.createBlog(blog);
     }
 
     @Override
@@ -127,6 +216,29 @@ public class BlogManagerImpl implements BlogManager {
         List<BlogDO> blogDOList = blogDOMapper.query(query);
 
         return BlogTransfer.toBOList(blogDOList);
+    }
+
+
+
+
+    private String createBlog(Blog blog) {
+        Preconditions.checkNotNull(blog);
+
+        String blogId = BlogIdGenerator.getBlogId();
+        blog.setId(blogId);
+        blog.setCreatorId(loginUserHolder.getId());
+        blog.setCreatorNickName(loginUserHolder.getNickName());
+
+        blog.setCategory("默认");
+        blog.setSeeScope(SeeScope.PRIVATE);
+        blog.setStatus(BlogStatus.FINISH);
+        blog.setDevice(Device.PC);
+        blog.setLocation("四川成都");
+
+
+        blogDOMapper.insert(BlogTransfer.toDO(blog));
+
+        return blog.getId();
     }
 
 

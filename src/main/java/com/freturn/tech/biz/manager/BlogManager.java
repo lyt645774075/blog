@@ -2,6 +2,7 @@ package com.freturn.tech.biz.manager;
 
 import com.freturn.tech.biz.domain.Blog;
 import com.freturn.tech.biz.domain.Comment;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -11,23 +12,28 @@ import java.util.List;
  */
 public interface BlogManager {
 
-    /**
-     * 创建博客文章
-     * @param blog
-     * @return
-     */
-    public String createBlog(Blog blog);
+
+
+    public String createStandardBlog(String title, String content);
+
+    public String createGalleryBlog(MultipartFile[] images, String desc);
+
+    public String createLinkBlog(String title, String url);
+
+    public String createQuoteBlog(String cite, String content);
+
+
+
+
 
 
     public Blog getBlogById(String blogId);
-
 
 
     public List<Blog> queryBlogByUserId(String userId);
 
 
     public List<Comment> queryCommonCommentByBlogId(String blogId);
-
 
     /**
      * 获取相关博客

@@ -68,7 +68,7 @@ public class BlogTransfer {
         blog.setDevice(Device.getTypeByCode(blogDO.getDevice()));
         blog.setLocation(blogDO.getLocation());
 
-        blog.setContentMap((Map<String, String>) JSONObject.parse(blogDO.getContentMap()));
+        blog.setContentMap((Map<String, Object>) JSONObject.parse(blogDO.getContentMap()));
 
         blog.setLabelList(Splitter.on(",").splitToList(blogDO.getLabelIdList()));
 

@@ -1,23 +1,16 @@
 package com.freturn.tech.controller.admin;
 
-import com.freturn.tech.biz.domain.Blog;
 import com.freturn.tech.biz.manager.BlogManager;
 import com.freturn.tech.security.login.LoginUserHolder;
-import com.freturn.tech.support.constant.BlogStatus;
-import com.freturn.tech.support.constant.BlogType;
-import com.freturn.tech.support.constant.Device;
 import com.freturn.tech.support.constant.PathConstant;
-import com.freturn.tech.support.constant.SeeScope;
-import com.freturn.tech.support.utils.BlogIdGenerator;
-import com.google.common.collect.Maps;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 /**
  * @author yangtao.lyt
@@ -37,7 +30,7 @@ public class BlogAdminController {
         return PathConstant.BLOG_EDIT;
     }
 
-    @RequestMapping(value = "/admin/blog/edit", params = "type=standard", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/blog/create", method = RequestMethod.POST)
     public String createStandardBlog(@RequestParam String title, @RequestParam String content,
                                      ModelMap modelMap) {
 
@@ -46,31 +39,56 @@ public class BlogAdminController {
             return PathConstant.BLOG_EDIT;
         }
 
-        Blog blog = new Blog();
-
-        String blogId = BlogIdGenerator.getBlogId();
-
-        blog.setId(blogId);
-        blog.setTitle(title);
-        blog.setCreatorId(loginUserHolder.getId());
-        blog.setCreatorNickName(loginUserHolder.getNickName());
-        blog.setType(BlogType.STANDARD);
-        blog.setCategory("默认");
-        blog.setSeeScope(SeeScope.PRIVATE);
-        blog.setStatus(BlogStatus.FINISH);
-        blog.setDevice(Device.PC);
-        blog.setLocation("四川成都");
-
-        Map<String, String> contentMap = Maps.newHashMap();
-        contentMap.put("title", title);
-        contentMap.put("content", content);
-
-        blog.setContentMap(contentMap);
-
-        blogManager.createBlog(blog);
+        String blogId = blogManager.createStandardBlog(title, content);
 
         return "redirect:/blog/" + blogId;
     }
+
+    @RequestMapping(value = "/admin/gallery/create", method = RequestMethod.POST)
+    public String createGallery(@RequestParam MultipartFile[] images, @RequestParam String desc,
+                                     ModelMap modelMap) {
+
+        if (loginUserHolder.isNotLogin()) {
+            modelMap.addAttribute("msg", "提示:您需要先登录,才能发表博客!");
+            return PathConstant.BLOG_EDIT;
+        }
+
+        String blogId = blogManager.createGalleryBlog(images, desc);
+
+        return "redirect:/blog/" + blogId;
+
+    }
+
+    @RequestMapping(value = "/admin/link/create", method = RequestMethod.POST)
+    public String createLink(@RequestParam String title, @RequestParam String url,
+                                ModelMap modelMap) {
+
+        if (loginUserHolder.isNotLogin()) {
+            modelMap.addAttribute("msg", "提示:您需要先登录,才能发表博客!");
+            return PathConstant.BLOG_EDIT;
+        }
+
+
+        String blogId = blogManager.createLinkBlog(title, url);
+
+        return "redirect:/blog/" + blogId;
+
+    }
+
+    @RequestMapping(value = "/admin/quote/create", method = RequestMethod.POST)
+    public String createQuote(@RequestParam String cite, @RequestParam String content,
+                             ModelMap modelMap) {
+        if (loginUserHolder.isNotLogin()) {
+            modelMap.addAttribute("msg", "提示:您需要先登录,才能发表博客!");
+            return PathConstant.BLOG_EDIT;
+        }
+
+
+        String blogId = blogManager.createQuoteBlog(cite, content);
+
+        return "redirect:/blog/" + blogId;
+    }
+
 
     @RequestMapping(value = "/admin/blog/addComment", method = RequestMethod.POST)
     public String addComment(@RequestParam String blogId, @RequestParam String blogTitle,

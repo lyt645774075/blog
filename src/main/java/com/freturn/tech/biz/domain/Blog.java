@@ -53,7 +53,7 @@ public class Blog {
     private String location;
 
     /** 正文内容 */
-    private Map<String, String> contentMap;
+    private Map<String, Object> contentMap;
 
     /** 文章标签 */
     private List<String> labelList = Lists.newArrayList();
@@ -156,11 +156,11 @@ public class Blog {
         this.location = location;
     }
 
-    public Map<String, String> getContentMap() {
+    public Map<String, Object> getContentMap() {
         return contentMap;
     }
 
-    public void setContentMap(Map<String, String> contentMap) {
+    public void setContentMap(Map<String, Object> contentMap) {
         this.contentMap = contentMap;
     }
 
