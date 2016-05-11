@@ -31,6 +31,8 @@ public interface PathConstant {
 
     String BLOG_EDIT = "screen/admin/blogedit";
 
+    String USER_ADMIN = "screen/admin/useradmin";
+
 
 
 

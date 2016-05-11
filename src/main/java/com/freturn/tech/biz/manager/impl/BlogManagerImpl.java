@@ -6,8 +6,15 @@ import com.freturn.tech.biz.manager.BlogManager;
 import com.freturn.tech.dal.dao.BlogDOMapper;
 import com.freturn.tech.dal.dao.CommentDOMapper;
 import com.freturn.tech.dal.dataobject.BlogDO;
+import com.freturn.tech.dal.dataobject.CommentDO;
+import com.freturn.tech.dal.query.BlogQuery;
+import com.freturn.tech.dal.query.CommentQuery;
 import com.freturn.tech.security.login.LoginUserHolder;
+import com.freturn.tech.support.constant.CommentType;
+import com.freturn.tech.support.constant.Device;
+import com.freturn.tech.support.constant.DomainType;
 import com.freturn.tech.support.domainObj.transfer.BlogTransfer;
+import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
 import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,9 +68,67 @@ public class BlogManagerImpl implements BlogManager {
     }
 
     @Override
-    public List<Comment> queryCommentByBlogId(String blogId) {
+    public List<Comment> queryCommonCommentByBlogId(String blogId) {
+
+        Preconditions.checkNotNull(blogId);
+
+        CommentQuery query = new CommentQuery();
+        query.setDomainId(blogId);
+        query.setDomainType(DomainType.BLOG.getCode());
+        query.setType(CommentType.COMMON.getCode());
+
+        List<CommentDO> commentDOList = commentDOMapper.query(query);
+
+        return CommentTransfer.toBOList(commentDOList);
+    }
+
+    @Override
+    public List<Blog> queryRelatedBlogListByBlogId(String blogId) {
         return null;
     }
+
+    @Override
+    public void addComment(String blogId, String blogTitle, String content, Long parentId) {
+
+        Blog blog = getBlogById(blogId);
+        if(blog == null){
+            return ;
+        }
+
+        CommentDO commentDO = new CommentDO();
+        commentDO.setDomainId(blogId);
+        commentDO.setDomainName(blogTitle);
+        commentDO.setDomainType(DomainType.BLOG.getCode());
+        commentDO.setUserId(blog.getCreatorId());
+        commentDO.setUserNickName(blog.getCreatorNickName());
+        commentDO.setType(CommentType.COMMON.getCode());
+        commentDO.setContent(content);
+        commentDO.setParentId(parentId);
+        commentDO.setCreatorId(loginUserHolder.getId());
+        commentDO.setCreatorNickName(loginUserHolder.getNickName());
+        commentDO.setCreatorIconUrl(loginUserHolder.getIconUrl());
+        commentDO.setDevice(Device.PC.getCode());
+        commentDO.setLocation("中国");
+
+        commentDOMapper.insert(commentDO);
+
+    }
+
+
+    @Override
+    public List<Blog> queryKLatestBlog(String userId, Integer k) {
+        Preconditions.checkNotNull(userId);
+
+        BlogQuery query = new BlogQuery();
+        query.setCreatorId(userId);
+        query.setOrderByFieldName("gmt_create");
+        query.setLimitCount(k);
+
+        List<BlogDO> blogDOList = blogDOMapper.query(query);
+
+        return BlogTransfer.toBOList(blogDOList);
+    }
+
 
 
 }

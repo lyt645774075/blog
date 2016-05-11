@@ -5,20 +5,23 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-    <result column="domain_id" property="domainId" jdbcType="BIGINT" />
+    <result column="domain_id" property="domainId" jdbcType="VARCHAR" />
     <result column="domain_type" property="domainType" jdbcType="INTEGER" />
     <result column="domain_name" property="domainName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_nick_name" property="userNickName" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
-    <result column="creator_id" property="creatorId" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
     <result column="creator_nick_name" property="creatorNickName" jdbcType="VARCHAR" />
+    <result column="creator_icon_url" property="creatorIconUrl" jdbcType="VARCHAR" />
     <result column="device" property="device" jdbcType="INTEGER" />
     <result column="location" property="location" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, gmt_create, gmt_modified, domain_id, domain_type, domain_name, type, content, 
-    parent_id, creator_id, creator_nick_name, device, location
+    id, gmt_create, gmt_modified, domain_id, domain_type, domain_name, user_id, user_nick_name, type, content,
+    parent_id, creator_id, creator_nick_name, creator_icon_url, device, location
   </sql>
   <select id="selectByPrimaryKey" resultMap="CommentResultMap" parameterType="java.lang.Long" >
     select 
@@ -33,23 +36,24 @@
   <insert id="insert" parameterType="com.freturn.tech.dal.dataobject.CommentDO" >
     insert into comment (<include refid="Base_Column_List"/> )
     values (#{id,jdbcType=BIGINT}, now(), now(),
-      #{domainId,jdbcType=BIGINT}, #{domainType,jdbcType=INTEGER}, #{domainName,jdbcType=VARCHAR}, 
-      #{type,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
-      #{creatorId,jdbcType=BIGINT}, #{creatorNickName,jdbcType=VARCHAR}, #{device,jdbcType=INTEGER}, 
-      #{location,jdbcType=VARCHAR})
+      #{domainId,jdbcType=VARCHAR}, #{domainType,jdbcType=INTEGER}, #{domainName,jdbcType=VARCHAR},
+    #{userId,jdbcType=VARCHAR},#{userNickName,jdbcType=VARCHAR},
+      #{type,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT},
+      #{creatorId,jdbcType=VARCHAR}, #{creatorNickName,jdbcType=VARCHAR}, #{creatorIconUrl,jdbcType=VARCHAR},
+    #{device,jdbcType=INTEGER},#{location,jdbcType=VARCHAR})
   </insert>
 
   <update id="updateByPrimaryKey" parameterType="com.freturn.tech.dal.dataobject.CommentDO" >
     update comment
     set
       gmt_modified = now(),
-      domain_id = #{domainId,jdbcType=BIGINT},
+      domain_id = #{domainId,jdbcType=VARCHAR},
       domain_type = #{domainType,jdbcType=INTEGER},
       domain_name = #{domainName,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},
       content = #{content,jdbcType=VARCHAR},
-      parent_id = #{parentId,jdbcType=INTEGER},
-      creator_id = #{creatorId,jdbcType=BIGINT},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
       creator_nick_name = #{creatorNickName,jdbcType=VARCHAR},
       device = #{device,jdbcType=INTEGER},
       location = #{location,jdbcType=VARCHAR}
@@ -60,29 +64,66 @@
     <where>
 
       <if test="domainId != null" >
-        and domain_id = #{domainId,jdbcType=VARCHAR}
+        and domain_id = #{domainId}
       </if>
       <if test="domainType != null" >
-        and domain_type = #{domainType,jdbcType=Integer}
+        and domain_type = #{domainType}
       </if>
       <if test="type != null" >
-        and type = #{type,jdbcType=Integer}
+        and type = #{type}
       </if>
       <if test="parentId != null" >
-        and  parent_id = #{parentId,jdbcType=Integer}
+        and  parent_id = #{parentId}
       </if>
       <if test="creatorId != null" >
-        and  creator_id = #{creatorId,jdbcType=VARCHAR}
+        and  creator_id = #{creatorId}
+      </if>
+
+      <if test="userId != null" >
+        and  user_id = #{userId}
       </if>
 
     </where>
 
   </sql>
 
+  <sql id="orderCondition">
+
+    <if test="orderByFieldName != null">
+      order BY ${orderByFieldName}
+
+      <if test="descOrAsc == null or descOrAsc == 1">
+        ASC
+      </if>
+      <if test="descOrAsc == 2">
+        desc
+      </if>
+    </if>
+
+  </sql>
+
+
+  <sql id="limitCondition">
+
+    <if test="limitCount != null and pageNo == null">
+      limit #{limitCount}
+    </if>
+
+    <if test="pageNo != null and limitCount == null">
+      limit #{startRow}, #{offset}
+    </if>
+
+  </sql>
+
+
 
   <select id="query" resultMap="CommentResultMap" parameterType="com.freturn.tech.dal.query.CommentQuery">
     select <include refid="Base_Column_List"/> from comment
     <include refid="WhereCondition"/>
+
+    <include refid="orderCondition"/>
+
+    <include refid="limitCondition"/>
   </select>
 
 

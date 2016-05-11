@@ -21,5 +21,10 @@ public interface UserManager {
 
     public List<Comment> queryCommentByUserId(String userId);
 
-
+    /**
+     * 查询用户最近的k个评论
+     * @param userId
+     * @return
+     */
+    List<Comment> queryKLatestComment(String userId, Integer k);
 }

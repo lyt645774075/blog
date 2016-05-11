@@ -23,6 +23,18 @@
               <property name="layoutUrl" value="layout/default.vm"/>
               <property name="order" value="1"/>
 
+              <property name="attributesMap">
+                     <map>
+                            <entry key="loginUser">
+                                   <ref bean="loginUserHolder"/>
+                            </entry>
+
+                            <entry key="DateUtil">
+                                   <ref bean="dateUtil"/>
+                            </entry>
+                     </map>
+              </property>
+
        </bean>
 
 

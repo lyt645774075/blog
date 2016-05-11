@@ -29,13 +29,14 @@ public class UserAuthenticationService implements UserDetailsService {
     @Override
     public UserAuthDetail loadUserByUsername(String userName) {
 
-        UserBaseInfoDO UserBaseInfo = UserBaseInfoDOMapper.queryByEmail(userName);
+        UserBaseInfoDO userBaseInfo = UserBaseInfoDOMapper.queryByEmail(userName);
 
         UserAuthDetail userAuthDetail = new UserAuthDetail();
-        userAuthDetail.setId(UserBaseInfo.getId());
-        userAuthDetail.setEmail(UserBaseInfo.getEmail());
-        userAuthDetail.setPassword(UserBaseInfo.getPassWord());
-        userAuthDetail.setNickName(UserBaseInfo.getNickName());
+        userAuthDetail.setId(userBaseInfo.getId());
+        userAuthDetail.setEmail(userBaseInfo.getEmail());
+        userAuthDetail.setPassword(userBaseInfo.getPassWord());
+        userAuthDetail.setNickName(userBaseInfo.getNickName());
+        userAuthDetail.setIconUrl(userBaseInfo.getIconUrl());
 
         return userAuthDetail;
 

@@ -21,6 +21,8 @@ public class UserAuthDetail implements UserDetails{
 
     private String nickName;
 
+    private String iconUrl;
+
 
     public String getId() {
         return id;
@@ -85,5 +87,13 @@ public class UserAuthDetail implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
     }
 }

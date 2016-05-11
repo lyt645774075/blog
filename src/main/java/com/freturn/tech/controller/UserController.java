@@ -1,6 +1,7 @@
 package com.freturn.tech.controller;
 
 import com.freturn.tech.biz.domain.Blog;
+import com.freturn.tech.biz.domain.Comment;
 import com.freturn.tech.biz.domain.User;
 import com.freturn.tech.biz.manager.BlogManager;
 import com.freturn.tech.biz.manager.UserManager;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  *
@@ -35,7 +37,12 @@ public class UserController {
 
 
     @RequestMapping("/user/{userId}")
-    public String getUserHome(@PathVariable Long userId, ModelMap modelMap) {
+    public String getUserHome(@PathVariable String userId, ModelMap modelMap) {
+
+        User user = userManager.getUserById(userId);
+
+        modelMap.addAttribute("user", user);
+
 
         /*UserDO userDO = userDOMapper.queryOneById(userId);
 
@@ -50,21 +57,28 @@ public class UserController {
 
         return PathConstant.USER_HOME;*/
 
-        return null;
+        return PathConstant.USER_HOME;
 
     }
 
-    @RequestMapping("/user/{userId}/blog/{blogId}")
-    public String getBlogHome(@PathVariable String userId, @PathVariable String blogId,
-                              ModelMap modelMap) {
+    @RequestMapping("/blog/{blogId}")
+    public String getBlogHome(@PathVariable String blogId,  ModelMap modelMap) {
 
-
-        User user = userManager.getUserById(userId);
 
         Blog blog = blogManager.getBlogById(blogId);
+        User user = userManager.getUserById(blog.getCreatorId());
+        List<Comment> commentList = blogManager.queryCommonCommentByBlogId(blogId);
+
+        List<Blog> kLatestBlog = blogManager.queryKLatestBlog(blog.getCreatorId(), 5);
+
+        List<Comment> kLatestComment = userManager.queryKLatestComment(blog.getCreatorId(), 5);
+
 
         modelMap.addAttribute("user", user);
         modelMap.addAttribute("blog", blog);
+        modelMap.addAttribute("commentList", commentList);
+        modelMap.addAttribute("kLatestBlog", kLatestBlog);
+        modelMap.addAttribute("kLatestComment", kLatestComment);
 
         return PathConstant.BLOG_HOME;
 

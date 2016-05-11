@@ -4992,8 +4992,8 @@ iframe[id^="oauth2relay"] {
   float: left;
   margin: 0;
   width: 100%;
-  margin-right: -110px;
-  padding-right: 110px;
+  margin-right: -170px;
+  padding-right: 170px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -5570,7 +5570,7 @@ iframe[id^="oauth2relay"] {
     margin-top: 40px;
   }
   .comment-list .comment-body {
-    padding: 40px 0 40px 80px;
+    padding: 20px 0 10px 80px;
   }
   .comment-list > li:first-child > .comment-body {
     padding-top: 20px;

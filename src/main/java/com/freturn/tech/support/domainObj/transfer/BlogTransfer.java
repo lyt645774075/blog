@@ -10,8 +10,10 @@ import com.freturn.tech.support.constant.SeeScope;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import com.google.common.collect.Maps;
+import com.google.common.collect.Lists;
+import org.springframework.util.CollectionUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -75,20 +77,19 @@ public class BlogTransfer {
     }
 
 
-    public static void main(String[] args) {
-        Map<String,String> dataMap = Maps.newHashMap();
-        dataMap.put("title", "博客");
-        dataMap.put("content", "漂亮");
-        dataMap.put("from", "liyangtao");
+    public static List<Blog> toBOList(List<BlogDO> blogDOList){
+        if(CollectionUtils.isEmpty(blogDOList)){
+            return Lists.newArrayList();
+        }
 
-        String temp = JSONObject.toJSONString(dataMap);
-        System.out.println(temp);
+        List<Blog> result = Lists.newArrayList();
+        for(BlogDO blogDO : blogDOList){
+            result.add(toBO(blogDO));
+        }
 
-        Map<String,String> re = (Map<String,String>) JSONObject.parse(temp);
-
-        System.out.println(re);
-
+        return result;
     }
+
 
 
 }

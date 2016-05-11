@@ -27,28 +27,30 @@ import java.util.Map;
 public class BlogAdminController {
 
     @Resource
-    private BlogManager blogManager;
+    private BlogManager     blogManager;
 
     @Resource
     private LoginUserHolder loginUserHolder;
 
-    @RequestMapping(value = "/blog/edit", method = RequestMethod.GET)
-    public String getUserHome(ModelMap modelMap){
+    @RequestMapping(value = "/admin/blog/edit", method = RequestMethod.GET)
+    public String getUserHome(ModelMap modelMap) {
         return PathConstant.BLOG_EDIT;
     }
 
-    @RequestMapping(value = "/blog/edit" , params = "type=standard", method = RequestMethod.POST)
-    public String createStandardBlog(@RequestParam String title, @RequestParam String content, ModelMap modelMap){
+    @RequestMapping(value = "/admin/blog/edit", params = "type=standard", method = RequestMethod.POST)
+    public String createStandardBlog(@RequestParam String title, @RequestParam String content,
+                                     ModelMap modelMap) {
 
-        if(loginUserHolder.isNotLogin()){
+        if (loginUserHolder.isNotLogin()) {
             modelMap.addAttribute("msg", "提示:您需要先登录,才能发表博客!");
             return PathConstant.BLOG_EDIT;
         }
 
-
         Blog blog = new Blog();
 
-        blog.setId(BlogIdGenerator.getBlogId());
+        String blogId = BlogIdGenerator.getBlogId();
+
+        blog.setId(blogId);
         blog.setTitle(title);
         blog.setCreatorId(loginUserHolder.getId());
         blog.setCreatorNickName(loginUserHolder.getNickName());
@@ -67,9 +69,21 @@ public class BlogAdminController {
 
         blogManager.createBlog(blog);
 
-        return PathConstant.BLOG_EDIT;
+        return "redirect:/blog/" + blogId;
     }
 
+    @RequestMapping(value = "/admin/blog/addComment", method = RequestMethod.POST)
+    public String addComment(@RequestParam String blogId, @RequestParam String blogTitle,
+                             @RequestParam String content, @RequestParam Long parentId, ModelMap modelMap) {
 
+        if (loginUserHolder.isNotLogin()) {
+            modelMap.addAttribute("msg", "提示:您需要先登录,才能发表评论!");
+            return "redirect:/blog/" + blogId;
+        }
+
+        blogManager.addComment(blogId, blogTitle, content, parentId);
+
+        return "redirect:/blog/" + blogId;
+    }
 
 }

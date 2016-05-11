@@ -8,8 +8,8 @@ public abstract class AdvancedQuery {
     /**
      * 常量定义
      */
-    public static int DESC = 1;
-    public static int ASC = 2;
+    public static int ASC = 1;
+    public static int DESC = 2;
     public static int EnableDistinct = 1;
 
     /**
@@ -19,7 +19,7 @@ public abstract class AdvancedQuery {
     /**
      * 排序时，是升序还是降序  - 使用上述常量
      */
-    private Integer descOrAsc;
+    private Integer descOrAsc = DESC;
     /**
      * 当前需要查询的页数  -  分页查询
      * 第一页的页号 为 1

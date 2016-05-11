@@ -85,10 +85,45 @@
 
   </sql>
 
+  <sql id="orderCondition">
+
+    <if test="orderByFieldName != null">
+      order BY ${orderByFieldName}
+
+      <if test="descOrAsc == null or descOrAsc == 1">
+        ASC
+      </if>
+      <if test="descOrAsc == 2">
+        desc
+      </if>
+    </if>
+
+  </sql>
+
+
+  <sql id="limitCondition">
+
+    <if test="limitCount != null and pageNo == null">
+      limit #{limitCount}
+    </if>
+
+    <if test="pageNo != null and limitCount == null">
+      limit #{startRow}, #{offset}
+    </if>
+
+  </sql>
+
+
+
 
   <select id="query" resultMap="BlogResultMap" parameterType="com.freturn.tech.dal.query.BlogQuery">
     select <include refid="Base_Column_List"/> from blog
     <include refid="WhereCondition"/>
+
+    <include refid="orderCondition"/>
+
+    <include refid="limitCondition"/>
+
   </select>
 
 

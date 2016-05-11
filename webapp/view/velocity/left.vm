@@ -9,7 +9,9 @@
                         <img alt="DW Minion" src="$!user.iconUrl">
                     </a>
                 </h1>
+
                 <p class="site-subtitle">$!user.nickName</p>
+
                 <h2 class="site-description">$!user.selfIntroduction</h2>
             </header>
 
@@ -90,6 +92,23 @@
                 <input type="text" placeholder="请输入" id="s" name="s" class="search-query">
                 <label for="s"></label>
             </form>
+        </div>
+
+        <div class="action socials">
+            <i class="icon-link active-socials"></i>
+            <ul class="unstyled list-socials clearfix" style="width: 240px;">
+                #if($loginUser.isLogin())
+                    <li class="social"><a href="/admin/blog/edit"><i class="icon-pencil"></i></a>
+                    </li>
+
+                    <li class="social"><a href="/admin/useradmin"><i class="icon-user"></i></a>
+                    </li>
+                #else
+                    <li class="social"><a href="/login"><i class="icon-location-arrow"></i></a>
+                    </li>
+                #end
+
+            </ul>
         </div>
 
     </div>

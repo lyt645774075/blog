@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="/css/designit.min.css">
 </head>
 <body class="home blog group-blog">
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site" >
     <div class="container clearfix">
 
         #parse("left.vm")

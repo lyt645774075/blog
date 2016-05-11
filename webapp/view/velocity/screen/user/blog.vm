@@ -1,46 +1,36 @@
 <div id="primary" class="content-area">
     <div class="primary-inner">
         <div id="content" class="site-content" role="main">
-            <article id="post-33"
+            <article id="$!blog.id"
                      class="post-33 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing category-photography tag-playing tag-shopping">
                 <header class="entry-header">
                     <h1 class="entry-title">$!blog.title</h1>
 
                     <div class="entry-meta">
-                                                <span class="byline">By <span class="author vcard">
-                                                  <a class="url fn n" href="" title="View all posts by Ruth Clem">$!blog.creatorNickName</a>
-                                                </span>
-                                              </span>
-                                              <span class="cat-links"> in <a href="" rel="category tag">Delicious</a>, <a
-                                                      href="http://demo.designwall.com/dw-minion/category/freelancing/"
-                                                      rel="category tag">Freelancing</a>, <a
-                                                      href="http://demo.designwall.com/dw-minion/category/photography/"
-                                                      rel="category tag">Photography</a>
-                                            </span>
-                                            <span class="sep">
-                                              <span class="post-format">
-                                                <i class="icon-file-text">
-                                                </i>
-                                              </span>
-                                            </span>
-                                            <span class="posted-on">
-                                              <a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/"
-                                                 title="12:00 am" rel="bookmark">
-                                                  <i class="icon-calendar-empty">
-                                                  </i>
-                                                  <time class="entry-date published"
-                                                        datetime="2013-06-20T00:00:00+00:00">六月 20, 2013
-                                                  </time>
-                                              </a>
-                                            </span>
-                                            <span class="comments-link">
-                                              <a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comments">
-                                                  <i class="icon-comment-alt">
-                                                  </i> 4 评论</a>
-                                                </span>
+                        <span class="sep">
+                            <span class="post-format">
+                                 <i class="icon-file-text"></i>
+                            </span>
+                        </span>
+                        <span class="posted-on">
+                            <a href="#" title="$!blog.gmtCreate" rel="bookmark">
+                                <i class="icon-calendar-empty"></i>
+                                <time class="entry-date published" datetime="$!blog.gmtCreate">
+                                    $DateUtil.longFormat($!blog.gmtCreate)
+                                </time>
+                            </a>
+                        </span>
+                        <span class="comments-link">
+                            <a href="#comments">
+                                <i class="icon-comment-alt"></i> $!commentList.size() 评论
+                            </a>
+                        </span>
+
                     </div>
                 </header>
                 <div class="entry-thumbnail">
+
+                    #*暂时空置,后续搞一个博客摘要提取器,来获取*#
                     #*<img width="620" height="350"
                          src="http://freturn.oss-cn-hangzhou.aliyuncs.com/img/lyt.jpeg"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="demo"
@@ -49,18 +39,20 @@
                 <div class="entry-content">
                     $!blog.contentMap.get("content")
                 </div>
+
                 <footer class="entry-footer">
                     <div class="entry-tags">
-                        <span class="tags-title">Tags</span>
-                                                    <span class="tags-links">
-                                                      <a href="http://demo.designwall.com/dw-minion/tag/playing/"
-                                                         rel="tag">娱乐</a>
-                                                      <a href="http://demo.designwall.com/dw-minion/tag/shopping/"
-                                                         rel="tag">购物</a>
-                                                    </span>
+                        <span class="tags-title">标签</span>
+                        <span class="tags-links">
+                            <a href="#" rel="tag">娱乐</a>
+                            <a href="#" rel="tag">购物</a>
+                        </span>
                     </div>
                 </footer>
             </article>
+
+            #*
+
             <nav role="navigation" id="nav-below" class="post-navigation pager">
                 <div class="nav-previous">
                     <a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/" rel="prev">
@@ -71,187 +63,97 @@
                         <span class="pager-title">Responsive WordPress Themes</span>
                     </a>
                 </div>
-            </nav>
-            <div class="related-posts">
-                <h2 class="related-posts-title">相关文章</h2>
+            </nav>*#
 
+
+            <div class="related-posts">
+                <h1 class="related-posts-title">相关文章</h1>
                 <div class="related-content">
                     <article class="related-post clearfix">
                         <h3 class="related-title">
-                            <a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/"
-                               rel="bookmark">java单例模式</a>
+                            <a href="/" rel="bookmark">暂未开放1</a>
                         </h3>
-
                         <div class="related-meta">
-                            <time class="related-date">16 Jun, 2013</time>
+                            <a class="url fn n" href="/user/11" title="">李洋涛</a>
+                            <time class="related-date" style="margin-left: 10px;">$!DateUtil.shortFormat($blog.gmtCreate)</time>
                         </div>
                     </article>
                     <article class="related-post clearfix">
                         <h3 class="related-title">
-                            <a href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/"
-                               rel="bookmark">java工厂模式</a>
+                            <a href="/" rel="bookmark">暂未开放2</a>
                         </h3>
-
                         <div class="related-meta">
-                            <time class="related-date">28 May, 2013</time>
-                        </div>
-                    </article>
-                    <article class="related-post clearfix">
-                        <h3 class="related-title">
-                            <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/"
-                               rel="bookmark">java工厂模式java工厂模式</a>
-                        </h3>
+                            <a class="url fn n" href="/user/11" title="">天脉</a>
+                            <time class="related-date" style="margin-left: 10px;">$!DateUtil.shortFormat($blog.gmtCreate)</time>
 
-                        <div class="related-meta">
-                            <time class="related-date">26 Apr, 2013</time>
-                        </div>
-                    </article>
-                    <article class="related-post clearfix">
-                        <h3 class="related-title">
-                            <a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/"
-                               rel="bookmark">java工厂模式java工厂模式</a>
-                        </h3>
-
-                        <div class="related-meta">
-                            <time class="related-date">14 Mar, 2013</time>
-                        </div>
-                    </article>
-                    <article class="related-post clearfix">
-                        <h3 class="related-title">
-                            <a href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/"
-                               rel="bookmark">java工厂模式java工厂模式</a>
-                        </h3>
-
-                        <div class="related-meta">
-                            <time class="related-date">03 Sep, 2012</time>
                         </div>
                     </article>
                 </div>
             </div>
-            <div id="comments" class="comments-area">
-                <h2 class="comments-title">4 评论</h2>
-                <ol class="comment-list">
-                    <li id="comment-59" class="comment byuser comment-author-cherlyn-schranz even thread-even depth-1">
-                        <article id="div-comment-59" class="comment-body">
-                            <footer class="comment-meta">
-                                <div class="comment-author vcard">
-                                    <img alt="" src="./blog demo_files/f05b43c31ffb9517c2b9b9a8512cc346"
-                                         srcset="http://0.gravatar.com/avatar/f05b43c31ffb9517c2b9b9a8512cc346?s=120&amp;d=mm&amp;r=g 2x"
-                                         class="avatar avatar-60 photo" height="60" width="60">
-                                    <cite class="fn">yangtao.lyt</cite>
-                                </div>
-                                <div class="comment-metadata">
-                                    <a class="comment-datetime"
-                                       href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comment-59">
-                                        <i class="icon-time">
-                                        </i>
-                                        <time datetime="2011-06-15T00:00:00+00:00"> June 15, 2011 at 12:00 am</time>
-                                    </a>
-                                </div>
-                            </footer>
-                            <div class="comment-content">
-                                <p>Maecenas a vehicula urna, at tempu In sed tempor sem.</p>
-                            </div>
-                                                        <span class="reply">
-                                                          <a rel="nofollow" class="comment-reply-link"
-                                                             href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/?replytocom=59#respond"
-                                                             onclick="return addComment.moveForm( &quot;div-comment-59&quot;, &quot;59&quot;, &quot;respond&quot;, &quot;33&quot; )"
-                                                             aria-label="Reply to ">
-                                                              <i class="icon-reply">
-                                                              </i> 回复</a>
-                                                            </span>
-                        </article>
-                    </li>
-                    <li id="comment-60"
-                        class="comment byuser comment-author-johnna-nolette odd alt thread-odd thread-alt depth-1">
-                        <article id="div-comment-60" class="comment-body">
-                            <footer class="comment-meta">
-                                <div class="comment-author vcard">
-                                    <img alt="" src="./blog demo_files/99a29e2ba9524a5720adecfc29c34673"
-                                         srcset="http://0.gravatar.com/avatar/99a29e2ba9524a5720adecfc29c34673?s=120&amp;d=mm&amp;r=g 2x"
-                                         class="avatar avatar-60 photo" height="60" width="60">
-                                    <cite class="fn">李洋涛</cite>
-                                </div>
-                                <div class="comment-metadata">
-                                    <a class="comment-datetime"
-                                       href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comment-60">
-                                        <i class="icon-time">
-                                        </i>
-                                        <time datetime="2011-09-23T00:00:00+00:00"> September 23, 2011 at 12:00 am
-                                        </time>
-                                    </a>
-                                </div>
-                            </footer>
-                            <div class="comment-content">
-                                <p>作者写得很好，这是一篇好文章e. Maociis natoque penatibus et magnis dis parturient montes, nascetur
-                                    ridiculus mus.</p>
-                            </div>
-                                                              <span class="reply">
-                                                                <a rel="nofollow" class="comment-reply-link"
-                                                                   href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/?replytocom=60#respond"
-                                                                   onclick="return addComment.moveForm( &quot;div-comment-60&quot;, &quot;60&quot;, &quot;respond&quot;, &quot;33&quot; )"
-                                                                   aria-label="Reply to ">
-                                                                    <i class="icon-reply">
-                                                                    </i> 回复</a>
-                                                                  </span>
-                        </article>
-                    </li>
 
-                    <li id="comment-61"
-                        class="comment byuser comment-author-johnna-nolette odd alt thread-odd thread-alt depth-1">
-                        <article id="div-comment-61" class="comment-body">
-                            <footer class="comment-meta">
-                                <div class="comment-author vcard">
-                                    <img alt="" src="./blog demo_files/99a29e2ba9524a5720adecfc29c34673"
-                                         srcset="http://0.gravatar.com/avatar/99a29e2ba9524a5720adecfc29c34673?s=120&amp;d=mm&amp;r=g 2x"
-                                         class="avatar avatar-60 photo" height="60" width="60">
-                                    <cite class="fn">Johnna Nolette</cite>
+            <div id="comments" class="comments-area">
+                <h2 class="comments-title">$!commentList.size() 评论</h2>
+                <ol class="comment-list">
+
+                    #foreach($comment in $!commentList)
+                        <li id="comment-59" class="comment byuser comment-author-cherlyn-schranz even thread-even depth-1">
+                            <article id="div-comment-59" class="comment-body">
+                                <footer class="comment-meta">
+                                    <div class="comment-author vcard">
+                                        <img src="$!comment.creatorIconUrl"
+                                             class="avatar avatar-60 photo" height="60" width="60">
+                                        <cite class="fn" style="display: inline">
+                                            <a href="/user/11" target="_blank">$!comment.creatorNickName</a>
+                                        </cite>
+                                        <a class="comment-datetime comment-metadata" href="#" style="float: right;">
+                                            <i class="icon-time"></i>
+                                            <time datetime="2011-06-15T00:00:00+00:00"> $!DateUtil.longFormat($comment.gmtCreate)</time>
+                                        </a>
+                                    </div>
+                                </footer>
+                                <div class="comment-content">
+                                    <p>$!comment.content</p>
                                 </div>
-                                <div class="comment-metadata">
-                                    <a class="comment-datetime"
-                                       href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comment-61">
-                                        <i class="icon-time">
-                                        </i>
-                                        <time datetime="2012-01-06T00:00:00+00:00"> January 6, 2012 at 12:00 am</time>
-                                    </a>
-                                </div>
-                            </footer>
-                            <div class="comment-content">
-                                <p>Quisque blandit nulla eget odio iaculis, eu egestas tortor convallis. Aenean
-                                    imperdiet nisi quis nunc ultrices sollicitudin. Interdum et malesuada fames ac.</p>
-                            </div>
-                                                                          <span class="reply">
-                                                                            <a rel="nofollow" class="comment-reply-link"
-                                                                               href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/?replytocom=61#respond"
-                                                                               onclick="return addComment.moveForm( &quot;div-comment-61&quot;, &quot;61&quot;, &quot;respond&quot;, &quot;33&quot; )"
-                                                                               aria-label="Reply to ">
-                                                                                <i class="icon-reply">
-                                                                                </i> Reply</a>
-                                                                              </span>
-                        </article>
-                    </li>
+                            <span class="reply">
+                                <a rel="nofollow"
+                                   class="comment-reply-link"
+                                   href="#"
+                                   onclick="return addComment.moveForm("div-comment-59", "59", "respond", "33" )"
+                                   aria-label="Reply to ">
+                                    <i class="icon-reply">
+                                    </i> 回复
+                                </a>
+                            </span>
+                            </article>
+                        </li>
+
+                    #end
+
                 </ol>
+
                 <div id="respond" class="comment-respond">
                     <h3 id="reply-title" class="comment-reply-title">发表评论
                         <small>
                             <a rel="nofollow" id="cancel-comment-reply-link"
                                href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#respond"
-                               style="display:none;">Cancel reply</a>
+                               style="display:none;">取消</a>
                         </small>
                     </h3>
-                    <form action="http://demo.designwall.com/dw-minion/wp-comments-post.php" method="post"
+                    <form action="/admin/blog/addComment" method="post"
                           id="commentform" class="comment-form">
+                        <input type="hidden" name="${_csrf.parameterName}"
+                               value="${_csrf.token}">
+                        <input type="hidden" name="blogId" value="$!blog.id">
+                        <input type="hidden" name="blogTitle" value="$!blog.title">
+                        <input type="hidden" name="parentId"  value="">
+
                         <p class="comment-form-comment">
                             <label for="comment">评论</label>
-                                                                            <textarea id="comment" name="comment"
-                                                                                      cols="45" rows="8"
-                                                                                      maxlength="65525"
-                                                                                      aria-required="true"
-                                                                                      required="required">
-                                                                            </textarea>
+                                <textarea  id="comment" name="content" rows="5" maxlength="1000" aria-required="true" required="required">
+                                </textarea>
                         </p>
 
-                        <p class="comment-form-author">
+                        #*<p class="comment-form-author">
                             <label for="author">姓名 <span class="required">*</span>
                             </label>
                             <input id="author" name="author" type="text" value="" size="30" maxlength="245"
@@ -263,11 +165,11 @@
                             </label>
                             <input id="email" name="email" type="text" value="" size="30" maxlength="100"
                                    aria-describedby="email-notes" aria-required="true" required="required">
-                        </p>
+                        </p>*#
 
                         <p class="form-submit">
                             <input name="submit" type="submit" id="submit" class="submit" value="发表评论">
-                            <input type="hidden" name="comment_post_ID" value="33" id="comment_post_ID">
+                            <input type="hidden" name="comment_post_ID" value="" id="comment_post_ID">
                             <input type="hidden" name="comment_parent" id="comment_parent" value="0">
                         </p>
                     </form>

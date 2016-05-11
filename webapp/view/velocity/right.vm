@@ -27,52 +27,35 @@
                  id="recent-posts-dw-widget-1">
                 <h3 class="widget-title">最近发表</h3>
                 <ul>
-                    <li>
-                        <a href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/">The
-                            Inside Secrets Of Millionaires Under The Age Of 29</a>
-                    </li>
-                    <li>
-                        <a href="http://demo.designwall.com/dw-minion/2013/06/16/responsive-wordpress-themes/">Responsive
-                            WordPress Themes</a>
-                    </li>
-                    <li>
-                        <a href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/">Finally!
-                            An Acne Cream That Actually Does What It Says</a>
-                    </li>
-                    <li>
-                        <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/">Unlock
-                            The Secrets Of Selling High Ticket</a>
-                    </li>
-                    <li>
-                        <a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/">Take
-                            Advantage Of The Stock Market</a>
-                    </li>
+                    #foreach($latestBlog in $!kLatestBlog)
+                        <li>
+                            <a href="/blog/$latestBlog.id">$latestBlog.title</a>
+                        </li>
+                    #end
+
                 </ul>
             </div>
             <div class="tab-pane widget_recent-comments-dw-widget-1 widget_recent_comments "
                  id="recent-comments-dw-widget-1">
-                <h3 class="widget-title">评论</h3>
+                <h3 class="widget-title">最新评论</h3>
                 <ul id="recentcomments">
-                    <li class="recentcomments"><span class="comment-author-link">Shelly Pfaff</span>
-                        on
-                        <a href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/#comment-24">Top
-                            Search Engine Optimization Strategies</a></li>
-                    <li class="recentcomments"><span
-                            class="comment-author-link">Madelaine Jelks</span> on <a
-                            href="http://demo.designwall.com/dw-minion/2012/03/06/never-seen-before-tires-that-never-go/#comment-45">Never
-                        Seen Before! Tires That Never Go</a></li>
-                    <li class="recentcomments"><span
-                            class="comment-author-link">Johnna Nolette</span> on <a
-                            href="http://demo.designwall.com/dw-minion/2013/06/20/the-inside-secrets-of-millionaires-under-the-age-of-29/#comment-61">The
-                        Inside Secrets Of Millionaires Under The Age Of 29</a></li>
-                    <li class="recentcomments"><span class="comment-author-link">Fawn Council</span>
-                        on
-                        <a href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/#comment-39">Discover
-                            3 Simple Ways To Reduce Your Unwanted Wrinkles</a></li>
-                    <li class="recentcomments"><span class="comment-author-link">Niki Baley</span>
-                        on
-                        <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/#comment-53">Unlock
-                            The Secrets Of Selling High Ticket</a></li>
+
+                    #foreach($lc in $!kLatestComment)
+                        <li class="recentcomments">
+                            <span class="comment-author-link">
+                                <a href="/user/$!lc.creatorId">$!lc.creatorNickName</a>
+                            </span>
+                            #if($lc.domainType.code == 1)
+                                评论了文章
+                                <a href="/blog/$!lc.domainId" title="$!lc.content">$!lc.domainName</a>
+                            #else
+                                评论了
+                                <a href="/user/$!lc.domainId" title="$!lc.content">$!lc.domainName</a>
+                            #end
+
+                        </li>
+                    #end
+
                 </ul>
             </div>
             <div class="tab-pane widget_tag_cloud-dw-widget-1 widget_tag_cloud "

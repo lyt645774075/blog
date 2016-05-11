@@ -9,21 +9,27 @@ public class CommentDO {
 
     private Date gmtModified;
 
-    private Long domainId;
+    private String domainId;
 
     private Integer domainType;
 
     private String domainName;
 
+    private String userId;
+
+    private String userNickName;
+
     private Integer type;
 
     private String content;
 
-    private Integer parentId;
+    private Long parentId;
 
-    private Long creatorId;
+    private String creatorId;
 
     private String creatorNickName;
+
+    private String creatorIconUrl;
 
     private Integer device;
 
@@ -53,11 +59,11 @@ public class CommentDO {
         this.gmtModified = gmtModified;
     }
 
-    public Long getDomainId() {
+    public String getDomainId() {
         return domainId;
     }
 
-    public void setDomainId(Long domainId) {
+    public void setDomainId(String domainId) {
         this.domainId = domainId;
     }
 
@@ -93,19 +99,19 @@ public class CommentDO {
         this.content = content == null ? null : content.trim();
     }
 
-    public Integer getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(Integer parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
-    public Long getCreatorId() {
+    public String getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(Long creatorId) {
+    public void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
     }
 
@@ -131,5 +137,29 @@ public class CommentDO {
 
     public void setLocation(String location) {
         this.location = location == null ? null : location.trim();
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserNickName() {
+        return userNickName;
+    }
+
+    public void setUserNickName(String userNickName) {
+        this.userNickName = userNickName;
+    }
+
+    public String getCreatorIconUrl() {
+        return creatorIconUrl;
+    }
+
+    public void setCreatorIconUrl(String creatorIconUrl) {
+        this.creatorIconUrl = creatorIconUrl;
     }
 }

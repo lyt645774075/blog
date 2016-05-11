@@ -46,6 +46,16 @@ public class LoginUserHolder {
     }
 
     /**
+     * 获取登陆用户的头像url
+     * @return
+     */
+    public String getIconUrl() {
+        UserAuthDetail userAuthDetail = getLoginUser();
+
+        return userAuthDetail == null ? null : userAuthDetail.getIconUrl();
+    }
+
+    /**
      * 用户是否登陆
      * @return
      */

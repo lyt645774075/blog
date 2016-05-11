@@ -4,7 +4,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.freturn.tech.biz.domain.Blog;
+import com.freturn.tech.dal.dao.CommentDOMapper;
+import com.freturn.tech.dal.dataobject.CommentDO;
+import com.freturn.tech.dal.query.AdvancedQuery;
+import com.freturn.tech.dal.query.CommentQuery;
 import com.freturn.tech.support.constant.UserType;
+import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
 import com.freturn.tech.support.domainObj.transfer.UserTransfer;
 import com.freturn.tech.support.utils.UserIdGenerator;
 import org.springframework.stereotype.Component;
@@ -32,6 +38,10 @@ public class UserManagerImpl implements UserManager{
 
     @Resource
     private UserExtInfoDOMapper userExtInfoDOMapper;
+
+    @Resource
+    private CommentDOMapper commentDOMapper;
+
 
 
     @Override
@@ -81,4 +91,17 @@ public class UserManagerImpl implements UserManager{
     }
 
 
+    @Override
+    public List<Comment> queryKLatestComment(String userId, Integer k) {
+
+        CommentQuery query = new CommentQuery();
+        query.setUserId(userId);
+
+        query.setOrderByFieldName("gmt_create");
+        query.setLimitCount(k);
+
+        List<CommentDO> commentDoList = commentDOMapper.query(query);
+
+        return CommentTransfer.toBOList(commentDoList);
+    }
 }

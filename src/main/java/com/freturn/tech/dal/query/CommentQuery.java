@@ -4,24 +4,33 @@ package com.freturn.tech.dal.query;
  * @author yangtao.lyt
  * @version $Id: CommentQuery, v 0.1 2016-05-04 19:12 yangtao.lyt Exp $
  */
-public class CommentQuery {
+public class CommentQuery extends AdvancedQuery{
 
-    private Long domainId;
+    private String domainId;
 
     private Integer domainType;
 
     private Integer type;
 
-    private Integer parentId;
+    private Long parentId;
 
-    private Long creatorId;
+    private String creatorId;
 
+    private String userId;
 
-    public Long getDomainId() {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getDomainId() {
         return domainId;
     }
 
-    public void setDomainId(Long domainId) {
+    public void setDomainId(String domainId) {
         this.domainId = domainId;
     }
 
@@ -41,19 +50,19 @@ public class CommentQuery {
         this.type = type;
     }
 
-    public Integer getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(Integer parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
-    public Long getCreatorId() {
+    public String getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(Long creatorId) {
+    public void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
     }
 }
