@@ -40,22 +40,12 @@ public class UserController {
     public String getUserHome(@PathVariable String userId, ModelMap modelMap) {
 
         User user = userManager.getUserById(userId);
+        List<Blog> kLatestBlog = blogManager.queryKLatestBlog(userId, 5);
+        List<Comment> kLatestComment = userManager.queryKLatestComment(userId, 5);
 
         modelMap.addAttribute("user", user);
-
-
-        /*UserDO userDO = userDOMapper.queryOneById(userId);
-
-        List<MetadataDO> metadataDOList = metadataDOMapper.queryListByIdList(Splitter.on(",")
-                .splitToList(userDO.getCategoryIdList()));
-
-        List<UserExtDO> userExtDOList = userExtDOMapper.queryListByUserId(userId);
-
-        modelMap.addAttribute("user", userDO);
-        modelMap.addAttribute("metadataList", metadataDOList);
-        modelMap.addAttribute("userExtList", userExtDOList);
-
-        return PathConstant.USER_HOME;*/
+        modelMap.addAttribute("kLatestBlog", kLatestBlog);
+        modelMap.addAttribute("kLatestComment", kLatestComment);
 
         return PathConstant.USER_HOME;
 
@@ -68,9 +58,7 @@ public class UserController {
         Blog blog = blogManager.getBlogById(blogId);
         User user = userManager.getUserById(blog.getCreatorId());
         List<Comment> commentList = blogManager.queryCommonCommentByBlogId(blogId);
-
         List<Blog> kLatestBlog = blogManager.queryKLatestBlog(blog.getCreatorId(), 5);
-
         List<Comment> kLatestComment = userManager.queryKLatestComment(blog.getCreatorId(), 5);
 
 

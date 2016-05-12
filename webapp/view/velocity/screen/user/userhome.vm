@@ -1,488 +1,194 @@
 <div id="primary" class="content-area">
     <div class="primary-inner">
         <div id="content" class="site-content content-list" role="main">
-            <article id="post-33"
-                     class="post-33 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing category-photography tag-playing tag-shopping">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a href="" rel="bookmark">java设计模式赏析</a></h2>
 
-                    <div class="entry-meta">
-                                            <span class="byline">By
-                                                <span class="author vcard">
-                                                <a class="url fn n" href="#">李洋涛</a>
-                                                </span>
-                                            </span>
-                                            <span class="cat-links"> in
-                                                <a href="#">设计语言</a>,
-                                                <a href="#">技术</a>,
-                                                <a href="#">数据库</a>
-                                            </span>
-                                            <span class="sep">
-                                                <span class="post-format">
-                                                    <i class="icon-file-text"></i>
-                                                </span>
-                                            </span>
-                                            <span class="posted-on">
-                                                <a href="#">
-                                                    <i class="icon-calendar-empty"></i>
-                                                    <time class="entry-date published"
-                                                          datetime="2013-06-20T00:00:00+00:00">
-                                                        六月 20, 2013
-                                                    </time>
-                                                </a>
-                                            </span>
-                                            <span class="comments-link">
-                                                <a href=""><i class="icon-comment-alt"></i> 4 评论</a>
-                                            </span>
-                    </div>
-                </header>
-                <div class="entry-thumbnail">
-                    <a href="#">
-                        <img width="620" height="350" src="http://freturn.oss-cn-hangzhou.aliyuncs.com/img/lyt.jpeg"
-                             class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                             alt="demo"
-                             sizes="(max-width: 620px) 100vw, 620px">
-                    </a>
-                </div>
-                <div class="entry-content">
-                    <p>Bootstrap，来自 Twitter，是目前很受欢迎的前端框架。B ootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活
-                        ，使得 Web 开发更加快捷。[1] 它由Twitter的设计师Mark Otto和Jacob
-                        Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，
-                        它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目， 包括NASA的M
+            #foreach($blog in $!kLatestBlog)
 
-                        <a href="#" class="more-link">
-                            <span class="btn btn-small">继续阅读</span>
-                        </a>
-                    </p>
-                </div>
-            </article>
+                #if($!blog.type.code == 'STANDARD')
 
-            <article id="post-13"
-                     class="post-13 post type-post status-publish format-link hentry category-delicious category-photography tag-dancing tag-shopping post_format-post-format-link">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="#"
-                            rel="bookmark">git命令讲解</a></h2></header>
-                <div class="entry-content">
-                    <p><a title="Responsive WordPress Themes" href="http://www.designwall.com/"
-                          target="_blank">http://www.git.com</a></p>
-                </div>
-            </article>
-            <article id="post-190"
-                     class="post-190 post type-post status-publish format-gallery hentry category-freelancing category-journal tag-dancing tag-my-family tag-playing post_format-post-format-gallery">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/"
-                            rel="bookmark">Finally! An Acne Cream That Actually Does What It
-                        Says</a></h2>
-
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/madelaine-jelks/"
-                            title="View all posts by Madelaine Jelks">Madelaine
-                        Jelks</a></span></span><span class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/freelancing/"
-                            rel="category tag">Freelancing</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/journal/"
-                            rel="category tag">Journal</a></span><span class="sep"><span
-                            class="post-format"><i class="icon-picture"></i></span></span><span
-                            class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2013-05-28T00:00:00+00:00">May
-                            28, 2013
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/#comments"><i
-                            class="icon-comment-alt"></i> 4 Comments</a></span>
-                    </div>
-                </header>
-                <div class="entry-content">
-                    <div class="entry-gallery">
-                        <div id="carousel-1" class="carousel slide carousel-190">
-                            <ol class="carousel-indicators">
-                                <li class="active" data-slide-to="0" data-target="#carousel-1"></li>
-                                <li class="" data-slide-to="1" data-target="#carousel-1"></li>
-                                <li class="" data-slide-to="2" data-target="#carousel-1"></li>
-                                <li class="" data-slide-to="3" data-target="#carousel-1"></li>
-                                <li class="" data-slide-to="4" data-target="#carousel-1"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="carousel-icon">
-                                        <a href="http://demo.designwall.com/dw-minion/2011/05/05/the-real-truth-about-mlm-compensation-plans/the-real-truth-about-mlm-compensation-plans-2/"><img
-                                                width="620" height="350"
-                                                src="./home_files/the-real-truth-about-mlm-compensation-plans.jpg"
-                                                class="attachment-620x350 size-620x350"
-                                                alt="Pellentesque dignissim eu velit ut hendrerit"
-                                                srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/the-real-truth-about-mlm-compensation-plans.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/the-real-truth-about-mlm-compensation-plans-300x169.jpg 300w"
-                                                sizes="(max-width: 620px) 100vw, 620px"></a>
-                                    </div>
-                                    <div class="carousel-caption">
-                                        Pellentesque dignissim eu velit ut hendrerit
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="carousel-icon">
-                                        <a href="http://demo.designwall.com/dw-minion/2011/05/02/now-you-can-afford-that-in-ground-pool/now-you-can-afford-that-in-ground-pool-2/"><img
-                                                width="620" height="350"
-                                                src="./home_files/now-you-can-afford-that-in-ground-pool.jpg"
-                                                class="attachment-620x350 size-620x350"
-                                                alt="Cras hendrerit pharetra sem ac volutpat"
-                                                srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/now-you-can-afford-that-in-ground-pool.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/now-you-can-afford-that-in-ground-pool-300x169.jpg 300w"
-                                                sizes="(max-width: 620px) 100vw, 620px"></a>
-                                    </div>
-                                    <div class="carousel-caption">
-                                        Cras hendrerit pharetra sem ac volutpat
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="carousel-icon">
-                                        <a href="http://demo.designwall.com/dw-minion/2012/08/02/which-of-these-web-hosting-companies-would-you-choose/which-of-these-web-hosting-companies-would-you-choose-2/"><img
-                                                width="620" height="350"
-                                                src="./home_files/which-of-these-web-hosting-companies-would-you-choose.jpg"
-                                                class="attachment-620x350 size-620x350"
-                                                alt="Aliquam imperdiet metus nec erat mattis"
-                                                srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/which-of-these-web-hosting-companies-would-you-choose.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/which-of-these-web-hosting-companies-would-you-choose-300x169.jpg 300w"
-                                                sizes="(max-width: 620px) 100vw, 620px"></a>
-                                    </div>
-                                    <div class="carousel-caption">
-                                        Aliquam imperdiet metus nec erat mattis
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="carousel-icon">
-                                        <a href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/unlock-the-secrets-of-selling-high-ticket-items-2/"><img
-                                                width="620" height="350"
-                                                src="./home_files/unlock-the-secrets-of-selling-high-ticket-items.jpg"
-                                                class="attachment-620x350 size-620x350"
-                                                alt="Suspendisse sagittis nibh sollicitudin convallis"
-                                                srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/unlock-the-secrets-of-selling-high-ticket-items.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/unlock-the-secrets-of-selling-high-ticket-items-300x169.jpg 300w"
-                                                sizes="(max-width: 620px) 100vw, 620px"></a>
-                                    </div>
-                                    <div class="carousel-caption">
-                                        Suspendisse sagittis nibh sollicitudin convallis
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="carousel-icon">
-                                        <a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/take-advantage-of-the-falling-stock-market-2/"><img
-                                                width="620" height="350"
-                                                src="./home_files/take-advantage-of-the-falling-stock-market.jpg"
-                                                class="attachment-620x350 size-620x350"
-                                                alt="Donec tempus hendrerit gravida"
-                                                srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/take-advantage-of-the-falling-stock-market.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/take-advantage-of-the-falling-stock-market-300x169.jpg 300w"
-                                                sizes="(max-width: 620px) 100vw, 620px"></a>
-                                    </div>
-                                    <div class="carousel-caption">
-                                        Donec tempus hendrerit gravida
-                                    </div>
-                                </div>
+                    <article id="$blog.id"
+                             class="post-33 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing category-photography tag-playing tag-shopping">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="/blog/$blog.id" rel="bookmark">$blog.title</a>
+                            </h2>
+                            <div class="entry-meta">
+                                <span class="byline">By
+                                    <span class="author vcard">
+                                        <a class="url fn n" href="#">$blog.creatorNickName</a>
+                                    </span>
+                                </span>
+                                <span class="cat-links"> in
+                                    <a href="#">类目1</a>,
+                                    <a href="#">类目2</a>,
+                                    <a href="#">类目3</a>
+                                </span>
+                                <span class="sep">
+                                    <span class="post-format">
+                                        <i class="icon-file-text"></i>
+                                    </span>
+                                </span>
+                                <span class="posted-on">
+                                    <a href="#" title="$!blog.gmtCreate" rel="bookmark">
+                                        <i class="icon-calendar-empty"></i>
+                                        <time class="entry-date published" datetime="$!blog.gmtCreate">
+                                            $DateUtil.longFormat($!blog.gmtCreate)
+                                        </time>
+                                    </a>
+                                </span>
+                                <span class="comments-link">
+                                    <a href="/blog/$blog.id#comments">
+                                        <i class="icon-comment-alt"></i> $!commentList.size() 评论
+                                    </a>
+                                </span>
                             </div>
-                            <a data-slide="prev"
-                               href="http://demo.designwall.com/dw-minion/#carousel-1"
-                               class="carousel-control left"><i class="icon-chevron-left"></i></a><a
-                                data-slide="next"
-                                href="http://demo.designwall.com/dw-minion/#carousel-1"
-                                class="carousel-control right"><i
-                                class="icon-chevron-right"></i></a></div>
-                    </div>
-                    <p>Pellentesque eu mollis lectus. Integer tristique quis eros ut porttitor.
-                        Aliquam gravida, dolor volutpat venenatis lobortis, diam dolor varius lorem,
-                        ut rutrum metus nibh at risus. Sed ac tortor ac velit pharetra tristique
-                        eget at risus. <a
-                                href="http://demo.designwall.com/dw-minion/2013/05/28/finally-an-acne-cream-that-actually-does-what-it-says/"
-                                class="more-link"><span
-                                class="btn btn-small">Continue reading</span></a></p>
-                </div>
-            </article>
-            <article id="post-29"
-                     class="post-29 post type-post status-publish format-quote hentry category-freelancing category-journal tag-playing tag-sport tag-travel post_format-post-format-quote">
-                <header class="entry-header">
-                    <div class="entry-meta"><span class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2013-04-26T00:00:00+00:00">
-                            April 26, 2013
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2013/04/26/unlock-the-secrets-of-selling-high-ticket/#comments"><i
-                            class="icon-comment-alt"></i> 4 Comments</a></span>
-                    </div>
-                </header>
-                <div class="entry-content">
-                    <blockquote><p>Quality is more important than quantity. One home run is much
-                        better than two doubles.</p>
+                        </header>
 
-                        <div><cite><strong>Steve Jobs</strong>, Business Week</cite></div>
-                    </blockquote>
-                </div>
-            </article>
-            <article id="post-31"
-                     class="post-31 post type-post status-publish format-video hentry category-delicious category-photography tag-playing post_format-post-format-video">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/"
-                            rel="bookmark">Take Advantage Of The Stock Market</a></h2>
+                        <div class="entry-thumbnail">
+                            <a href="#">
+                                <img width="620" height="350"
+                                     src="http://freturn.oss-cn-hangzhou.aliyuncs.com/img/lyt.jpeg"
+                                     class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                     alt="demo"
+                                     sizes="(max-width: 620px) 100vw, 620px">
+                            </a>
+                        </div>
+                        <div class="entry-content">
+                            <p>$!blog.contentMap.get("content")
 
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/niki-baley/"
-                            title="View all posts by Niki Baley">Niki Baley</a></span></span><span
-                            class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/delicious/"
-                            rel="category tag">Delicious</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/photography/"
-                            rel="category tag">Photography</a></span><span class="sep"><span
-                            class="post-format"><i
-                            class="icon-facetime-video"></i></span></span><span class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2013-03-14T00:00:00+00:00">
-                            March 14, 2013
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/#comments"><i
-                            class="icon-comment-alt"></i> 1 Comment</a></span>
-                    </div>
-                </header>
-                <div class="entry-content">
-                    <p>Aliquam et tempus erat. Morbi convallis consequat interdum. Mauris sed
-                        gravida enim, vitae tincidunt neque. Nulla a nulla ullamcorper, sollicitudin
-                        sapien vel, egestas tellus. Mauris eu suscipit enim. Nulla at pellentesque
-                        velit, vel consectetur lacus. <a
-                                href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/"
-                                class="more-link"><span
-                                class="btn btn-small">Continue reading</span></a></p>
-                </div>
-            </article>
-            <article id="post-11"
-                     class="post-11 post type-post status-publish format-standard has-post-thumbnail hentry category-creativity category-travel tag-meeting tag-playing tag-sport">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/"
-                            rel="bookmark">Top Search Engine Optimization Strategies</a></h2>
+                                <a href="/blog/$blog.id" class="more-link">
+                                    <span class="btn btn-small">继续阅读</span>
+                                </a>
+                            </p>
+                        </div>
+                    </article>
 
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/johnna-nolette/"
-                            title="View all posts by Johnna Nolette">Johnna
-                        Nolette</a></span></span><span class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/creativity/"
-                            rel="category tag">Creativity</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/travel/"
-                            rel="category tag">Travel</a></span><span class="sep"><span
-                            class="post-format"><i class="icon-file-text"></i></span></span><span
-                            class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2012-09-03T00:00:00+00:00">
-                            September 3, 2012
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/#comments"><i
-                            class="icon-comment-alt"></i> 7 Comments</a></span>
-                    </div>
-                </header>
-                <div class="entry-thumbnail"><a
-                        href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/"
-                        rel="bookmark"><img width="620" height="350"
-                                            src="./home_files/finally-an-acne-cream-that-actually-does-what-it-says.jpg"
-                                            class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                                            alt="Finally! An Acne Cream That Actually Does What It Says!"
-                                            srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/finally-an-acne-cream-that-actually-does-what-it-says.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/finally-an-acne-cream-that-actually-does-what-it-says-300x169.jpg 300w"
-                                            sizes="(max-width: 620px) 100vw, 620px"></a></div>
-                <div class="entry-content">
-                    <p>Etiam sodales luctus est at consequat. Aliquam lacinia odio nec eros cursus
-                        laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                        Suspendisse sagittis massa a mi tempus, nec euismod lacus tristique. Mauris
-                        elit sapien, feugiat sed tincidunt eu, luctus a elit. <a
-                                href="http://demo.designwall.com/dw-minion/2012/09/03/top-search-engine-optimization-strategies/"
-                                class="more-link"><span
-                                class="btn btn-small">Continue reading</span></a></p>
-                </div>
-            </article>
-            <article id="post-15"
-                     class="post-15 post type-post status-publish format-standard has-post-thumbnail hentry category-journal category-travel tag-dancing tag-sport tag-travel">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/"
-                            rel="bookmark">Discover 3 Simple Ways To Reduce Your Unwanted
-                        Wrinkles</a></h2>
+                #elseif($!blog.type.code == 'LINK')
+                    <article id="$blog.id"
+                             class="post-13 post type-post status-publish format-link hentry category-delicious category-photography tag-dancing tag-shopping post_format-post-format-link">
+                        <header class="entry-header">
+                            <h2 class="entry-title"><a href="/blog/$blog.id"
+                                    rel="bookmark">$blog.title</a></h2></header>
+                        <div class="entry-content">
+                            <p><a title="$!blog.contentMap.get("title")" href="$!blog.contentMap.get("url")"
+                                  target="_blank">$!blog.contentMap.get("url")</a></p>
+                        </div>
+                    </article>
 
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/fawn-council/"
-                            title="View all posts by Fawn Council">Fawn
-                        Council</a></span></span><span class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/journal/"
-                            rel="category tag">Journal</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/travel/"
-                            rel="category tag">Travel</a></span><span class="sep"><span
-                            class="post-format"><i class="icon-file-text"></i></span></span><span
-                            class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2012-08-10T00:00:00+00:00">
-                            August 10, 2012
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/#comments"><i
-                            class="icon-comment-alt"></i> 7 Comments</a></span>
-                    </div>
-                </header>
-                <div class="entry-thumbnail"><a
-                        href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/"
-                        rel="bookmark"><img width="620" height="350"
-                                            src="./home_files/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles.jpg"
-                                            class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                                            alt="Discover 3 Simple Ways To Reduce Your Unwanted Wrinkles!"
-                                            srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles-300x169.jpg 300w"
-                                            sizes="(max-width: 620px) 100vw, 620px"></a></div>
-                <div class="entry-content">
-                    <p>Nullam dictum viverra metus vel mollis. Morbi ac ultrices massa. Nunc
-                        ultricies mattis lectus, a faucibus libero volutpat sit amet. Duis eget
-                        egestas lacus, in aliquet nibh. Donec elementum, augue non tincidunt
-                        facilisis, lectus nibh sagittis lectus, vitae malesuada sem elit ut neque.
-                        <a href="http://demo.designwall.com/dw-minion/2012/08/10/discover-3-simple-ways-to-reduce-your-unwanted-wrinkles/"
-                           class="more-link"><span class="btn btn-small">Continue reading</span></a>
-                    </p>
-                </div>
-            </article>
-            <article id="post-19"
-                     class="post-19 post type-post status-publish format-standard has-post-thumbnail hentry category-photography category-travel tag-meeting tag-my-family tag-sport">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2012/08/02/which-of-these-web-hosting-companies-would-you-choose/"
-                            rel="bookmark">Which Of These Web Hosting Companies Would You
-                        Choose?</a></h2>
+                #elseif($!blog.type.code == 'QUOTE')
+                    <article id="$blog.id"
+                             class="post-29 post type-post status-publish format-quote hentry category-freelancing category-journal tag-playing tag-sport tag-travel post_format-post-format-quote">
+                        <header class="entry-header">
+                            <div class="entry-meta">
+                            <span class="posted-on">
+                                <a href="#" title="$!blog.gmtCreate" rel="bookmark">
+                                    <i class="icon-calendar-empty"></i>
+                                    <time class="entry-date published" datetime="$!blog.gmtCreate">
+                                        $DateUtil.longFormat($!blog.gmtCreate)
+                                    </time>
+                                </a>
+                            </span>
+                            <span class="comments-link">
+                                <a href="/blog/$blog.id#comments">
+                                    <i class="icon-comment-alt"></i> $!commentList.size() 评论
+                                </a>
+                            </span>
+                            </div>
+                        </header>
+                        <div class="entry-content">
+                            <blockquote>
+                                <a href="/blog/$blog.id" rel="bookmark" style="text-decoration:none">
+                                    <p>$!blog.contentMap.get("content")</p>
+                                </a>
 
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/shyla-boxer/"
-                            title="View all posts by Shyla Boxer">Shyla Boxer</a></span></span><span
-                            class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/photography/"
-                            rel="category tag">Photography</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/travel/"
-                            rel="category tag">Travel</a></span><span class="sep"><span
-                            class="post-format"><i class="icon-file-text"></i></span></span><span
-                            class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2012/08/02/which-of-these-web-hosting-companies-would-you-choose/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2012-08-02T00:00:00+00:00">
-                            August 2, 2012
-                        </time>
-                    </a></span></div>
-                </header>
-                <div class="entry-thumbnail"><a
-                        href="http://demo.designwall.com/dw-minion/2012/08/02/which-of-these-web-hosting-companies-would-you-choose/"
-                        rel="bookmark"><img width="620" height="350"
-                                            src="./home_files/which-of-these-web-hosting-companies-would-you-choose.jpg"
-                                            class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                                            alt="Aliquam imperdiet metus nec erat mattis"
-                                            srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/which-of-these-web-hosting-companies-would-you-choose.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/which-of-these-web-hosting-companies-would-you-choose-300x169.jpg 300w"
-                                            sizes="(max-width: 620px) 100vw, 620px"></a></div>
-                <div class="entry-content">
-                    <p>Maecenas hendrerit nisl ac justo scelerisque pretium. Vivamus at ultrices
-                        lorem, non imperdiet nulla. Sed gravida nisl commodo neque imperdiet
-                        pellentesque. Nam pretium viverra odio, in sollicitudin ipsum cursus a. <a
-                                href="http://demo.designwall.com/dw-minion/2012/08/02/which-of-these-web-hosting-companies-would-you-choose/"
-                                class="more-link"><span
-                                class="btn btn-small">Continue reading</span></a></p>
-                </div>
-            </article>
-            <article id="post-17"
-                     class="post-17 post type-post status-publish format-standard has-post-thumbnail hentry category-journal category-photography tag-playing">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2012/06/25/used-car-dealer-sales-tricks-exposed/"
-                            rel="bookmark">Used Car Dealer Sales Tricks Exposed</a></h2>
+                                <div>
+                                    <cite>
+                                        <strong>$!blog.contentMap.get("cite")</strong>
+                                    </cite>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </article>
 
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/shelly-pfaff/"
-                            title="View all posts by Shelly Pfaff">Shelly
-                        Pfaff</a></span></span><span class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/journal/"
-                            rel="category tag">Journal</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/photography/"
-                            rel="category tag">Photography</a></span><span class="sep"><span
-                            class="post-format"><i class="icon-file-text"></i></span></span><span
-                            class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2012/06/25/used-car-dealer-sales-tricks-exposed/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2012-06-25T00:00:00+00:00">June
-                            25, 2012
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2012/06/25/used-car-dealer-sales-tricks-exposed/#comments"><i
-                            class="icon-comment-alt"></i> 2 Comments</a></span>
-                    </div>
-                </header>
-                <div class="entry-thumbnail"><a
-                        href="http://demo.designwall.com/dw-minion/2012/06/25/used-car-dealer-sales-tricks-exposed/"
-                        rel="bookmark"><img width="620" height="350"
-                                            src="./home_files/used-car-dealer-sales-tricks-exposed.jpg"
-                                            class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                                            alt="Used Car Dealer Sales Tricks Exposed!"
-                                            srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/used-car-dealer-sales-tricks-exposed.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/used-car-dealer-sales-tricks-exposed-300x169.jpg 300w"
-                                            sizes="(max-width: 620px) 100vw, 620px"></a></div>
-                <div class="entry-content">
-                    <p>Proin non sodales leo, vel ullamcorper ante. Etiam gravida sem ac dui
-                        aliquam, ut rhoncus neque fermentum. Ut sagittis posuere dolor, vitae
-                        adipiscing velit imperdiet posuere. Nullam a purus ut lorem sollicitudin
-                        pharetra. <a
-                                href="http://demo.designwall.com/dw-minion/2012/06/25/used-car-dealer-sales-tricks-exposed/"
-                                class="more-link"><span
-                                class="btn btn-small">Continue reading</span></a></p>
-                </div>
-            </article>
-            <article id="post-188"
-                     class="post-188 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing tag-meeting tag-my-family tag-shopping">
-                <header class="entry-header">
-                    <h2 class="entry-title"><a
-                            href="http://demo.designwall.com/dw-minion/2012/04/08/last-chance-to-save-50-off-this-stunning-ring/"
-                            rel="bookmark">Last Chance To Save 50% Off This Stunning Ring</a></h2>
+                #elseif($!blog.type.code == 'GALLERY')
 
-                    <div class="entry-meta"><span class="byline">By <span class="author vcard"><a
-                            class="url fn n"
-                            href="http://demo.designwall.com/dw-minion/author/madelaine-jelks/"
-                            title="View all posts by Madelaine Jelks">Madelaine
-                        Jelks</a></span></span><span class="cat-links"> in <a
-                            href="http://demo.designwall.com/dw-minion/category/delicious/"
-                            rel="category tag">Delicious</a>, <a
-                            href="http://demo.designwall.com/dw-minion/category/freelancing/"
-                            rel="category tag">Freelancing</a></span><span class="sep"><span
-                            class="post-format"><i class="icon-file-text"></i></span></span><span
-                            class="posted-on"><a
-                            href="http://demo.designwall.com/dw-minion/2012/04/08/last-chance-to-save-50-off-this-stunning-ring/"
-                            title="12:00 am" rel="bookmark"><i class="icon-calendar-empty"></i>
-                        <time class="entry-date published" datetime="2012-04-08T00:00:00+00:00">
-                            April 8, 2012
-                        </time>
-                    </a></span> <span class="comments-link"><a
-                            href="http://demo.designwall.com/dw-minion/2012/04/08/last-chance-to-save-50-off-this-stunning-ring/#respond"><i
-                            class="icon-comment-alt"></i> 0 Comment</a></span>
-                    </div>
-                </header>
-                <div class="entry-thumbnail"><a
-                        href="http://demo.designwall.com/dw-minion/2012/04/08/last-chance-to-save-50-off-this-stunning-ring/"
-                        rel="bookmark"><img width="620" height="350"
-                                            src="./home_files/last-chance-to-save-50-off-this-stunning-ring.jpg"
-                                            class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                                            alt="Last Chance To Save 50% Off This Stunning Ring"
-                                            srcset="http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/last-chance-to-save-50-off-this-stunning-ring.jpg 620w, http://demo.designwall.com/dw-minion/wp-content/uploads/sites/7/2013/07/last-chance-to-save-50-off-this-stunning-ring-300x169.jpg 300w"
-                                            sizes="(max-width: 620px) 100vw, 620px"></a></div>
-                <div class="entry-content">
-                    <p>Aenean in nibh auctor nisi elementum malesuada. Etiam varius semper enim, vel
-                        pretium magna porta sed. Vestibulum vel metus non nunc varius rutrum quis
-                        venenatis augue. Praesent vel egestas justo. Duis nec interdum urna. <a
-                                href="http://demo.designwall.com/dw-minion/2012/04/08/last-chance-to-save-50-off-this-stunning-ring/"
-                                class="more-link"><span
-                                class="btn btn-small">Continue reading</span></a></p>
-                </div>
-            </article>
+                    <article id="$"
+                             class="post-190 post type-post status-publish format-gallery hentry category-freelancing category-journal tag-dancing tag-my-family tag-playing post_format-post-format-gallery">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="/blog/$blog.id" rel="bookmark">$blog.title</a>
+                            </h2>
+
+                            <div class="entry-meta">
+                                <span class="sep">
+                                            <span class="post-format">
+                                                 <i class="icon-file-text"></i>
+                                            </span>
+                                </span>
+                                <span class="posted-on">
+                                            <a href="#" title="$!blog.gmtCreate" rel="bookmark">
+                                                <i class="icon-calendar-empty"></i>
+                                                <time class="entry-date published" datetime="$!blog.gmtCreate">
+                                                    $DateUtil.longFormat($!blog.gmtCreate)
+                                                </time>
+                                            </a>
+                                </span>
+                                <span class="comments-link">
+                                            <a href="/blog/$blog.id#comments">
+                                                <i class="icon-comment-alt"></i> $!commentList.size() 评论
+                                            </a>
+                                </span>
+
+                            </div>
+                        </header>
+                                <div class="entry-content">
+                                    <div class="entry-gallery">
+                                        <div id="carousel-1" class="carousel slide carousel-190">
+                                            #set($iuArray = $!blog.contentMap.get("imageUrlList"))
+                                            <ol class="carousel-indicators">
+                                                #foreach($imgUrl in $iuArray)
+                                                    <li class="#if($velocityCount == 1) active #end" data-slide-to="$velocityCount" data-target="#carousel-1"></li>
+                                                #end
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                #foreach($imgUrl in $iuArray)
+                                                    <div class="item #if($velocityCount == 1) active #end">
+                                                        <div class="carousel-icon">
+                                                            <a href="#">
+                                                                <img width="620" height="350"
+                                                                     src="$imgUrl"
+                                                                     class="attachment-620x350 size-620x350"
+                                                                     sizes="(max-width: 620px) 100vw, 620px"></a>
+                                                        </div>
+                                                    </div>
+                                                #end
+
+                                            </div>
+                                            <a data-slide="prev" href="#carousel-1" class="carousel-control left"><i
+                                                    class="icon-chevron-left"></i>
+                                            </a>
+                                            <a data-slide="next" href="#carousel-1" class="carousel-control right">
+                                                <i class="icon-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <p>$!blog.contentMap.get("desc")</p>
+
+
+                                </div>
+                    </article>
+
+
+                #end
+
+
+            #end
+
+
+
+
+
             <nav role="navigation" id="nav-below" class="paging-navigation pager">
                 <div class="nav-previous">
                     <span class="btn disabled"><i class="icon-chevron-left"></i></span>
