@@ -15,6 +15,8 @@ public interface PathConstant {
 
     String USER_REGISTER = "screen/register";
 
+    String QUERY_RESULT = "screen/queryResult";
+
 
     /**=========== 用户相关[前台]页面路径 ============ **/
 

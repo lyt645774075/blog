@@ -2,6 +2,13 @@ package com.freturn.tech.controller;
 
 import com.freturn.tech.biz.manager.UserManager;
 import com.freturn.tech.support.constant.PathConstant;
+import com.google.common.collect.Maps;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,7 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  *
@@ -69,6 +80,39 @@ public class WebController {
         modelMap.addAttribute("autoLogin", "true");
 
         return PathConstant.USER_LOGIN;
+    }
+
+    @RequestMapping(value = "/qrtest")
+    public void getQr(HttpServletResponse response) throws WriterException, IOException {
+        String text = "http://www.baidu.com";
+        int width = 100;
+        int height = 100;
+        String format = "png";
+        HashMap hints= Maps.newHashMap();
+        hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
+
+        response.setContentType("image/png");
+
+        OutputStream os = response.getOutputStream();  //创建输出流
+
+        BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height,hints);
+        MatrixToImageWriter.writeToStream(bitMatrix, format, os);
+
+        os.flush();
+        os.close();
+
+    }
+
+
+    /**
+     * 全站搜索
+     *
+     */
+    @RequestMapping(value = "/webSiteQuery", method = RequestMethod.POST)
+    public String webSiteQuery(@RequestParam String keyword){
+
+        return PathConstant.QUERY_RESULT;
+
     }
 
 
