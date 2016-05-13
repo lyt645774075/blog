@@ -5,8 +5,8 @@
         <div class="container">
             <header id="masthead" class="site-header" role="banner">
                 <h1 class="site-title display-logo">
-                    <a href="#" title="DW Minion" rel="home">
-                        <img alt="DW Minion" src="$!user.iconUrl">
+                    <a href="#" rel="home">
+                        <img src="$!user.iconUrl">
                     </a>
                 </h1>
 
@@ -103,6 +103,8 @@
                 <li class="social"><a href="/admin/blog/edit" title="写文章"><i class="icon-pencil"></i></a>
                 </li>
                 #if($loginUser.isLogin())
+                    <li class="social"><a href="/user/$loginUser.id" title="个人主页"><i class="icon-home"></i></a>
+                    </li>
 
                     <li class="social"><a href="/admin/useradmin" title="用户管理"><i class="icon-user"></i></a>
                     </li>

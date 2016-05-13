@@ -13,6 +13,7 @@ import com.freturn.tech.support.constant.UserType;
 import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
 import com.freturn.tech.support.domainObj.transfer.UserTransfer;
 import com.freturn.tech.support.utils.UserIdGenerator;
+import com.freturn.tech.support.utils.UserUtil;
 import org.springframework.stereotype.Component;
 
 import com.freturn.tech.biz.domain.Comment;
@@ -58,6 +59,7 @@ public class UserManagerImpl implements UserManager{
         userBaseInfoDO.setEmail(email);
         userBaseInfoDO.setPassWord(passWord);
         userBaseInfoDO.setNickName(nickName);
+        userBaseInfoDO.setIconUrl(UserUtil.getRandomIconUrl());
 
         userBaseInfoDO.setType(UserType.PERSON.getCode());
 
