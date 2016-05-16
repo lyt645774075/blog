@@ -1,3 +1,81 @@
 #set($layout="layout/admin/adminDefault.vm")
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/cropper.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconeditMain.css">
 
-用户头像编辑
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/cropper.js"></script>
+<script src="/js/iconeditMain.js"></script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- <h3 class="page-header">Demo:</h3> -->
+            <div class="img-container">
+                <img id="image" src="/img/picture.jpg" alt="Picture">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- <h3 class="page-header">Preview:</h3> -->
+            <div class="docs-preview clearfix">
+                <div class="img-preview preview-lg"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-9 docs-buttons">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" data-method="reset" title="Reset">
+            <span class="docs-tooltip" data-toggle="tooltip" title="重置">
+              <span class="fa fa-refresh"></span>
+            </span>
+                </button>
+                <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
+                    <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+            <span class="docs-tooltip" data-toggle="tooltip" title="选择图片">
+              <span class="fa fa-upload"></span>
+            </span>
+                </label>
+            </div>
+
+            <div class="btn-group btn-group-crop">
+                <button type="button" class="btn btn-primary" data-method="getCroppedCanvas">
+            <span class="docs-tooltip" data-toggle="tooltip" title="预览头像">
+              预览头像
+            </span>
+                </button>
+
+            </div>
+
+            <!-- Show the cropped image in modal -->
+            <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 裁剪后图片显示 <canvas>-->
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <a class="btn btn-primary" id="download" download="cropped.png" href="javascript:void(0);">上传头像（现在是下载）</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal -->
+
+        </div>
+    </div>
+</div>
