@@ -62,4 +62,6 @@ public interface UserManager {
     void deleteWork(String userId, String workName);
 
 
+    void updateIcon(String userId, String iconUrl);
+
 }

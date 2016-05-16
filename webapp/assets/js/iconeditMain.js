@@ -34,25 +34,25 @@ $(function () {
   // Cropper
   $image.on({
     'build.cropper': function (e) {
-      console.log(e.type);
+      //console.log(e.type);
     },
     'built.cropper': function (e) {
-      console.log(e.type);
+      //console.log(e.type);
     },
     'cropstart.cropper': function (e) {
-      console.log(e.type, e.action);
+      //console.log(e.type, e.action);
     },
     'cropmove.cropper': function (e) {
-      console.log(e.type, e.action);
+      //console.log(e.type, e.action);
     },
     'cropend.cropper': function (e) {
-      console.log(e.type, e.action);
+      //console.log(e.type, e.action);
     },
     'crop.cropper': function (e) {
-      console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
+      //console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
     },
     'zoom.cropper': function (e) {
-      console.log(e.type, e.ratio);
+      //console.log(e.type, e.ratio);
     }
   }).cropper(options);
 
@@ -147,8 +147,36 @@ $(function () {
               $download.attr('href', result.toDataURL());
             }
           }
-
           break;
+        case 'uploadIcon':
+          $image.cropper('getCroppedCanvas').toBlob(function (blob) {
+            var formData = new FormData();
+
+            formData.append('icon', blob);
+
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
+
+            $.ajax('/admin/user/iconedit/update', {
+              method: "POST",
+              data: formData,
+              cache: false,
+              processData: false,
+              contentType: false,
+
+              beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+              },
+              success: function () {
+                console.log('Upload success');
+              },
+              error: function () {
+                console.log('Upload error');
+              }
+            });
+          });
+          break;
+
       }
 
       if ($.isPlainObject(result) && $target) {
@@ -230,3 +258,4 @@ $(function () {
   }
 
 });
+

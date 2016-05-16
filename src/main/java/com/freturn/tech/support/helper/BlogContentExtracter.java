@@ -40,7 +40,6 @@ public class BlogContentExtracter {
         while (imgMatcher.find()) {
 
             String img = imgMatcher.group();
-            System.out.println(img);
             Matcher m = SrcPattern.matcher(img);
             while (m.find()) {
                 srcList.add(m.group(1));

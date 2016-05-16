@@ -4,6 +4,7 @@ import com.freturn.tech.biz.domain.User;
 import com.freturn.tech.biz.manager.UserManager;
 import com.freturn.tech.security.login.LoginUserHolder;
 import com.freturn.tech.support.constant.PathConstant;
+import com.freturn.tech.support.helper.ImageUploadHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 /**
  *
@@ -32,6 +35,9 @@ public class UserAdminController {
 
     @Resource
     private LoginUserHolder loginUserHolder;
+
+    @Resource
+    private ImageUploadHelper imageUploadHelper;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -98,6 +104,21 @@ public class UserAdminController {
     public String getUserIconEdit(){
         return PathConstant.USER_ADMIN_ICON;
     }
+
+    @RequestMapping(value = "/iconedit/update", method = RequestMethod.POST)
+    public String postUserIconEdit(@RequestParam MultipartFile icon){
+
+        try {
+            String url = imageUploadHelper.doUpload(icon);
+
+            userManager.updateIcon(loginUserHolder.getId(), url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return PathConstant.R_ADMIN_USER_ICON;
+    }
+
 
     @RequestMapping(value = "/experience", method = RequestMethod.GET)
     public String getUserExperience(){

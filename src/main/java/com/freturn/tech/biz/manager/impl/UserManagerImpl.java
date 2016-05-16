@@ -172,4 +172,18 @@ public class UserManagerImpl implements UserManager{
         userExtInfoDOMapper.deleteByUserIdAndExtName(userId, workName);
 
     }
+
+    @Override
+    public void updateIcon(String userId, String iconUrl) {
+        UserBaseInfoDO baseInfoDO = userBaseInfoDOMapper.selectByPrimaryKey(userId);
+
+        if(baseInfoDO == null){
+            return ;
+        }
+
+        baseInfoDO.setIconUrl(iconUrl);
+
+        userBaseInfoDOMapper.updateByPrimaryKey(baseInfoDO);
+
+    }
 }

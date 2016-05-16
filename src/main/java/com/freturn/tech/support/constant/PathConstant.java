@@ -55,6 +55,8 @@ public interface PathConstant {
 
     String R_ADMIN_USER_WORKS = R + "/admin/user/works";
 
+    String R_ADMIN_USER_ICON = R + "/admin/user/iconedit";
+
 
 
 }
