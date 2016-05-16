@@ -27,4 +27,38 @@ public interface UserManager {
      * @return
      */
     List<Comment> queryKLatestComment(String userId, Integer k);
+
+
+    /**
+     * 添加文章分类
+     * @param userId
+     * @param cateName
+     */
+    void addCategory(String userId, String cateName);
+
+
+    /**
+     * 删除文章分类
+     * @param userId
+     * @param cateName
+     */
+    void deleteCategory(String userId, String cateName);
+
+
+    /**
+     * 添加个人作品
+     * @param userId
+     * @param cateName
+     */
+    void addWork(String userId, String cateName);
+
+
+    /**
+     * 删除个人作品
+     * @param userId
+     * @param cateName
+     */
+    void deleteWork(String userId, String cateName);
+
+
 }

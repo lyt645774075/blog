@@ -35,10 +35,25 @@ public interface PathConstant {
 
     String USER_ADMIN = "screen/admin/useradmin";
 
+    String USER_ADMIN_CATE = "screen/admin/category";
+
+    String USER_ADMIN_PROD = "screen/admin/works";
+
+    String USER_ADMIN_ICON = "screen/admin/iconedit";
+
+    String USER_ADMIN_EXPERIENCE = "screen/admin/experience";
+
+    String USER_ADMIN_BASEINFO = "screen/admin/baseinfo";
 
 
 
+    /**========== 重定向页面 ================= **/
 
+    String R = "redirect:";
+
+    String R_ADMIN_USER_CATE = R + "/admin/user/category";
+
+    String R_ADMIN_USER_WORKS = R + "/admin/user/works";
 
 
 

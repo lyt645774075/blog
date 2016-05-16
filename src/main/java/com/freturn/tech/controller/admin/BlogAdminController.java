@@ -5,6 +5,7 @@ import com.freturn.tech.security.login.LoginUserHolder;
 import com.freturn.tech.support.constant.PathConstant;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,8 +26,11 @@ public class BlogAdminController {
     @Resource
     private LoginUserHolder loginUserHolder;
 
-    @RequestMapping(value = "/admin/blog/edit", method = RequestMethod.GET)
-    public String getUserHome(ModelMap modelMap) {
+    @RequestMapping(value = "/admin/blog/edit/{type}", method = RequestMethod.GET)
+    public String getUserHome(@PathVariable String type, ModelMap modelMap) {
+
+        modelMap.addAttribute("active", type.toLowerCase());
+
         return PathConstant.BLOG_EDIT;
     }
 

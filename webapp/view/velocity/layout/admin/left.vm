@@ -1,0 +1,97 @@
+
+<div id="navigation" class="site-nav" style="display: block;">
+    <div class="site-nav-inner">
+        <div class="">
+            <header id="masthead" class="site-header" role="banner">
+                <h1 class="site-title display-logo">
+                    <a href="#" rel="home">
+                        <img src="$!loginUser.iconUrl">
+                    </a>
+                </h1>
+
+                <p class="site-subtitle">$!loginUser.nickName</p>
+
+                <h2 class="site-description">$!loginUser.selfIntroduction</h2>
+            </header>
+
+            <div id="main-sidebar" class="widget-area" role="complementary">
+                <aside id="nav_menu-2" class="widget widget_nav_menu">
+                    <div class="menu-main-menu-container">
+                        <ul id="menu-main-menu" class="menu">
+                            <li id="menu-item-113"
+                                class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a href="/admin/user/iconedit">个人头像</a></li>
+                            <li id="menu-item-113"
+                                class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a href="/admin/user/baseinfo">基本信息</a></li>
+                            <li id="menu-item-97"
+                                class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/admin/user/experience">简历管理</a></li>
+                            <li id="menu-item-114"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                <label>发表文章</label>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-post">
+                                        <a href="/admin/blog/edit/standard">普通博客</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-post">
+                                        <a href="/admin/blog/edit/gallery">分享图片</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-post">
+                                        <a href="/admin/blog/edit/quote">生活感悟</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-post">
+                                        <a href="/admin/blog/edit/link" >站点推荐</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li id="menu-item-112"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112">
+                                <a href="/admin/user/category">文章分类管理</a>
+                            </li>
+                            <li id="menu-item-112"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112">
+                                <a href="/admin/user/works">个人作品管理</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </aside>
+
+                <aside id="categories-2" class="widget widget_categories">
+                    <h3 class="widget-title"><a href="#">已发表</a></h3>
+                    <ul id="menu-main-menu" class="menu">
+                        <li id="menu-item-113"
+                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-113">
+                            <a href="/user/$!user.id">公开的</a></li>
+                        <li id="menu-item-97"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a
+                                href="/user/$!user.id/aboutme">私人的</a></li>
+                        <li id="menu-item-114"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-114">
+                            <a href="#">草稿</a>
+                        </li>
+                    </ul>
+                </aside>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+#parse("action.vm")
+
+
+#*注销表单*#
+<form action="/logout" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
+
+</form>
+
+<script>
+    jQuery(".logout").click(function () {
+        jQuery("#logoutForm").submit();
+    });
+</script>

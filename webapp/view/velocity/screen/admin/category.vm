@@ -1,0 +1,88 @@
+#set($layout="layout/admin/adminDefault.vm")
+
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+
+
+            <aside id="categories-2" class="widget widget_categories">
+                <div class="widget-title">
+                    <h5><b>已有分类</b><small style="margin-left: 40px;">
+                        <a data-toggle="modal" data-target="#addCateModal">新增</a>
+                    </small></h5>
+                </div>
+                <ul id="menu-main-menu" class="menu">
+                    <li id="menu-item-113"
+                        class="menu-item menu-item-type-custom menu-item-object-custom ">
+                        <h6>
+                            JAVA设计模式<span class="badge" style="margin-left: 10px">14</span>
+                            <a class="delLink pull-right" style="margin-right: 20px" userId="1" cateName="test">删除</a>
+                        </h6>
+                    </li>
+                    <li id="menu-item-97"
+                        class="menu-item menu-item-type-post_type menu-item-object-page ">
+                        <h6>
+                            JAVA设计模式<span class="badge" style="margin-left: 10px">14</span>
+                            <a class="pull-right" style="margin-right: 20px">删除</a>
+                        </h6>
+                    </li>
+                    <li id="menu-item-114"
+                        class="menu-item menu-item-type-custom menu-item-object-custom  ">
+                        <h6>
+                            JAVA设计模式<span class="badge" style="margin-left: 10px">14</span>
+                            <a class="pull-right" style="margin-right: 20px">删除</a>
+                        </h6>
+                    </li>
+                </ul>
+            </aside>
+
+
+
+            #*添加分类模态框*#
+            <div class="modal fade" id="addCateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form method="post" action="/amdin/user/category/add">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">创建分类</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <h6 for="newCate">类目名称</h6>
+                                    <input id="newCate" type="text" class="form-control" name="newCate" placeholder="请输入...">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">确定</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<form action="/admin/user/category/delete" method="post" id="delForm">
+
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+    <input type="hidden" id="delCateName" name="cateName" value="">
+
+</form>
+
+
+<script>
+
+    jQuery(".delLink").click(function(){
+        jQuery('#delCateName').val($(this).attr('cateName'));
+        jQuery('#delForm').submit();
+    });
+
+</script>

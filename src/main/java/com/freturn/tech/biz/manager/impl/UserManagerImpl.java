@@ -106,4 +106,25 @@ public class UserManagerImpl implements UserManager{
 
         return CommentTransfer.toBOList(commentDoList);
     }
+
+
+    @Override
+    public void addCategory(String userId, String cateName) {
+
+    }
+
+    @Override
+    public void deleteCategory(String userId, String cateName) {
+
+    }
+
+    @Override
+    public void addWork(String userId, String cateName) {
+
+    }
+
+    @Override
+    public void deleteWork(String userId, String cateName) {
+
+    }
 }

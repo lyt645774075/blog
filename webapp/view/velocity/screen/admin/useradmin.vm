@@ -1,3 +1,8 @@
+#set($layout="layout/admin/adminDefault.vm")
+
 hi,$loginUser.getNickName()
+
+
+
 
 欢迎登陆用户管理页面

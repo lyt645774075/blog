@@ -1,0 +1,105 @@
+#set($layout="layout/admin/adminDefault.vm")
+
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+
+            <aside id="meta-2" class="widget widget_meta">
+                <div class="widget-title">
+                    <h5>个人作品<small style="margin-left: 40px;">
+                        <a data-toggle="modal" data-target="#addWorkModal">新增</a>
+                    </small></h5>
+                </div>
+
+                <ul>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom ">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <i class="icon-globe"></i>WalkWithUs
+                                <small style="margin-left: 20px"><a>http://walkwithus.cn:8080</a></small>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="delLink" userId="1" workName="work">删除</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom ">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <i class="icon-globe"></i>WalkWithUs
+                                <small style="margin-left: 20px"><a>http://walkwithus.cn:8080</a></small>
+                            </div>
+                            <div class="col-md-2">
+                                <a>删除</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom ">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <i class="icon-globe"></i>WalkWithUs
+                                <small style="margin-left: 20px"><a>http://walkwithus.cn:8080</a></small>
+                            </div>
+                            <div class="col-md-2">
+                                <a>删除</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+
+
+
+            #*添加作品模态框*#
+            <div class="modal fade" id="addWorkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form method="post" action="/amdin/user/works/add">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">添加作品</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <h6 for="workName">作品名称</h6>
+                                    <input id="workName" type="text" class="form-control" name="workName" placeholder="请输入...">
+                                </div>
+                                <div class="form-group">
+                                    <h6 for="workName">链接地址</h6>
+                                    <input type="text" class="form-control" name="link" placeholder="请输入...">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">确定</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<form action="/admin/user/works/delete" method="post" id="delForm">
+
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+    <input type="hidden" id="delWorkName" name="workName" value="">
+
+</form>
+
+
+<script>
+
+    jQuery(".delLink").click(function(){
+        jQuery('#delWorkName').val($(this).attr('workName'));
+        jQuery('#delForm').submit();
+    });
+
+</script>

@@ -28,29 +28,30 @@
     <link rel="stylesheet" id="dw-minion-main-css" href="/css/dw-minion.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="dw-minion-style-css" href="/css/style.css" type="text/css" media="all">
     <script type="text/javascript" src="/js/modernizr.js"></script>
-    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery-migrate.min.js"></script>
-    <script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
     <link rel="stylesheet" href="/css/designit.min.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+
 </head>
 <body class="home blog group-blog">
 <div id="page" class="hfeed site" >
-    <div class="container clearfix">
+    <div class="clearfix">
 
-        #parse("left.vm")
+        #parse("layout/admin/left.vm")
 
         <div id="main" class="site-main" style="min-height: 568px;">
             <div class="site-main-inner">
                 <div class="container clearfix">
                     $screen_content
 
-                    #parse("right.vm")
-
                 </div>
             </div>
         </div>
 
-        #parse("footer.vm")
+        #parse("/footer.vm")
     </div>
 </div>
 
