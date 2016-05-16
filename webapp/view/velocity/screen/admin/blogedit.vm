@@ -19,7 +19,7 @@
 
 <div id="primary" class="content-area">
     <div class="primary-inner">
-        <div id="content" class="site-content" role="main">
+        <div class="site-content" role="main">
 
             #if($!type == 'standard')
                 <div class="tab-pane" id="standard">
@@ -36,10 +36,6 @@
                         <div class="col-md-12">
                             <input class="form-control" type="text" id="category" name="category" placeholder="所属分类"
                                    value="$!blog.category">
-                        </div>
-                        <div class="col-md-12">
-                            <input class="form-control" type="text" id="address" name="address" placeholder="文章标签"
-                                   value="$!activity.address">
                         </div>
                         <div class="col-md-12">
                             <div id="summernote" class="form-control">

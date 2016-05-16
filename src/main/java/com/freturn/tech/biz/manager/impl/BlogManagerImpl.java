@@ -20,7 +20,6 @@ import com.freturn.tech.support.domainObj.transfer.BlogTransfer;
 import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
 import com.freturn.tech.support.helper.ImageUploadHelper;
 import com.freturn.tech.support.utils.BlogIdGenerator;
-import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

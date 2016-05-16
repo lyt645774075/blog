@@ -32,6 +32,10 @@
                             <entry key="DateUtil">
                                    <ref bean="dateUtil"/>
                             </entry>
+
+                            <entry key="extracter">
+                                   <ref bean="blogContentExtracter"/>
+                            </entry>
                      </map>
               </property>
 

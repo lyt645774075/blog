@@ -1,18 +1,13 @@
 package com.freturn.tech.support.helper;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.springframework.stereotype.Component;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +16,8 @@ import java.util.regex.Pattern;
  * @author yangtao.lyt
  * @version $Id: BlogContentExtracter, v 0.1 2016-05-12 13:58 yangtao.lyt Exp $
  */
+
+@Component
 public class BlogContentExtracter {
 
     private static final String  regEx_img  = "<img.*src\\s*=\\s*(.*?)[^>]*?>";
@@ -52,20 +49,29 @@ public class BlogContentExtracter {
         return srcList;
     }
 
+    public static String getAbstract(String content, Integer maxWordCount, String replaceStr) {
+
+        Document doc = Jsoup.parseBodyFragment(content);
+        Element article = doc.body();
+
+        if(article.text().length() < maxWordCount){
+            return article.text();
+        } else {
+            return article.text().substring(0, maxWordCount) + replaceStr;
+        }
+
+
+    }
+
+    public static String getAbstract(String content, Integer maxWordCount) {
+        return getAbstract(content, maxWordCount, "");
+    }
+
     public static void main(String[] args) throws IOException, WriterException {
 
-        String text = "http://www.baidu.com";
-        int width = 100;
-        int height = 100;
-        String format = "png";
-        HashMap hints= Maps.newHashMap();
-        hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
-        BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height,hints);
-        OutputStream outputStream = new FileOutputStream("2.png");
+        String line="<p>hi,all</p><p>这是第一篇博客文章，欢迎大家关注我</p><p><img src=\"http://freturn.oss-cn-hangzhou.aliyuncs.com/upload/img/user/013db9200f2cc647c82346a09b4f62f2.jpg\" data-filename=\"上传图片\" style=\"width: 740px;\"><br></p><p>中国中国中国,第一篇博客文章，欢迎大家,第一篇博客文章，欢迎大家</p>";
 
-        MatrixToImageWriter.writeToStream(bitMatrix, format, outputStream);// 输出图像
-        System.out.println("输出成功.");
-
+        System.out.println(getAbstract(line, 1000));
     }
 
 }
