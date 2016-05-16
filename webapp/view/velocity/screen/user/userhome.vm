@@ -44,7 +44,7 @@
                             </div>
                         </header>
 
-                        <div class="entry-thumbnail">
+                        #*<div class="entry-thumbnail">
                             <a href="#">
                                 <img width="620" height="350"
                                      src="http://freturn.oss-cn-hangzhou.aliyuncs.com/img/lyt.jpeg"
@@ -52,9 +52,42 @@
                                      alt="demo"
                                      sizes="(max-width: 620px) 100vw, 620px">
                             </a>
-                        </div>
+                        </div>*#
                         <div class="entry-content">
-                            <p>$!blog.contentMap.get("content")
+                            <div class="entry-gallery">
+                                <div id="carousel-1" class="carousel slide carousel-190">
+                                    #set($iuArray = $extracter.extractImageUrl($!blog.contentMap.get("content")))
+                                    <ol class="carousel-indicators">
+                                        #foreach($imgUrl in $iuArray)
+                                            <li class="#if($velocityCount == 1) active #end" data-slide-to="$velocityCount" data-target="#carousel-1"></li>
+                                        #end
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        #foreach($imgUrl in $iuArray)
+                                            <div class="item #if($velocityCount == 1) active #end">
+                                                <div class="carousel-icon">
+                                                    <a href="#">
+                                                        <img width="620" height="350"
+                                                             src="$imgUrl"
+                                                             class="attachment-620x350 size-620x350"
+                                                             sizes="(max-width: 620px) 100vw, 620px"></a>
+                                                </div>
+                                            </div>
+                                        #end
+
+                                    </div>
+                                    <a data-slide="prev" href="#carousel-1" class="carousel-control left"><i
+                                            class="icon-chevron-left"></i>
+                                    </a>
+                                    <a data-slide="next" href="#carousel-1" class="carousel-control right">
+                                        <i class="icon-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <p>
+                                $extracter.getAbstract($!blog.contentMap.get("content"), 50, " <a href='/blog/$blog.id'>......</a>")
 
                                 <a href="/blog/$blog.id" class="more-link">
                                     <span class="btn btn-small">继续阅读</span>
