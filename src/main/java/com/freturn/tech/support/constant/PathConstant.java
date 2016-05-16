@@ -37,7 +37,7 @@ public interface PathConstant {
 
     String USER_ADMIN_CATE = "screen/admin/category";
 
-    String USER_ADMIN_PROD = "screen/admin/works";
+    String USER_ADMIN_WORK = "screen/admin/works";
 
     String USER_ADMIN_ICON = "screen/admin/iconedit";
 

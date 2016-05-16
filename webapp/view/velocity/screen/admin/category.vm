@@ -12,27 +12,18 @@
                     </small></h5>
                 </div>
                 <ul id="menu-main-menu" class="menu">
-                    <li id="menu-item-113"
-                        class="menu-item menu-item-type-custom menu-item-object-custom ">
-                        <h6>
-                            JAVA设计模式<span class="badge" style="margin-left: 10px">14</span>
-                            <a class="delLink pull-right" style="margin-right: 20px" userId="1" cateName="test">删除</a>
-                        </h6>
-                    </li>
-                    <li id="menu-item-97"
-                        class="menu-item menu-item-type-post_type menu-item-object-page ">
-                        <h6>
-                            JAVA设计模式<span class="badge" style="margin-left: 10px">14</span>
-                            <a class="pull-right" style="margin-right: 20px">删除</a>
-                        </h6>
-                    </li>
-                    <li id="menu-item-114"
-                        class="menu-item menu-item-type-custom menu-item-object-custom  ">
-                        <h6>
-                            JAVA设计模式<span class="badge" style="margin-left: 10px">14</span>
-                            <a class="pull-right" style="margin-right: 20px">删除</a>
-                        </h6>
-                    </li>
+
+                    #foreach($entry in $!user.categoryMap.entrySet())
+                        <li id="menu-item-113"
+                            class="menu-item menu-item-type-custom menu-item-object-custom ">
+                            <h6>
+                                $entry.key<span class="badge" style="margin-left: 10px">$entry.value</span>
+                                <a class="delLink pull-right" style="margin-right: 20px" userId="$user.id" cateName="$entry.key">删除</a>
+                            </h6>
+                        </li>
+                    #end
+
+
                 </ul>
             </aside>
 
@@ -42,7 +33,7 @@
             <div class="modal fade" id="addCateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form method="post" action="/amdin/user/category/add">
+                        <form method="post" action="/admin/user/category/add">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
                             <div class="modal-header">
@@ -52,7 +43,7 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <h6 for="newCate">类目名称</h6>
-                                    <input id="newCate" type="text" class="form-control" name="newCate" placeholder="请输入...">
+                                    <input id="newCate" type="text" class="form-control" name="cateName" placeholder="请输入...">
                                 </div>
                             </div>
                             <div class="modal-footer">

@@ -1,10 +1,13 @@
 package com.freturn.tech.controller.admin;
 
+import com.freturn.tech.biz.domain.User;
 import com.freturn.tech.biz.manager.UserManager;
+import com.freturn.tech.security.login.LoginUserHolder;
 import com.freturn.tech.support.constant.PathConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +30,9 @@ public class UserAdminController {
     @Resource
     private UserManager userManager;
 
+    @Resource
+    private LoginUserHolder loginUserHolder;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public String getUserAdmin(){
@@ -35,13 +41,19 @@ public class UserAdminController {
 
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public String getUserCategory(){
+    public String getUserCategory(ModelMap modelMap){
+
+        User loginUser = userManager.getUserById(loginUserHolder.getId());
+
+        modelMap.addAttribute("user", loginUser);
+
         return PathConstant.USER_ADMIN_CATE;
     }
 
     @RequestMapping(value = "/category/add", method = RequestMethod.POST)
     public String addUserCategory(@RequestParam String cateName){
 
+        userManager.addCategory(loginUserHolder.getId(), cateName);
 
         return PathConstant.R_ADMIN_USER_CATE;
     }
@@ -49,19 +61,26 @@ public class UserAdminController {
     @RequestMapping(value = "/category/delete", method = RequestMethod.POST)
     public String delUserCategory(@RequestParam String cateName){
 
+        userManager.deleteCategory(loginUserHolder.getId(), cateName);
 
         return PathConstant.R_ADMIN_USER_CATE;
     }
 
 
     @RequestMapping(value = "/works", method = RequestMethod.GET)
-    public String getUserWork(){
-        return PathConstant.USER_ADMIN_PROD;
+    public String getUserWork(ModelMap modelMap){
+
+        User loginUser = userManager.getUserById(loginUserHolder.getId());
+
+        modelMap.addAttribute("user", loginUser);
+
+        return PathConstant.USER_ADMIN_WORK;
     }
 
     @RequestMapping(value = "/works/add", method = RequestMethod.POST)
-    public String addUserWork(@RequestParam String workName){
+    public String addUserWork(@RequestParam String workName, @RequestParam String link){
 
+        userManager.addWork(loginUserHolder.getId(), workName, link);
 
         return PathConstant.R_ADMIN_USER_WORKS;
     }
@@ -69,6 +88,7 @@ public class UserAdminController {
     @RequestMapping(value = "/works/delete", method = RequestMethod.POST)
     public String delUserWork(@RequestParam String workName){
 
+        userManager.deleteWork(loginUserHolder.getId(), workName);
 
         return PathConstant.R_ADMIN_USER_WORKS;
     }

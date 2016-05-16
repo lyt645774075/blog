@@ -3,13 +3,13 @@ package com.freturn.tech.dal.dataobject;
 import java.util.Date;
 
 public class UserExtInfoDO {
-    private String id;
+    private Long id;
 
     private Date gmtCreate;
 
     private Date gmtModified;
 
-    private Long userId;
+    private String userId;
 
     private String userNickName;
 
@@ -21,12 +21,17 @@ public class UserExtInfoDO {
 
     private String description;
 
-    public String getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Date getGmtCreate() {
@@ -45,13 +50,6 @@ public class UserExtInfoDO {
         this.gmtModified = gmtModified;
     }
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
 
     public String getUserNickName() {
         return userNickName;

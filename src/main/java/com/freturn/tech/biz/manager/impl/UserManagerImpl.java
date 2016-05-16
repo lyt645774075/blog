@@ -9,6 +9,7 @@ import com.freturn.tech.dal.dao.CommentDOMapper;
 import com.freturn.tech.dal.dataobject.CommentDO;
 import com.freturn.tech.dal.query.AdvancedQuery;
 import com.freturn.tech.dal.query.CommentQuery;
+import com.freturn.tech.support.constant.UserExtInfoType;
 import com.freturn.tech.support.constant.UserType;
 import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
 import com.freturn.tech.support.domainObj.transfer.UserTransfer;
@@ -111,20 +112,64 @@ public class UserManagerImpl implements UserManager{
     @Override
     public void addCategory(String userId, String cateName) {
 
+        Preconditions.checkNotNull(userId);
+        Preconditions.checkNotNull(cateName);
+
+        UserBaseInfoDO userBaseInfoDO = userBaseInfoDOMapper.selectByPrimaryKey(userId);
+        if(userBaseInfoDO == null){
+            return;
+        }
+
+        UserExtInfoDO extInfoDO = new UserExtInfoDO();
+        extInfoDO.setType(UserExtInfoType.CATEGORY.getCode());
+        extInfoDO.setUserId(userBaseInfoDO.getId());
+        extInfoDO.setUserNickName(userBaseInfoDO.getNickName());
+        extInfoDO.setExtName(cateName);
+        extInfoDO.setExtValue("0");
+
+        userExtInfoDOMapper.insert(extInfoDO);
+
     }
 
     @Override
     public void deleteCategory(String userId, String cateName) {
 
+        Preconditions.checkNotNull(userId);
+        Preconditions.checkNotNull(cateName);
+
+        userExtInfoDOMapper.deleteByUserIdAndExtName(userId, cateName);
+
     }
 
     @Override
-    public void addWork(String userId, String cateName) {
+    public void addWork(String userId, String workName, String workLink) {
 
+        Preconditions.checkNotNull(userId);
+        Preconditions.checkNotNull(workName);
+        Preconditions.checkNotNull(workLink);
+
+
+        UserBaseInfoDO userBaseInfoDO = userBaseInfoDOMapper.selectByPrimaryKey(userId);
+        if(userBaseInfoDO == null){
+            return;
+        }
+
+        UserExtInfoDO extInfoDO = new UserExtInfoDO();
+        extInfoDO.setType(UserExtInfoType.LINK.getCode());
+        extInfoDO.setUserId(userBaseInfoDO.getId());
+        extInfoDO.setUserNickName(userBaseInfoDO.getNickName());
+        extInfoDO.setExtName(workName);
+        extInfoDO.setExtValue(workLink);
+
+        userExtInfoDOMapper.insert(extInfoDO);
     }
 
     @Override
-    public void deleteWork(String userId, String cateName) {
+    public void deleteWork(String userId, String workName) {
+        Preconditions.checkNotNull(userId);
+        Preconditions.checkNotNull(workName);
+
+        userExtInfoDOMapper.deleteByUserIdAndExtName(userId, workName);
 
     }
 }

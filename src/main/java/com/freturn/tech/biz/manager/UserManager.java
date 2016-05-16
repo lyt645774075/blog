@@ -48,17 +48,18 @@ public interface UserManager {
     /**
      * 添加个人作品
      * @param userId
-     * @param cateName
+     * @param workName
+     * @param workLink
      */
-    void addWork(String userId, String cateName);
+    void addWork(String userId, String workName, String workLink);
 
 
     /**
      * 删除个人作品
      * @param userId
-     * @param cateName
+     * @param workName
      */
-    void deleteWork(String userId, String cateName);
+    void deleteWork(String userId, String workName);
 
 
 }

@@ -12,40 +12,21 @@
                 </div>
 
                 <ul>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom ">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <i class="icon-globe"></i>WalkWithUs
-                                <small style="margin-left: 20px"><a>http://walkwithus.cn:8080</a></small>
-                            </div>
-                            <div class="col-md-2">
-                                <a class="delLink" userId="1" workName="work">删除</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom ">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <i class="icon-globe"></i>WalkWithUs
-                                <small style="margin-left: 20px"><a>http://walkwithus.cn:8080</a></small>
-                            </div>
-                            <div class="col-md-2">
-                                <a>删除</a>
-                            </div>
-                        </div>
-                    </li>
 
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom ">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <i class="icon-globe"></i>WalkWithUs
-                                <small style="margin-left: 20px"><a>http://walkwithus.cn:8080</a></small>
+                    #foreach($entry in $!user.getLinkProMap().entrySet())
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom ">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <i class="icon-globe"></i>$entry.key
+                                    <small style="margin-left: 20px"><a>$entry.value</a></small>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="delLink" userId="$user.id" workName="$entry.key">删除</a>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <a>删除</a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    #end
+
                 </ul>
             </aside>
 
@@ -55,7 +36,7 @@
             <div class="modal fade" id="addWorkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form method="post" action="/amdin/user/works/add">
+                        <form method="post" action="/admin/user/works/add">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
                             <div class="modal-header">
