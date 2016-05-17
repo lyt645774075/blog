@@ -60,7 +60,7 @@
                 </aside>
 
                 <aside id="categories-2" class="widget widget_categories">
-                    <h3 class="widget-title"><a href="#">已发表</a></h3>
+                    <h3 class="widget-title"><label>已发表</label></h3>
                     <ul id="menu-main-menu" class="menu">
                         <li id="menu-item-113"
                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-113">
