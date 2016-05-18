@@ -24,7 +24,7 @@
 	<mvc:resources mapping="/img/**"
 				   location="/assets/img/"/>
 	<mvc:resources mapping="/fonts/**"
-				   location="/assets/inc/font-awesome/font/"/>
+				   location="/assets/fonts/"/>
 	<mvc:resources mapping="/login/**"
 				   location="/assets/login/"/>
 

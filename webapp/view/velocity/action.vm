@@ -16,20 +16,20 @@
             <i class="icon-link active-socials"></i>
             <ul class="unstyled list-socials clearfix" style="width: 240px;">
 
-                <li class="social"><a href="/admin/blog/edit/standard" title="写文章"><i class="icon-pencil"></i></a>
+                <li class="social"><a href="/admin/blog/edit/standard" title="写文章"><i class="fa fa-pencil"></i></a>
                 </li>
                 #if($loginUser.isLogin())
-                    <li class="social"><a href="/user/$loginUser.id" title="个人主页"><i class="icon-home"></i></a>
+                    <li class="social"><a href="/user/$loginUser.id" title="个人主页"><i class="fa fa-home"></i></a>
                     </li>
 
-                    <li class="social"><a href="/admin/user" title="用户管理"><i class="icon-user"></i></a>
+                    <li class="social"><a href="/admin/user" title="用户管理"><i class="fa fa-user"></i></a>
                     </li>
-                    <li class="social"><a href="#" class="logout"><i class="icon-off"></i></a>
+                    <li class="social"><a href="#" class="logout"><i class="fa fa-remove"></i></a>
                     </li>
                 #else
-                    <li class="social"><a href="/login" title="登陆"><i class="icon-location-arrow"></i></a>
+                    <li class="social"><a href="/login" title="登陆"><i class="fa fa-location-arrow"></i></a>
                     </li>
-                    <li class="social"><a href="/register" title="注册"><i class="icon-user-md"></i></a>
+                    <li class="social"><a href="/register" title="注册"><i class="fa fa-user-md"></i></a>
                     </li>
                 #end
 

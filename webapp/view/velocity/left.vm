@@ -20,12 +20,12 @@
                     <div class="menu-main-menu-container">
                         <ul id="menu-main-menu" class="menu">
                             <li id="menu-item-113"
-                                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-113">
+                                class="menu-item menu-item-type-custom menu-item-object-custom ">
                                 <a href="/user/$!user.id">主页</a></li>
                             <li id="menu-item-97"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a
                                     href="/user/$!user.id/aboutme">关于我</a></li>
-                            <li id="menu-item-114"
+                            #*<li id="menu-item-114"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-114">
                                 <a href="/blog/edit/standard">写文章</a>
                                 <ul class="sub-menu">
@@ -50,7 +50,7 @@
                                         <a href="http://demo.designwall.com/dw-minion/2013/03/14/take-advantage-of-the-stock-market/">关注</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>*#
                             <li id="menu-item-112"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112">
                                 <a href="/user/$!user.id/contact">联系我</a></li>

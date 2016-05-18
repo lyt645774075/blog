@@ -62,16 +62,16 @@
                  id="tag_cloud-dw-widget-1">
                 <h3 class="widget-title">标签</h3>
 
-                <div class="tagcloud"><a href="http://demo.designwall.com/dw-minion/tag/dancing/"
+                <div class="tagcloud"><a href=""
                                          class="tag-link-8 tag-link-position-1" title="6 topics"
                                          style="font-size: 16.75pt;">Dancing</a>
-                    <a href="http://demo.designwall.com/dw-minion/tag/meeting/"
+                    <a href=""
                        class="tag-link-9 tag-link-position-2" title="5 topics"
                        style="font-size: 14.3pt;">Meeting</a>
-                    <a href="http://demo.designwall.com/dw-minion/tag/my-family/"
+                    <a href=""
                        class="tag-link-10 tag-link-position-3" title="6 topics"
                        style="font-size: 16.75pt;">My family</a>
-                    <a href="http://demo.designwall.com/dw-minion/tag/playing/"
+                    <a href=""
                        class="tag-link-11 tag-link-position-4" title="9 topics"
                        style="font-size: 22pt;">Playing</a>
                     <a href="http://demo.designwall.com/dw-minion/tag/shopping/"
@@ -102,13 +102,13 @@
                         <div class="textwidget">
                             <ul class="instagram-content grid-2">
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/instagram-1.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/instagram-2.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/instagram-3.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/instagram-4.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
 
                         <div class="textwidget"><a
                                 href="http://demo.designwall.com/dw-minion/#"><img
-                                src="./home_files/email-app-shot.png" alt=""></a>
+                                src="" alt=""></a>
                             <h5><a href="http://demo.designwall.com/dw-minion/#">Email App Shot</a>
                             </h5></div>
                     </div>
@@ -147,17 +147,17 @@
                         <div class="textwidget">
                             <ul class="flickr-content grid-3">
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/flickr-1.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/flickr-2.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/flickr-3.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/flickr-4.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/flickr-5.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                                 <li><a href="http://demo.designwall.com/dw-minion/#"><img
-                                        src="./home_files/flickr-6.png" alt=""></a></li>
+                                        src="" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -167,6 +167,6 @@
     </aside>
     <aside id="text-3" class="widget widget_text">
         <div class="textwidget"><a href="http://bit.ly/tf-wallclassic"><img
-                src="./home_files/ad-1.jpg" alt=""></a></div>
+                src="" alt=""></a></div>
     </aside>
 </div>
