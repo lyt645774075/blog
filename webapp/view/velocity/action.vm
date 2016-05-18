@@ -16,6 +16,7 @@
             <i class="icon-link active-socials"></i>
             <ul class="unstyled list-socials clearfix" style="width: 240px;">
 
+
                 <li class="social"><a href="/admin/blog/edit/standard" title="写文章"><i class="fa fa-pencil"></i></a>
                 </li>
                 #if($loginUser.isLogin())
