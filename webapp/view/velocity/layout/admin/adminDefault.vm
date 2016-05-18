@@ -15,8 +15,7 @@
     <script type="text/javascript" src="/js/jquery-migrate.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/designit.min.css">
-    <script type="text/javascript" src="/js/dw-minion.min.js"></script>
-    <script type="text/javascript" src="/js/main.min.js"></script>
+
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
 
@@ -41,6 +40,8 @@
     </div>
 </div>
 
+<script type="text/javascript" src="/js/dw-minion.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
 
 
 </body>
