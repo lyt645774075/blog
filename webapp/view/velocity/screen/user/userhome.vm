@@ -13,15 +13,9 @@
                                 <a href="/blog/$blog.id" rel="bookmark">$blog.title</a>
                             </h2>
                             <div class="entry-meta">
-                                <span class="byline">By
-                                    <span class="author vcard">
-                                        <a class="url fn n" href="#">$blog.creatorNickName</a>
-                                    </span>
-                                </span>
-                                <span class="cat-links"> in
-                                    <a href="#">类目1</a>,
-                                    <a href="#">类目2</a>,
-                                    <a href="#">类目3</a>
+                                <i class="fa fa-folder-open"></i>
+                                <span class="cat-links">
+                                    <a href="#">$blog.category</a>
                                 </span>
                                 <span class="sep">
                                     <span class="post-format">

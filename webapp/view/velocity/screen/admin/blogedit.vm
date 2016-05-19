@@ -21,10 +21,24 @@
     <div class="primary-inner">
         <div class="site-content" role="main">
 
+            <header class="page-header" style="border-bottom: 5px solid #333333; margin-bottom: 40px;">
+                <h1 class="page-title" style="font-size: 38px; line-height: 1.3;color: #333333">分享
+
+                    #if($!type == 'standard')
+                        <small>普通文章</small>
+                    #elseif($!type == 'gallery')
+                        <small>图片</small>
+                    #elseif($!type == 'quote')
+                        <small>感悟</small>
+                    #elseif($!type == 'link')
+                        <small>链接</small>
+                    #end
+
+                </h1>
+            </header>
+
             #if($!type == 'standard')
                 <div class="tab-pane" id="standard">
-                    <h4 class="header col-md-12">标准博客</h4>
-
                     <form class="form-horizontal" method="POST" action="/admin/blog/create">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                         <input type="hidden" id="content" name="content" value="">
@@ -34,25 +48,28 @@
                                    value="$!blog.title">
                         </div>
                         <div class="col-md-12">
-                            <input class="form-control" type="text" id="category" name="category" placeholder="所属分类"
-                                   value="$!blog.category">
+                            <select name="category" class="form-control">
+                                <option value="">默认分类</option>
+                                #foreach($category in $user.categoryMap.keySet())
+                                    <option value="$!category" >$!category</option>
+                                #end
+                            </select>
                         </div>
-                        <div class="col-md-12">
-                            <div id="summernote" class="form-control">
+                        <div class="col-md-12" style="margin-top: 15px;">
+                            <div id="summernote" >
                                 $!{blog.content}
                             </div>
                         </div>
 
-                            <button type="submit" class="btn btn-success col-sm-offset-10" onclick="doEdit()">
-                                创建
-                            </button>
+                        <button type="submit" class="btn btn-success col-sm-offset-10" onclick="doEdit()">
+                            创建
+                        </button>
 
                     </form>
 
                 </div>
             #elseif($!type == 'gallery')
                 <div class="tab-pane" id="gallery">
-                    <h4 class="header col-md-12">分享图片</h4>
 
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data"
                           action="/admin/gallery/create?${_csrf.parameterName}=${_csrf.token}">
@@ -64,6 +81,15 @@
 
                         <div class="col-md-12 form-group">
                             <input class="form-control" name="desc" type="text" placeholder="描述..." value="">
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <select name="category" class="form-control">
+                                <option value="">默认分类</option>
+                                #foreach($category in $user.categoryMap.keySet())
+                                    <option value="$!category" >$!category</option>
+                                #end
+                            </select>
                         </div>
                         <div class="col-md-12 form-group" style="margin-top: 40px">
                             <button type="submit" class="btn btn-success pull-right">
@@ -78,11 +104,19 @@
             #elseif($!type == 'quote')
                 <div role="tabpanel" class="tab-pane" id="quote">
 
-                    <h4 class="header col-md-12">生活感悟</h4>
 
                     <form class="form-horizontal" method="POST" action="/admin/quote/create">
                         <input type="hidden" name="${_csrf.parameterName}"
                                value="${_csrf.token}">
+
+                        <div class="col-md-12">
+                            <select name="category" class="form-control">
+                                <option value="">默认分类</option>
+                                #foreach($category in $user.categoryMap.keySet())
+                                    <option value="$!category" >$!category</option>
+                                #end
+                            </select>
+                        </div>
 
                         <div class="col-md-12">
                             <textarea class="form-control" name="content" placeholder="内容" value="">
@@ -106,12 +140,19 @@
             #elseif($!type == 'link')
                 <div class="tab-pane" id="link">
 
-                    <h4 class="header col-md-12">站点推荐</h4>
 
                     <form class="form-horizontal" method="POST" action="/admin/link/create">
                         <input type="hidden" name="${_csrf.parameterName}"
                                value="${_csrf.token}">
 
+                        <div class="col-md-12">
+                            <select name="category" class="form-control">
+                                <option value="">默认分类</option>
+                                #foreach($category in $user.categoryMap.keySet())
+                                    <option value="$!category" >$!category</option>
+                                #end
+                            </select>
+                        </div>
                         <div class="col-md-12">
                             <input class="form-control" type="text" name="title" value="" placeholder="站点名称">
                         </div>
@@ -199,9 +240,4 @@
         this.parent.submit;
     }
 </script>
-
-
-
-
-
 

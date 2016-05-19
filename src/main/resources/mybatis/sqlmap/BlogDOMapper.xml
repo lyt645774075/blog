@@ -115,7 +115,6 @@
 
 
 
-
   <select id="query" resultMap="BlogResultMap" parameterType="com.freturn.tech.dal.query.BlogQuery">
     select <include refid="Base_Column_List"/> from blog
     <include refid="WhereCondition"/>
@@ -124,6 +123,11 @@
 
     <include refid="limitCondition"/>
 
+  </select>
+
+  <select id="count" resultType="java.lang.Integer" parameterType="com.freturn.tech.dal.query.BlogQuery">
+    select count(1) from blog
+    <include refid="WhereCondition"/>
   </select>
 
 

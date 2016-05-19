@@ -5,17 +5,22 @@ import com.freturn.tech.biz.domain.Comment;
 import com.freturn.tech.biz.manager.BlogManager;
 import com.freturn.tech.dal.dao.BlogDOMapper;
 import com.freturn.tech.dal.dao.CommentDOMapper;
+import com.freturn.tech.dal.dao.UserExtInfoDOMapper;
 import com.freturn.tech.dal.dataobject.BlogDO;
 import com.freturn.tech.dal.dataobject.CommentDO;
+import com.freturn.tech.dal.dataobject.UserBaseInfoDO;
+import com.freturn.tech.dal.dataobject.UserExtInfoDO;
 import com.freturn.tech.dal.query.BlogQuery;
 import com.freturn.tech.dal.query.CommentQuery;
 import com.freturn.tech.security.login.LoginUserHolder;
 import com.freturn.tech.support.constant.BlogStatus;
 import com.freturn.tech.support.constant.BlogType;
 import com.freturn.tech.support.constant.CommentType;
+import com.freturn.tech.support.constant.CommonConstant;
 import com.freturn.tech.support.constant.Device;
 import com.freturn.tech.support.constant.DomainType;
 import com.freturn.tech.support.constant.SeeScope;
+import com.freturn.tech.support.constant.UserExtInfoType;
 import com.freturn.tech.support.domainObj.transfer.BlogTransfer;
 import com.freturn.tech.support.domainObj.transfer.CommentTransfer;
 import com.freturn.tech.support.helper.ImageUploadHelper;
@@ -27,6 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -49,6 +55,9 @@ public class BlogManagerImpl implements BlogManager {
     @Resource
     private CommentDOMapper commentDOMapper;
 
+    @Resource
+    private UserExtInfoDOMapper userExtInfoDOMapper;
+
     @Autowired
     private LoginUserHolder loginUserHolder;
 
@@ -57,7 +66,7 @@ public class BlogManagerImpl implements BlogManager {
 
 
     @Override
-    public String createStandardBlog(String title, String content) {
+    public String createStandardBlog(String title, String content, String category) {
         Preconditions.checkNotNull(title);
         Preconditions.checkNotNull(content);
 
@@ -65,6 +74,7 @@ public class BlogManagerImpl implements BlogManager {
 
         blog.setType(BlogType.STANDARD);
         blog.setTitle(title);
+        blog.setCategory(category);
 
         Map<String, Object> contentMap = Maps.newHashMap();
         contentMap.put("title", title);
@@ -75,7 +85,7 @@ public class BlogManagerImpl implements BlogManager {
     }
 
     @Override
-    public String createGalleryBlog(MultipartFile[] images, String desc) {
+    public String createGalleryBlog(MultipartFile[] images, String desc, String category) {
         Preconditions.checkNotNull(images);
         Preconditions.checkNotNull(desc);
 
@@ -83,6 +93,7 @@ public class BlogManagerImpl implements BlogManager {
 
         blog.setType(BlogType.GALLERY);
         blog.setTitle("图集分享");
+        blog.setCategory(category);
 
         List<String> urlList = Lists.newArrayList();
         for(MultipartFile image : images){
@@ -103,7 +114,7 @@ public class BlogManagerImpl implements BlogManager {
     }
 
     @Override
-    public String createLinkBlog(String title, String url) {
+    public String createLinkBlog(String title, String url, String category) {
 
         Preconditions.checkNotNull(title);
         Preconditions.checkNotNull(url);
@@ -112,6 +123,7 @@ public class BlogManagerImpl implements BlogManager {
 
         blog.setType(BlogType.LINK);
         blog.setTitle(title);
+        blog.setCategory(category);
 
         Map<String, Object> contentMap = Maps.newHashMap();
         contentMap.put("title", title);
@@ -123,7 +135,7 @@ public class BlogManagerImpl implements BlogManager {
     }
 
     @Override
-    public String createQuoteBlog(String cite, String content) {
+    public String createQuoteBlog(String cite, String content, String category) {
         Preconditions.checkNotNull(cite);
         Preconditions.checkNotNull(content);
 
@@ -131,6 +143,7 @@ public class BlogManagerImpl implements BlogManager {
 
         blog.setType(BlogType.QUOTE);
         blog.setTitle("生活感悟");
+        blog.setCategory(category);
 
         Map<String, Object> contentMap = Maps.newHashMap();
         contentMap.put("cite", cite);
@@ -196,7 +209,7 @@ public class BlogManagerImpl implements BlogManager {
         commentDO.setCreatorNickName(loginUserHolder.getNickName());
         commentDO.setCreatorIconUrl(loginUserHolder.getIconUrl());
         commentDO.setDevice(Device.PC.getCode());
-        commentDO.setLocation("中国");
+        commentDO.setLocation(CommonConstant.DEFAULT_LOCATION);
 
         commentDOMapper.insert(commentDO);
 
@@ -228,14 +241,43 @@ public class BlogManagerImpl implements BlogManager {
         blog.setCreatorId(loginUserHolder.getId());
         blog.setCreatorNickName(loginUserHolder.getNickName());
 
-        blog.setCategory("默认");
+        if(StringUtils.isEmpty(blog.getCategory())){
+            blog.setCategory(CommonConstant.DEFAULT_CATEGORY);
+        }
+
         blog.setSeeScope(SeeScope.PRIVATE);
         blog.setStatus(BlogStatus.FINISH);
         blog.setDevice(Device.PC);
-        blog.setLocation("四川成都");
+        blog.setLocation(CommonConstant.DEFAULT_LOCATION);
 
-
+        //新增文章
         blogDOMapper.insert(BlogTransfer.toDO(blog));
+
+        //更新分类计数
+        UserExtInfoDO extInfoDO = userExtInfoDOMapper.queryByUserIdAndExtName(loginUserHolder.getId(), blog.getCategory());
+
+        if(extInfoDO != null){
+            //查一次用户在该分类下的所有文章总数,更新计数,保证每次写文章可以纠错计数一次
+            BlogQuery query = new BlogQuery();
+            query.setCreatorId(loginUserHolder.getId());
+            query.setCategory(blog.getCategory());
+
+            extInfoDO.setExtValue(String.valueOf(blogDOMapper.count(query)));
+            userExtInfoDOMapper.updateByPrimaryKey(extInfoDO);
+        }
+
+        //如果是"默认分类"不存在..创建一个
+        if(extInfoDO == null && blog.getCategory().equals(CommonConstant.DEFAULT_CATEGORY)){
+            extInfoDO = new UserExtInfoDO();
+            extInfoDO.setType(UserExtInfoType.CATEGORY.getCode());
+            extInfoDO.setUserId(loginUserHolder.getId());
+            extInfoDO.setUserNickName(loginUserHolder.getNickName());
+            extInfoDO.setDescription(CommonConstant.DEFAULT_CATEGORY);
+            extInfoDO.setExtName(CommonConstant.DEFAULT_CATEGORY);
+            extInfoDO.setExtValue("1");
+
+            userExtInfoDOMapper.insert(extInfoDO);
+        }
 
         return blog.getId();
     }

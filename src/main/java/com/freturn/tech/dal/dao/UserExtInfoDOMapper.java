@@ -19,4 +19,6 @@ public interface UserExtInfoDOMapper {
     int updateByPrimaryKey(UserExtInfoDO userExtInfoDO);
 
     List<UserExtInfoDO> queryByUserId(String userId);
+
+    UserExtInfoDO queryByUserIdAndExtName(@Param("userId") String userId, @Param("extName") String extName);
 }

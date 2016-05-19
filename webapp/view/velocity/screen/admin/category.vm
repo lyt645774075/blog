@@ -4,6 +4,12 @@
     <div class="primary-inner">
         <div id="content" class="site-content" role="main">
 
+            <header class="page-header" style="border-bottom: 5px solid #333333; margin-bottom: 40px;">
+                <h1 class="page-title" style="font-size: 38px; line-height: 1.3;color: #333333">文章分类
+
+                </h1>
+            </header>
+
 
             <aside id="categories-2" class="widget widget_categories">
                 <div class="widget-title">
@@ -29,7 +35,7 @@
 
 
 
-            #*添加分类模态框*#
+        #*添加分类模态框*#
             <div class="modal fade" id="addCateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog">
                     <div class="modal-content">

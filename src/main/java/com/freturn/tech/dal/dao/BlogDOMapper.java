@@ -15,4 +15,6 @@ public interface BlogDOMapper {
     int updateByPrimaryKey(BlogDO blogDO);
 
     List<BlogDO> query(BlogQuery query);
+
+    int count(BlogQuery query);
 }

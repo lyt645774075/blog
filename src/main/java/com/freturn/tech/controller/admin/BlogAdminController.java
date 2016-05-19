@@ -1,6 +1,8 @@
 package com.freturn.tech.controller.admin;
 
+import com.freturn.tech.biz.domain.User;
 import com.freturn.tech.biz.manager.BlogManager;
+import com.freturn.tech.biz.manager.UserManager;
 import com.freturn.tech.security.login.LoginUserHolder;
 import com.freturn.tech.support.constant.PathConstant;
 import org.springframework.stereotype.Controller;
@@ -24,18 +26,30 @@ public class BlogAdminController {
     private BlogManager     blogManager;
 
     @Resource
+    private UserManager userManager;
+
+    @Resource
     private LoginUserHolder loginUserHolder;
 
     @RequestMapping(value = "/admin/blog/edit/{type}", method = RequestMethod.GET)
     public String getUserHome(@PathVariable String type, ModelMap modelMap) {
 
+        if (loginUserHolder.isNotLogin()) {
+            modelMap.addAttribute("msg", "提示:您需要先登录,才能发表博客!");
+            return PathConstant.BLOG_EDIT;
+        }
+
         modelMap.addAttribute("active", type.toLowerCase());
+
+        User user = userManager.getUserById(loginUserHolder.getId());
+
+        modelMap.addAttribute("user", user);
 
         return PathConstant.BLOG_EDIT;
     }
 
     @RequestMapping(value = "/admin/blog/create", method = RequestMethod.POST)
-    public String createStandardBlog(@RequestParam String title, @RequestParam String content,
+    public String createStandardBlog(@RequestParam String title, @RequestParam String content, @RequestParam String category,
                                      ModelMap modelMap) {
 
         if (loginUserHolder.isNotLogin()) {
@@ -43,13 +57,13 @@ public class BlogAdminController {
             return PathConstant.BLOG_EDIT;
         }
 
-        String blogId = blogManager.createStandardBlog(title, content);
+        String blogId = blogManager.createStandardBlog(title, content, category);
 
         return "redirect:/blog/" + blogId;
     }
 
     @RequestMapping(value = "/admin/gallery/create", method = RequestMethod.POST)
-    public String createGallery(@RequestParam MultipartFile[] images, @RequestParam String desc,
+    public String createGallery(@RequestParam MultipartFile[] images, @RequestParam String desc, @RequestParam String category,
                                      ModelMap modelMap) {
 
         if (loginUserHolder.isNotLogin()) {
@@ -57,14 +71,14 @@ public class BlogAdminController {
             return PathConstant.BLOG_EDIT;
         }
 
-        String blogId = blogManager.createGalleryBlog(images, desc);
+        String blogId = blogManager.createGalleryBlog(images, desc, category);
 
         return "redirect:/blog/" + blogId;
 
     }
 
     @RequestMapping(value = "/admin/link/create", method = RequestMethod.POST)
-    public String createLink(@RequestParam String title, @RequestParam String url,
+    public String createLink(@RequestParam String title, @RequestParam String url, @RequestParam String category,
                                 ModelMap modelMap) {
 
         if (loginUserHolder.isNotLogin()) {
@@ -73,14 +87,14 @@ public class BlogAdminController {
         }
 
 
-        String blogId = blogManager.createLinkBlog(title, url);
+        String blogId = blogManager.createLinkBlog(title, url, category);
 
         return "redirect:/blog/" + blogId;
 
     }
 
     @RequestMapping(value = "/admin/quote/create", method = RequestMethod.POST)
-    public String createQuote(@RequestParam String cite, @RequestParam String content,
+    public String createQuote(@RequestParam String cite, @RequestParam String content, @RequestParam String category,
                              ModelMap modelMap) {
         if (loginUserHolder.isNotLogin()) {
             modelMap.addAttribute("msg", "提示:您需要先登录,才能发表博客!");
@@ -88,7 +102,7 @@ public class BlogAdminController {
         }
 
 
-        String blogId = blogManager.createQuoteBlog(cite, content);
+        String blogId = blogManager.createQuoteBlog(cite, content, category);
 
         return "redirect:/blog/" + blogId;
     }

@@ -14,13 +14,13 @@ public interface BlogManager {
 
 
 
-    public String createStandardBlog(String title, String content);
+    public String createStandardBlog(String title, String content, String category);
 
-    public String createGalleryBlog(MultipartFile[] images, String desc);
+    public String createGalleryBlog(MultipartFile[] images, String desc, String category);
 
-    public String createLinkBlog(String title, String url);
+    public String createLinkBlog(String title, String url, String category);
 
-    public String createQuoteBlog(String cite, String content);
+    public String createQuoteBlog(String cite, String content, String category);
 
 
 

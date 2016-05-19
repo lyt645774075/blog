@@ -1,8 +1,22 @@
 #set($layout="layout/admin/adminDefault.vm")
 
-hi,$loginUser.getNickName()
+
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+            <header class="page-header" style="border-bottom: 5px solid #333333; margin-bottom: 40px;">
+                <h1 class="page-title" style="font-size: 38px; line-height: 1.3;color: #333333">欢迎您
+
+                </h1>
+            </header>
+
+            hi,$loginUser.getNickName()
 
 
 
 
-欢迎登陆用户管理页面
+            欢迎登陆用户管理页面
+
+            </div>
+        </div>
+    </div>
