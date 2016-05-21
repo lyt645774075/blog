@@ -31,7 +31,11 @@
                 <div class="container clearfix">
                     $screen_content
 
-                    #parse("right.vm")
+                    #if($!closeDefaultRight)
+                        ##不适用右边的默认布局
+                    #else
+                        #parse("right.vm")
+                    #end
 
                 </div>
             </div>
@@ -41,6 +45,8 @@
     </div>
 </div>
 
+<script type="text/javascript" src="/js/main.min.js"></script>
+<link rel="stylesheet" href="/css/designit.min.css">
 
 </body>
 </html>

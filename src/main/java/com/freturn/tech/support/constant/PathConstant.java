@@ -37,6 +37,8 @@ public interface PathConstant {
 
     String USER_ADMIN_CATE = "screen/admin/category";
 
+    String USER_ADMIN_CONTACT = "screen/admin/contact";
+
     String USER_ADMIN_WORK = "screen/admin/works";
 
     String USER_ADMIN_ICON = "screen/admin/iconedit";
@@ -51,11 +53,16 @@ public interface PathConstant {
 
     String R = "redirect:";
 
-    String R_ADMIN_USER_CATE = R + "/admin/user/category";
+    String R_USER = "redirect:/user";
 
-    String R_ADMIN_USER_WORKS = R + "/admin/user/works";
+    String R_ADMIN_USER = "redirect:/admin/user";
 
-    String R_ADMIN_USER_ICON = R + "/admin/user/iconedit";
+    String R_ADMIN_USER_CATE = R_ADMIN_USER + "/category";
+
+    String R_ADMIN_USER_WORKS = R_ADMIN_USER + "/works";
+
+    String R_ADMIN_USER_ICON = R_ADMIN_USER + "/iconedit";
+
 
 
 

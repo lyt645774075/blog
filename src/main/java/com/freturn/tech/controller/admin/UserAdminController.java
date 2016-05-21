@@ -31,23 +31,21 @@ public class UserAdminController {
     private static final Logger logger = LoggerFactory.getLogger(UserAdminController.class);
 
     @Resource
-    private UserManager userManager;
+    private UserManager         userManager;
 
     @Resource
-    private LoginUserHolder loginUserHolder;
+    private LoginUserHolder     loginUserHolder;
 
     @Resource
-    private ImageUploadHelper imageUploadHelper;
-
+    private ImageUploadHelper   imageUploadHelper;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getUserAdmin(){
+    public String getUserAdmin() {
         return PathConstant.USER_ADMIN;
     }
 
-
     @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public String getUserCategory(ModelMap modelMap){
+    public String getUserCategory(ModelMap modelMap) {
 
         User loginUser = userManager.getUserById(loginUserHolder.getId());
 
@@ -57,7 +55,7 @@ public class UserAdminController {
     }
 
     @RequestMapping(value = "/category/add", method = RequestMethod.POST)
-    public String addUserCategory(@RequestParam String cateName){
+    public String addUserCategory(@RequestParam String cateName) {
 
         userManager.addCategory(loginUserHolder.getId(), cateName);
 
@@ -65,16 +63,15 @@ public class UserAdminController {
     }
 
     @RequestMapping(value = "/category/delete", method = RequestMethod.POST)
-    public String delUserCategory(@RequestParam String cateName){
+    public String delUserCategory(@RequestParam String cateName) {
 
         userManager.deleteCategory(loginUserHolder.getId(), cateName);
 
         return PathConstant.R_ADMIN_USER_CATE;
     }
 
-
     @RequestMapping(value = "/works", method = RequestMethod.GET)
-    public String getUserWork(ModelMap modelMap){
+    public String getUserWork(ModelMap modelMap) {
 
         User loginUser = userManager.getUserById(loginUserHolder.getId());
 
@@ -84,7 +81,7 @@ public class UserAdminController {
     }
 
     @RequestMapping(value = "/works/add", method = RequestMethod.POST)
-    public String addUserWork(@RequestParam String workName, @RequestParam String link){
+    public String addUserWork(@RequestParam String workName, @RequestParam String link) {
 
         userManager.addWork(loginUserHolder.getId(), workName, link);
 
@@ -92,21 +89,20 @@ public class UserAdminController {
     }
 
     @RequestMapping(value = "/works/delete", method = RequestMethod.POST)
-    public String delUserWork(@RequestParam String workName){
+    public String delUserWork(@RequestParam String workName) {
 
         userManager.deleteWork(loginUserHolder.getId(), workName);
 
         return PathConstant.R_ADMIN_USER_WORKS;
     }
 
-
     @RequestMapping(value = "/iconedit", method = RequestMethod.GET)
-    public String getUserIconEdit(){
+    public String getUserIconEdit() {
         return PathConstant.USER_ADMIN_ICON;
     }
 
     @RequestMapping(value = "/iconedit/update", method = RequestMethod.POST)
-    public String postUserIconEdit(@RequestParam MultipartFile icon){
+    public String postUserIconEdit(@RequestParam MultipartFile icon) {
 
         try {
             String url = imageUploadHelper.doUpload(icon);
@@ -119,19 +115,41 @@ public class UserAdminController {
         return PathConstant.R_ADMIN_USER_ICON;
     }
 
-
     @RequestMapping(value = "/experience", method = RequestMethod.GET)
-    public String getUserExperience(){
+    public String getUserExperience() {
         return PathConstant.USER_ADMIN_EXPERIENCE;
     }
 
     @RequestMapping(value = "/baseinfo", method = RequestMethod.GET)
-    public String getUserBaseInfo(){
+    public String getUserBaseInfo() {
         return PathConstant.USER_ADMIN_BASEINFO;
     }
 
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String getUserContact(ModelMap modelMap) {
 
+        User loginUser = userManager.getUserById(loginUserHolder.getId());
 
+        modelMap.addAttribute("user", loginUser);
 
+        return PathConstant.USER_ADMIN_CONTACT;
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public String postUserContact(@RequestParam String phone, @RequestParam String email,
+                                  @RequestParam String qq, @RequestParam String weiXin,
+                                  @RequestParam String linkedIn, @RequestParam String gitHub) {
+
+        String userId = loginUserHolder.getId();
+
+        userManager.updatePhone(userId, phone);
+        userManager.updateEmail(userId, email);
+        userManager.updateQQ(userId, qq);
+        userManager.updateWeiXin(userId, weiXin);
+        userManager.updateLinkedIn(userId, linkedIn);
+        userManager.updateGitHub(userId, gitHub);
+
+        return PathConstant.R_USER + "/" + userId + "/contact";
+    }
 
 }

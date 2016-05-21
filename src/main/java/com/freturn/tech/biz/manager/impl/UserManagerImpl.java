@@ -186,4 +186,64 @@ public class UserManagerImpl implements UserManager{
         userBaseInfoDOMapper.updateByPrimaryKey(baseInfoDO);
 
     }
+
+    @Override
+    public void updateContact(String userId, String extName, String extValue) {
+
+        Preconditions.checkNotNull(userId);
+        Preconditions.checkNotNull(extName);
+        Preconditions.checkNotNull(extValue);
+
+        UserExtInfoDO extInfoDO = userExtInfoDOMapper.queryByUserIdAndExtName(userId, extName);
+
+        if(extInfoDO != null && !extInfoDO.getExtValue().equals(extValue)){
+            extInfoDO.setExtValue(extValue);
+            userExtInfoDOMapper.updateByPrimaryKey(extInfoDO);
+        }else {
+            extInfoDO = new UserExtInfoDO();
+
+            UserBaseInfoDO userBaseInfoDO = userBaseInfoDOMapper.selectByPrimaryKey(userId);
+            if(userBaseInfoDO != null){
+                extInfoDO.setUserId(userBaseInfoDO.getId());
+                extInfoDO.setUserNickName(userBaseInfoDO.getNickName());
+                extInfoDO.setType(UserExtInfoType.CONTACT.getCode());
+                extInfoDO.setExtName(extName);
+                extInfoDO.setExtValue(extValue);
+                extInfoDO.setDescription(extName);
+
+                userExtInfoDOMapper.insert(extInfoDO) ;
+            }
+        }
+    }
+
+    @Override
+    public void updatePhone(String userId, String extValue) {
+        this.updateContact(userId, "Phone", extValue);
+    }
+
+    @Override
+    public void updateEmail(String userId, String extValue) {
+        this.updateContact(userId, "Email", extValue);
+
+    }
+
+    @Override
+    public void updateQQ(String userId, String extValue) {
+        this.updateContact(userId, "QQ", extValue);
+    }
+
+    @Override
+    public void updateWeiXin(String userId, String extValue) {
+        this.updateContact(userId, "WeiXin", extValue);
+    }
+
+    @Override
+    public void updateLinkedIn(String userId, String extValue) {
+        this.updateContact(userId, "LinkedIn", extValue);
+    }
+
+    @Override
+    public void updateGitHub(String userId, String extValue) {
+        this.updateContact(userId, "GitHub", extValue);
+    }
 }

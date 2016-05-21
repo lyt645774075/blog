@@ -23,6 +23,9 @@
                                 <a href="/admin/user/iconedit">个人头像</a></li>
                             <li id="menu-item-113"
                                 class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a href="/admin/user/contact">联系方式</a></li>
+                            <li id="menu-item-113"
+                                class="menu-item menu-item-type-custom menu-item-object-custom">
                                 <a href="/admin/user/baseinfo">基本信息</a></li>
                             <li id="menu-item-97"
                                 class="menu-item menu-item-type-post_type menu-item-object-page"><a

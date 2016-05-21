@@ -1,7 +1,5 @@
 #set($layout="layout/nolayout.vm")
 
-#set($layout="layout/nolayout.vm")
-
 
 <!DOCTYPE html>
 <html lang="zh-CN">

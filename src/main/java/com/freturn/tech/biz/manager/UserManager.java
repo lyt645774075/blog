@@ -64,4 +64,20 @@ public interface UserManager {
 
     void updateIcon(String userId, String iconUrl);
 
+    /**
+     * 更新联系方式
+     * @param userId
+     * @param extName
+     * @param extValue
+     */
+    void updateContact(String userId, String extName, String extValue);
+
+    void updatePhone(String userId, String extValue);
+    void updateEmail(String userId, String extValue);
+    void updateQQ(String userId, String extValue);
+    void updateWeiXin(String userId, String extValue);
+    void updateLinkedIn(String userId, String extValue);
+    void updateGitHub(String userId, String extValue);
+
+
 }

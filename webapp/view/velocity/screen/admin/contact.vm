@@ -1,0 +1,88 @@
+#set($layout="layout/admin/adminDefault.vm")
+
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+
+            <form method="post" action="/admin/user/contact">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+                <header class="page-header" style="border-bottom: 5px solid #333333; margin-bottom: 40px;">
+                    <h1 class="page-title" style="font-size: 38px; line-height: 1.3;color: #333333">联系方式
+
+                    </h1>
+                </header>
+                <div class="page-content">
+                    <div class="map">
+                    </div>
+                    <div class="contact-info style-content-2">
+                        <ul class="style-1 pull-left">
+                            <li style="border-top-color: #444444;">
+                                  <span class="text-icon-left h6">
+                                      <i class="fa fa-phone-square"></i>
+                                      <span>手机</span>
+                                  </span>
+                                    <span class="pull-right">
+                                        <input type="text" class="form-control" name="phone" value="$!user.contactMap.get("Phone")"/>
+                                    </span>
+                            </li>
+                            <li style="border-top-color: #444444;">
+                                    <span class="text-icon-left  h6">
+                                        <i class="fa fa-qq"></i>
+                                        <span>QQ</span>
+                                    </span>
+                                <span class="pull-right">
+                                    <input type="text" class="form-control" name="qq" value="$!user.contactMap.get("QQ")"/>
+                                </span>
+                            </li>
+                            <li style="border-top-color: #444444;">
+                                    <span class="text-icon-left  h6">
+                                        <i class="fa fa-linkedin-square"></i>
+                                        <span>LinkedIn</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <input type="text" class="form-control" name="linkedIn" value="$!user.contactMap.get("LinkedIn")"/>
+                                    </span>
+                            </li>
+                        </ul>
+                        <ul class="style-1 pull-right">
+                            <li style="border-top-color: #444444;">
+                                    <span class="text-icon-left  h6">
+                                        <i class="fa fa-envelope-square">
+                                        </i>
+                                        <span>邮箱</span>
+                                    </span>
+                                <span class="pull-right">
+                                    <input type="text" class="form-control" name="email" value="$!user.contactMap.get("Email")"/>
+                                </span>
+                            </li>
+                            <li style="border-top-color: #444444;">
+                                    <span class="text-icon-left  h6">
+                                        <i class="fa fa-weixin"></i>
+                                        <span>微信</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <input type="text" class="form-control" name="weiXin" value="$!user.contactMap.get("WeiXin")"/>
+                                    </span>
+                            </li>
+                            <li style="border-top-color: #444444;">
+                                    <span class="text-icon-left  h6">
+                                        <i class="fa fa-github-square">
+                                        </i>
+                                        <span>GitHub</span>
+                                    </span>
+                                <span class="pull-right">
+                                    <input type="text" class="form-control" name="gitHub" value="$!user.contactMap.get("GitHub")"/>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success pull-right">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
