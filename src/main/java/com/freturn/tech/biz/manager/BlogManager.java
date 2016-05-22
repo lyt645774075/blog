@@ -54,4 +54,6 @@ public interface BlogManager {
     List<Blog> queryKLatestBlog(String userId, Integer k);
 
 
+    List<Blog> queryByUserIdAndCategory(String useId, String category);
+
 }

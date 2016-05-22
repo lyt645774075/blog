@@ -28,6 +28,8 @@ public interface PathConstant {
 
     String BLOG_HOME = "screen/user/blog";
 
+    String BLOG_LIST = "screen/user/blogList";
+
 
     /**=========== 用户相关[管理后台]页面路径 ========== **/
 

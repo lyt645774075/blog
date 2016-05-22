@@ -103,4 +103,20 @@ public class UserController {
 
     }
 
+    @RequestMapping("/user/{userId}/{category}")
+    public String getBlogCategory(@PathVariable String userId, @PathVariable String category, ModelMap modelMap) {
+
+        User user = userManager.getUserById(userId);
+
+        List<Blog> blogList = blogManager.queryByUserIdAndCategory(userId, category);
+
+        modelMap.addAttribute("user", user);
+        modelMap.addAttribute("blogList", blogList);
+        modelMap.addAttribute("category", category);
+
+        return PathConstant.BLOG_LIST;
+
+    }
+
+
 }

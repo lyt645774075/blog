@@ -10,6 +10,7 @@ import com.freturn.tech.dal.dataobject.BlogDO;
 import com.freturn.tech.dal.dataobject.CommentDO;
 import com.freturn.tech.dal.dataobject.UserBaseInfoDO;
 import com.freturn.tech.dal.dataobject.UserExtInfoDO;
+import com.freturn.tech.dal.query.AdvancedQuery;
 import com.freturn.tech.dal.query.BlogQuery;
 import com.freturn.tech.dal.query.CommentQuery;
 import com.freturn.tech.security.login.LoginUserHolder;
@@ -283,5 +284,19 @@ public class BlogManagerImpl implements BlogManager {
     }
 
 
+    @Override
+    public List<Blog> queryByUserIdAndCategory(String useId, String category) {
+        Preconditions.checkNotNull(useId);
+        Preconditions.checkNotNull(category);
 
+        BlogQuery query = new BlogQuery();
+        query.setCategory(category.trim());
+        query.setCreatorId(useId);
+        query.setOrderByFieldName("gmt_create");
+        query.setDescOrAsc(AdvancedQuery.DESC);
+
+        List<BlogDO> blogDOList =blogDOMapper.query(query);
+
+        return BlogTransfer.toBOList(blogDOList);
+    }
 }

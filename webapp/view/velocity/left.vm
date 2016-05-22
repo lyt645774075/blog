@@ -63,7 +63,7 @@
                     <ul>
                         #foreach($entry in $!user.categoryMap.entrySet())
                             <li class="cat-item">
-                                <a href="#">$!{entry.key} ($!{entry.value})</a>
+                                <a href="/user/$!user.id/$!entry.key">$!{entry.key} ($!{entry.value})</a>
                             </li>
                         #end
                     </ul>
