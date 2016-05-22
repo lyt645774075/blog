@@ -13,6 +13,10 @@
                 <p class="site-subtitle">$!user.nickName</p>
 
                 <h2 class="site-description">$!user.selfIntroduction</h2>
+
+                #*<h4 class="pull-right" style="margin-right: 2px;">
+                    <a data-toggle="modal" data-target="#userQrcodeModal"><i class="fa fa-qrcode pull-right"></i></a>
+                </h4>*#
             </header>
 
             <div id="main-sidebar" class="widget-area" role="complementary">
