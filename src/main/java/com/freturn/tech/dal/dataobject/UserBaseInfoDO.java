@@ -2,24 +2,55 @@ package com.freturn.tech.dal.dataobject;
 
 import java.util.Date;
 
+/**
+ * 用户基本信息
+ */
 public class UserBaseInfoDO {
-    private String id;
 
-    private Date gmtCreate;
+    /**
+     * 主键id
+     */
+    private String  id;
 
-    private Date gmtModified;
+    /**
+     * gmtCreate
+     */
+    private Date    gmtCreate;
 
-    private String email;
+    /**
+     * gmtModified
+     */
+    private Date    gmtModified;
 
-    private String passWord;
+    /**
+     * 邮箱(账号)
+     */
+    private String  email;
 
+    /**
+     * 密码
+     */
+    private String  passWord;
+
+    /**
+     * 用户类型:个人/团体
+     */
     private Integer type;
 
-    private String nickName;
+    /**
+     * 用户昵称
+     */
+    private String  nickName;
 
-    private String iconUrl;
+    /**
+     * 头像地址
+     */
+    private String  iconUrl;
 
-    private String selfIntroduction;
+    /**
+     * 自我介绍
+     */
+    private String  selfIntroduction;
 
     public String getId() {
         return id;

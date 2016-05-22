@@ -4,19 +4,37 @@ package com.freturn.tech.dal.query;
  * @author yangtao.lyt
  * @version $Id: CommentQuery, v 0.1 2016-05-04 19:12 yangtao.lyt Exp $
  */
-public class CommentQuery extends AdvancedQuery{
+public class CommentQuery extends AdvancedQuery {
 
-    private String domainId;
+    /**
+     * 领域对象id
+     */
+    private String  domainId;
 
+    /**
+     * 领域对象类型
+     */
     private Integer domainType;
 
+    /**
+     * 评论类型
+     */
     private Integer type;
 
-    private Long parentId;
+    /**
+     * 父评论id
+     */
+    private Long    parentId;
 
-    private String creatorId;
+    /**
+     * 评论人id
+     */
+    private String  creatorId;
 
-    private String userId;
+    /**
+     * 被评论人id
+     */
+    private String  userId;
 
     public String getUserId() {
         return userId;

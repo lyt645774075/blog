@@ -2,24 +2,54 @@ package com.freturn.tech.dal.dataobject;
 
 import java.util.Date;
 
+/**
+ * 标签对象
+ */
 public class LabelDO {
-    private Long id;
+    /**
+     * 主键id
+     */
+    private Long    id;
 
-    private Date gmtCreate;
+    /**
+     * gmtCreate
+     */
+    private Date    gmtCreate;
 
-    private Date gmtModified;
+    /**
+     * gmtModified
+     */
+    private Date    gmtModified;
 
-    private String scope;
+    /**
+     * 使用范围
+     */
+    private String  scope;
 
-    private String name;
+    /**
+     * 标签名称
+     */
+    private String  name;
 
+    /**
+     * 使用次数
+     */
     private Integer count;
 
-    private String creatorId;
+    /**
+     * 创建人id
+     */
+    private String  creatorId;
 
-    private String creatorNickName;
+    /**
+     * 创建人昵称
+     */
+    private String  creatorNickName;
 
-    private String description;
+    /**
+     * 标签描述
+     */
+    private String  description;
 
     public Long getId() {
         return id;

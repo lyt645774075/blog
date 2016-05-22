@@ -2,34 +2,80 @@ package com.freturn.tech.dal.dataobject;
 
 import java.util.Date;
 
+/**
+ * 文章对象
+ */
 public class BlogDO {
-    private String id;
 
-    private Date gmtCreate;
+    /**
+     * 主键id
+     */
+    private String  id;
 
-    private Date gmtModified;
+    /**
+     * gmtCreate
+     */
+    private Date    gmtCreate;
 
-    private String title;
+    /**
+     * gmtModified
+     */
+    private Date    gmtModified;
 
-    private String creatorId;
+    /**
+     * 文章title
+     */
+    private String  title;
 
-    private String creatorNickName;
+    /**
+     * 创建人id
+     */
+    private String  creatorId;
 
-    private String type;
+    /**
+     * 创建人昵称
+     */
+    private String  creatorNickName;
 
-    private String category;
+    /**
+     * 文章类型
+     */
+    private String  type;
 
+    /**
+     * 文章分类
+     */
+    private String  category;
+
+    /**
+     * 能够查看的人的范围
+     */
     private Integer seeScope;
 
-    private String status;
+    /**
+     * 文章状态
+     */
+    private String  status;
 
+    /**
+     * 设备
+     */
     private Integer device;
 
-    private String location;
+    /**
+     * 地理位置信息
+     */
+    private String  location;
 
-    private String contentMap;
+    /**
+     * 文章内容信息-json串
+     */
+    private String  contentMap;
 
-    private String labelIdList;
+    /**
+     * 标签id列表
+     */
+    private String  labelIdList;
 
     public String getId() {
         return id;
