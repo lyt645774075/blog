@@ -20,6 +20,11 @@
 
 
 </head>
+
+#*加载登陆用户信息*#
+    #set($loginUser = $userLoader.load($loginUserHolder.id))
+
+
 <body class="home blog group-blog">
 <div id="page" class="hfeed site" >
     <div class="clearfix">
@@ -30,7 +35,6 @@
             <div class="site-main-inner">
                 <div class="container clearfix">
                     $screen_content
-
                 </div>
             </div>
         </div>

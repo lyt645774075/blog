@@ -10,9 +10,7 @@
                 </h1>
             </header>
 
-            hi,$loginUser.getNickName()
-
-
+            hi,$!loginUser.nickName
 
 
             欢迎登陆用户管理页面

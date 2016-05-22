@@ -168,7 +168,7 @@ $(function () {
                 xhr.setRequestHeader(header, token);
               },
               success: function () {
-                console.log('Upload success');
+                window.location.reload();
               },
               error: function () {
                 console.log('Upload error');

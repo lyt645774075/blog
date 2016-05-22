@@ -19,8 +19,8 @@
 
                 <li class="social"><a href="/admin/blog/edit/standard" title="写文章"><i class="fa fa-pencil"></i></a>
                 </li>
-                #if($loginUser.isLogin())
-                    <li class="social"><a href="/user/$loginUser.id" title="个人主页"><i class="fa fa-home"></i></a>
+                #if($loginUserHolder.isLogin())
+                    <li class="social"><a href="/user/$loginUserHolder.id" title="个人主页"><i class="fa fa-home"></i></a>
                     </li>
 
                     <li class="social"><a href="/admin/user" title="用户管理"><i class="fa fa-user"></i></a>
