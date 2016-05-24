@@ -37,6 +37,8 @@ public class User {
 
     private Map<String, String> linkProMap;
 
+    private Map<String, String> contactMap;
+
 
     public String getId() {
         return id;
@@ -132,5 +134,13 @@ public class User {
 
     public void setLinkProMap(Map<String, String> linkProMap) {
         this.linkProMap = linkProMap;
+    }
+
+    public Map<String, String> getContactMap() {
+        return contactMap;
+    }
+
+    public void setContactMap(Map<String, String> contactMap) {
+        this.contactMap = contactMap;
     }
 }

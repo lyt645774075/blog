@@ -2,38 +2,89 @@ package com.freturn.tech.dal.dataobject;
 
 import java.util.Date;
 
+/**
+ * 评论对象
+ */
 public class CommentDO {
-    private Long id;
+    /**
+     * 数据库id
+     */
+    private Long    id;
 
-    private Date gmtCreate;
+    /**
+     * gmtCreate
+     */
+    private Date    gmtCreate;
 
-    private Date gmtModified;
+    /**
+     * gmtModified
+     */
+    private Date    gmtModified;
 
-    private String domainId;
+    /**
+     * 领域对象id
+     */
+    private String  domainId;
 
+    /**
+     * 领域对象类型:博客,用户
+     */
     private Integer domainType;
 
-    private String domainName;
+    /**
+     * 领域对象名称:博客标题,用户昵称
+     */
+    private String  domainName;
 
-    private String userId;
+    /**
+     * 被评论人id
+     */
+    private String  userId;
 
-    private String userNickName;
+    /**
+     * 被评论人昵称
+     */
+    private String  userNickName;
 
+    /**
+     * 评论类型:专家评审意见/普通评论
+     */
     private Integer type;
 
-    private String content;
+    /**
+     * 评论内容
+     */
+    private String  content;
 
-    private Long parentId;
+    /**
+     * 父评论id
+     */
+    private Long    parentId;
 
-    private String creatorId;
+    /**
+     * 评论人id
+     */
+    private String  creatorId;
 
-    private String creatorNickName;
+    /**
+     * 评论人昵称
+     */
+    private String  creatorNickName;
 
-    private String creatorIconUrl;
+    /**
+     * 评论人头像url
+     */
+    private String  creatorIconUrl;
 
+    /**
+     * 设备
+     */
     private Integer device;
 
-    private String location;
+    /**
+     * 地理位置 
+     */
+    private String  location;
 
     public Long getId() {
         return id;

@@ -3,62 +3,43 @@
         <div id="content" class="site-content" role="main">
             <article id="post-96" class="post-96 page type-page status-publish hentry">
                 <header class="page-header">
-                    <h1 class="page-title">About me</h1>
+                    <h1 class="page-title">关于我</h1>
                 </header>
                 <div class="page-content">
-                    <p>Cras porta tempus pharetra. Etiam sollicitudin quam mauris, in sodales elit malesuada et. Curabitur orci sem, condimentum ut malesuada vitae, dapibus vitae est. Nulla elit augue, imperdiet sit amet vulputate sit amet, sodales sed ligula. Donec nulla mauris, aliquam ut dui ac, molestie dapibus diam. Aliquam erat volutpat.</p>
-                    <div class="style-content-1 right">
-                        <div class="small">
-                            <img class="alignnone" alt="" src="./aboutme_files/eee&amp;text=Photo">
-                        </div>
-                        <div class="big">
-                            <ul class="style-1">
-                                <li>DBO<span class="pull-right">23 June, 2013</span>
-                                </li>
-                                <li>Gender<span class="pull-right">Male</span>
-                                </li>
-                                <li>Nationality<span class="pull-right">United States</span>
-                                </li>
-                                <li>Relationship Status<span class="pull-right">Single</span>
-                                </li>
-                                <li>Mobile Phone<span class="pull-right">1-800-233-4175</span>
-                                </li>
-                                <li>Website<a href="http://demo.designwall.com/dw-minion/about-me/www.designwall.com">
-                                    <span class="pull-right">www.designwall.com</span>
-                                </a>
-                                </li>
-                                <li>Languages<span class="pull-right">English</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h3>Work and Education</h3>
-                    <p>Quisque elementum nunc et neque laoreet, sed semper enim rutrum. Nam sed urna lacus. Quisque tempus urna velit. Nam sed urna lacus. Quisque tempus urna velit. Donec eleifend lacus et ante interdum sagittis. Donec eleifend lacus et ante interdum sagittis. Curabitur orci sem, condimentum ut malesuada vitae, dapibus vitae est.</p>
+                    <h3>工作和教育</h3>
+                    <p>四川大学研究生毕业,后于阿里巴巴集团,蚂蚁金服集团工作,任职研发工程师.热爱开发,热爱代码;在搜索引擎,推荐系统,web开发都有相关工作经验</p>
                     <ol class="timeline">
-                        <li class="tl-wrap pull-left tl-danger">
-                            <strong class="tl-title">Facebook</strong>
-                            <span class="tl-content">Founder and CEO · Feb 4, 2004 to present</span>
+                        <li class="tl-wrap pull-left tl-info">
+                            <strong class="tl-title">蚂蚁金服</strong>
+                            <span class="tl-content">
+                                <div>Java研发工程师</div>
+                                <div>2015.8 - 至今</div>
+                            </span>
                         </li>
                         <li class="tl-wrap pull-right">
-                            <strong class="tl-title">Harvard University</strong>
-                                                      <span class="tl-content">Sep 2002 to May 2004 · Computer Science<br>
-                                                      </span>
+                            <strong class="tl-title">阿里巴巴-聚划算</strong>
+                            <span class="tl-content">
+                                <div>Java研发工程师</div>
+                                <div>2014.6 - 2015.8</div>
+                            </span>
                         </li>
                         <li class="tl-wrap pull-left">
-                            <strong class="tl-title">Phillips Exeter Academy</strong>
-                            <span class="tl-content">Class of 2002 · Classics</span>
+                            <strong class="tl-title">四川大学</strong>
+                            <span class="tl-content">
+                                <div>计算机科学与技术</div>
+                                <div>2011.9 - 2014.6</div>
+                            </span>
                         </li>
                         <li class="tl-wrap pull-right">
-                            <strong class="tl-title">Scrum Alliance</strong>
-                            <span class="tl-content">Class of 2001 · Certified Scrum Master</span>
+                            <strong class="tl-title">四川师范大学</strong>
+                            <span class="tl-content">
+                                <div>电子信息工程</div>
+                                <div>2006.9 - 2010.6</div>
+                            </span>
                         </li>
-                        <li class="tl-wrap pull-left">
-                            <strong class="tl-title">Ardsley High School</strong>
-                            <span class="tl-content">Sep 1998 to Jun 2000 · Ardsley, New York</span>
-                        </li>
+
                     </ol>
-                    <h3>Technical Experience</h3>
-                    <p>Sed quis risus posuere leo scelerisque viverra. Pellentesque id urna at augue porttitor laoreet eu vel arcu. Pellentesque vel iaculis augue. Quisque elementum nunc et neque laoreet, sed semper enim rutrum. Nam sed urna lacus. Quisque tempus urna velit. Donec eleifend lacus et ante interdum sagittis.</p>
+                    <h3>专业技能</h3>
                     <div class="row-fluid">
                         <div class="span2">
                             <strong>Photoshop</strong>
@@ -104,4 +85,94 @@
             </article>
         </div>
     </div>
+</div>
+
+<style>
+    .accordion-heading .accordion-toggle {
+        background: #76C5C0;
+    }
+</style>
+
+
+<div id="secondary" class="widget-area" role="complementary" >
+
+    <header class="page-header">
+        <h1 class="page-title">项目经历</h1>
+    </header>
+
+    <aside class="widget dw_accordion news-accordion">
+        <div class="accordion" >
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle active" data-toggle="collapse">商品搜索应用重构</a>
+                </div>
+                <div class="widget_text-dw-widget-1  accordion-body collapse in widget_text ">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">商品搜索应用重构</h3>
+
+                        <div class="page-content">
+                            <span>四川大学研究生毕业,后于阿里巴巴集团,蚂蚁金服集团工作,任职研发工程师.热爱开发,热爱代码;在搜索引擎,推荐系统,web开发都有相关工作经验</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <aside id="dw_accordions-4" class="widget dw_accordion news-accordion">
+        <div class="accordion" id="accordion-dw_accordions-4">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle active"
+                                                  data-toggle="collapse"
+                                                  data-parent="#accordion-dw_accordions-4"
+                                                  href="http://demo.designwall.com/dw-minion/#dw_accordions-4-text-dw-widget-1">全链路资金管控</a>
+                </div>
+                <div id="dw_accordions-4-text-dw-widget-1"
+                     class="widget_text-dw-widget-1  accordion-body collapse in widget_text">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">全链路资金管控</h3>
+                        <div class="page-content">
+                            <span>四川大学研究生毕业,后于阿里巴巴集团,蚂蚁金服集团工作,任职研发工程师.热爱开发,热爱代码;在搜索引擎,推荐系统,web开发都有相关工作经验</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle collapsed"
+                                                  data-toggle="collapse"
+                                                  data-parent="#accordion-dw_accordions-4"
+                                                  href="http://demo.designwall.com/dw-minion/#dw_accordions-4-text-dw-widget-2">疲劳期项目</a>
+                </div>
+                <div id="dw_accordions-4-text-dw-widget-2"
+                     class="widget_text-dw-widget-2  accordion-body collapse  widget_text">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">疲劳期项目</h3>
+                        <div class="page-content">
+                            <span>四川大学研究生毕业,后于阿里巴巴集团,蚂蚁金服集团工作,任职研发工程师.热爱开发,热爱代码;在搜索引擎,推荐系统,web开发都有相关工作经验</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle collapsed"
+                                                  data-toggle="collapse"
+                                                  data-parent="#accordion-dw_accordions-4"
+                                                  href="http://demo.designwall.com/dw-minion/#dw_accordions-4-text-dw-widget-3">后台重构</a>
+                </div>
+                <div id="dw_accordions-4-text-dw-widget-3"
+                     class="widget_text-dw-widget-3  accordion-body collapse  widget_text">
+                    <div class="accordion-inner">
+                        <h3 class="widget-title">后台重构项目</h3>
+                        <div class="page-content">
+                            <span>四川大学研究生毕业,后于阿里巴巴集团,蚂蚁金服集团工作,任职研发工程师.热爱开发,热爱代码;在搜索引擎,推荐系统,web开发都有相关工作经验</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <aside id="text-3" class="widget widget_text">
+        <div class="textwidget"><a href="http://bit.ly/tf-wallclassic"><img
+                src="" alt=""></a></div>
+    </aside>
 </div>

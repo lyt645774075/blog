@@ -1,9 +1,11 @@
 <div id="primary" class="content-area">
     <div class="primary-inner">
         <div id="content" class="site-content" role="main">
-            <article id="post-111" class="post-111 page type-page status-publish hentry">
+
+            <article class="page type-page status-publish hentry">
                 <header class="page-header">
-                    <h1 class="page-title">Contact</h1>
+                    <h1 class="page-title">联系方式</h1>
+                    <small>一份好的联系方式,是您敲开"世界"的开始</small>
                 </header>
                 <div class="page-content">
                     <div class="map">
@@ -11,80 +13,71 @@
                     <div class="contact-info style-content-2">
                         <ul class="style-1 pull-left">
                             <li>
-                                                                    <span class="text-icon-left">
-                                                                      <i class="icon-google-plus-sign">
-                                                                      </i>
-                                                                      <span>Google+</span>
-                                                                    </span>
-                                                                    <span class="pull-right">
-                                                                      <a href="http://demo.designwall.com/dw-minion/contact/#">designwall</a>
-                                                                    </span>
+                              <span class="text-icon-left">
+                                  <i class="fa fa-phone-square"></i>
+                                  <span>手机</span>
+                              </span>
+                                <span class="pull-right">
+                                    $!user.contactMap.get("Phone")
+                                </span>
                             </li>
                             <li>
-                                                                    <span class="text-icon-left">
-                                                                      <i class="icon-skype">
-                                                                      </i>
-                                                                      <span>Skype</span>
-                                                                    </span>
-                                <span class="pull-right">john.doe</span>
+                                <span class="text-icon-left">
+                                    <i class="fa fa-qq"></i>
+                                    <span>QQ</span>
+                                </span>
+                                <span class="pull-right">$!user.contactMap.get("QQ")</span>
                             </li>
                             <li>
-                                                                    <span class="text-icon-left">
-                                                                      <i class="icon-facebook-sign">
-                                                                      </i>
-                                                                      <span>Facebook</span>
-                                                                    </span>
-                                                                    <span class="pull-right">
-                                                                      <a href="http://demo.designwall.com/dw-minion/contact/#">wp.designwall</a>
-                                                                    </span>
+                                <span class="text-icon-left">
+                                    <i class="fa fa-linkedin-square"></i>
+                                    <span>LinkedIn</span>
+                                </span>
+                                <span class="pull-right">
+                                    <a>$!user.contactMap.get("LinkedIn")</a>
+                                </span>
                             </li>
                         </ul>
                         <ul class="style-1 pull-right">
                             <li>
-                                                                    <span class="text-icon-left">
-                                                                      <i class="icon-phone-sign">
-                                                                      </i>
-                                                                      <span>Mobile Phone</span>
-                                                                    </span>
-                                <span class="pull-right">1-800-233-4175</span>
+                                <span class="text-icon-left">
+                                    <i class="fa fa-envelope-square">
+                                    </i>
+                                    <span>邮箱</span>
+                                </span>
+                                <span class="pull-right">$!user.contactMap.get("Email")</span>
                             </li>
                             <li>
-                                                                    <span class="text-icon-left">
-                                                                      <i class="icon-twitter-sign">
-                                                                      </i>
-                                                                      <span>Twitter</span>
-                                                                    </span>
-                                                                    <span class="pull-right">
-                                                                      <a href="http://demo.designwall.com/dw-minion/contact/#">designwall_com</a>
-                                                                    </span>
+                                <span class="text-icon-left">
+                                    <i class="fa fa-weixin"></i>
+                                    <span>微信</span>
+                                </span>
+                                <span class="pull-right">
+                                        $!user.contactMap.get("WeiXin")
+                                </span>
                             </li>
                             <li>
-                                                                    <span class="text-icon-left">
-                                                                      <i class="icon-apple">
-                                                                      </i>
-                                                                      <span>Facetime</span>
-                                                                    </span>
-                                <span class="pull-right">webmaster@example.com</span>
+                                <span class="text-icon-left">
+                                    <i class="fa fa-github-square">
+                                    </i>
+                                    <span>GitHub</span>
+                                </span>
+                                <span class="pull-right">$!user.contactMap.get("GitHub")</span>
                             </li>
                         </ul>
                     </div>
-                    <form>
+                    <form method="post">
                         <fieldset>
-                            <legend>Use the form below to drop me a message</legend>
+                            <legend>给我留言...</legend>
                             <p>
-                                <label>Your name<br>
-                                </label>
-                                <label>Email<br>
-                                </label>
-                                <label>Website<br>
-                                </label>
                                 <label>
-                                    <label>Your Message<br>
-                                                                        <textarea class="input-block-level">
-                                                                        </textarea>
+                                    <label>内容:<br>
+                                        <textarea class="input-block-level" name="message"></textarea>
                                     </label>
                                 </label>
                             </p>
+
+                            <button type="submit" class="btn btn-success pull-right">确定</button>
                         </fieldset>
                     </form>
                 </div>
@@ -92,3 +85,5 @@
         </div>
     </div>
 </div>
+
+

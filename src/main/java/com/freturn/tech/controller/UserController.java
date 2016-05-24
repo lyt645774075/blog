@@ -75,7 +75,14 @@ public class UserController {
     @RequestMapping("/user/{userId}/aboutme")
     public String getAboutMe(@PathVariable String userId, ModelMap modelMap) {
 
-        modelMap.addAttribute("userId", userId);
+        User user = userManager.getUserById(userId);
+        List<Blog> kLatestBlog = blogManager.queryKLatestBlog(userId, 5);
+        List<Comment> kLatestComment = userManager.queryKLatestComment(userId, 5);
+
+        modelMap.addAttribute("user", user);
+        modelMap.addAttribute("kLatestBlog", kLatestBlog);
+        modelMap.addAttribute("kLatestComment", kLatestComment);
+        modelMap.addAttribute("closeDefaultRight", true);
 
         return PathConstant.USER_ABOUTME;
 
@@ -84,10 +91,32 @@ public class UserController {
     @RequestMapping("/user/{userId}/contact")
     public String getContact(@PathVariable String userId, ModelMap modelMap) {
 
-        modelMap.addAttribute("userId", userId);
+        User user = userManager.getUserById(userId);
+        List<Blog> kLatestBlog = blogManager.queryKLatestBlog(userId, 5);
+        List<Comment> kLatestComment = userManager.queryKLatestComment(userId, 5);
+
+        modelMap.addAttribute("user", user);
+        modelMap.addAttribute("kLatestBlog", kLatestBlog);
+        modelMap.addAttribute("kLatestComment", kLatestComment);
 
         return PathConstant.USER_CONTACT;
 
     }
+
+    @RequestMapping("/user/{userId}/{category}")
+    public String getBlogCategory(@PathVariable String userId, @PathVariable String category, ModelMap modelMap) {
+
+        User user = userManager.getUserById(userId);
+
+        List<Blog> blogList = blogManager.queryByUserIdAndCategory(userId, category);
+
+        modelMap.addAttribute("user", user);
+        modelMap.addAttribute("blogList", blogList);
+        modelMap.addAttribute("category", category);
+
+        return PathConstant.BLOG_LIST;
+
+    }
+
 
 }

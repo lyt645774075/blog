@@ -2,25 +2,54 @@ package com.freturn.tech.dal.dataobject;
 
 import java.util.Date;
 
+/**
+ * 用户扩展信息
+ */
 public class UserExtInfoDO {
-    private Long id;
+    /**
+     * 主键id
+     */
+    private Long   id;
 
-    private Date gmtCreate;
+    /**
+     * gmtCreate
+     */
+    private Date   gmtCreate;
 
-    private Date gmtModified;
+    /**
+     * gmtModified
+     */
+    private Date   gmtModified;
 
+    /**
+     * 用户id
+     */
     private String userId;
 
+    /**
+     * 用户昵称
+     */
     private String userNickName;
 
+    /**
+     * 类型
+     */
     private String type;
 
+    /**
+     * 扩展属性key
+     */
     private String extName;
 
+    /**
+     * 扩展属性value
+     */
     private String extValue;
 
+    /**
+     * 介绍
+     */
     private String description;
-
 
     public Long getId() {
         return id;
@@ -49,7 +78,6 @@ public class UserExtInfoDO {
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
     }
-
 
     public String getUserNickName() {
         return userNickName;
@@ -89,5 +117,9 @@ public class UserExtInfoDO {
 
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }

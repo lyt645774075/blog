@@ -11,6 +11,8 @@ public enum UserExtInfoType {
 
     LINK("LINK", "链接"),
 
+    CONTACT("CONTACT", "联系方式")
+
     ;
 
     private String code;

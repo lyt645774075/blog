@@ -8,15 +8,25 @@ import java.util.List;
  */
 public class LabelQuery {
 
+    /**
+     * 适用范围
+     */
+    private String       scope;
 
-    private String scope;
+    /**
+     * 标签名称
+     */
+    private String       name;
 
-    private String name;
+    /**
+     * 使用次数
+     */
+    private Integer      count;
 
-    private Integer count;
-
+    /**
+     * 创建人id列表
+     */
     private List<String> creatorIdList;
-
 
     public String getScope() {
         return scope;

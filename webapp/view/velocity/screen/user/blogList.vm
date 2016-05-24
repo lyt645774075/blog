@@ -1,0 +1,44 @@
+<div id="primary" class="content-area">
+    <div class="primary-inner">
+        <div id="content" class="site-content" role="main">
+
+
+            <header class="page-header">
+                <h1 class="page-title">$!category</h1>
+            </header>
+            <div class="page-content">
+                #foreach($blog in $!blogList)
+                    <article id="$blog.id"
+                             class="post-33 post type-post status-publish format-standard has-post-thumbnail hentry category-delicious category-freelancing category-photography tag-playing tag-shopping">
+                        <header class="entry-header" style="margin-bottom: 30px;">
+
+                            #if($!blog.type.code == 'STANDARD')
+                                <i class="fa fa-file-text"></i>
+                            #elseif($!blog.type.code == 'GALLERY')
+                                <i class="fa fa-image"></i>
+                            #elseif($!blog.type.code == 'LINK')
+                                <i class="fa fa-share-alt-square"></i>
+                            #elseif($!blog.type.code == 'QUOTE')
+                                <i class="fa fa-fire"></i>
+                            #end
+
+                            <a href="/blog/$blog.id" rel="bookmark" class="h5" style="margin-left: 2px">$blog.title</a>
+                            <small class="pull-right" style="margin:auto 60px auto 5px; ">$DateUtil.longFormat($!blog.gmtCreate)</small>
+
+                            <div class="entry-meta" style="margin-bottom: 30px;">
+                                <span class="sep" style="margin-top: 5px;">
+                                    <span class="post-format">
+                                        <i class="icon-file-text"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </header>
+
+                    </article>
+                #end
+            </div>
+
+
+        </div>
+    </div>
+</div>

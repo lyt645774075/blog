@@ -25,7 +25,7 @@
 
               <property name="attributesMap">
                      <map>
-                            <entry key="loginUser">
+                            <entry key="loginUserHolder">
                                    <ref bean="loginUserHolder"/>
                             </entry>
 
@@ -35,6 +35,10 @@
 
                             <entry key="extracter">
                                    <ref bean="blogContentExtracter"/>
+                            </entry>
+
+                            <entry key="userLoader">
+                                   <ref bean="userLoader"/>
                             </entry>
                      </map>
               </property>

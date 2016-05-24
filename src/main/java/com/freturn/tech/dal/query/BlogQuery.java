@@ -4,20 +4,37 @@ package com.freturn.tech.dal.query;
  * @author yangtao.lyt
  * @version $Id: BlogQuery, v 0.1 2016-04-20 15:01 yangtao.lyt Exp $
  */
-public class BlogQuery extends AdvancedQuery{
+public class BlogQuery extends AdvancedQuery {
 
-    private String title;
+    /**
+     * 文章标题
+     */
+    private String  title;
 
-    private String creatorId;
+    /**
+     * 文章创建人
+     */
+    private String  creatorId;
 
-    private String type;
+    /**
+     * 文章类型
+     */
+    private String  type;
 
-    private String category;
+    /**
+     * 文章分类
+     */
+    private String  category;
 
+    /**
+     * 文章可见范围
+     */
     private Integer seeScope;
 
-    private String status;
-
+    /**
+     * 文章状态
+     */
+    private String  status;
 
     public String getTitle() {
         return title;
@@ -26,7 +43,6 @@ public class BlogQuery extends AdvancedQuery{
     public void setTitle(String title) {
         this.title = title;
     }
-
 
     public String getType() {
         return type;

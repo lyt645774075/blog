@@ -62,6 +62,7 @@ public class UserBuilder {
 
         Map<String, Integer> categoryMap = Maps.newHashMap();
         Map<String, String> linkProMap = Maps.newHashMap();
+        Map<String, String> contactMap = Maps.newHashMap();
 
         for(UserExtInfoDO extInfo : userExtInfoDOList){
             if(extInfo.getType().equals(UserExtInfoType.CATEGORY.getCode())){
@@ -71,11 +72,15 @@ public class UserBuilder {
             if(extInfo.getType().equals(UserExtInfoType.LINK.getCode())){
                 linkProMap.put(extInfo.getExtName(), extInfo.getExtValue());
             }
+
+            if(extInfo.getType().equals(UserExtInfoType.CONTACT.getCode())){
+                contactMap.put(extInfo.getExtName(), extInfo.getExtValue());
+            }
         }
 
         user.setCategoryMap(categoryMap);
         user.setLinkProMap(linkProMap);
-
+        user.setContactMap(contactMap);
 
         return user;
     }

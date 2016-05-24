@@ -39,8 +39,6 @@
     set
       gmt_modified = now(),
       user_nick_name = #{userNickName,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      ext_name = #{extName,jdbcType=VARCHAR},
       ext_value = #{extValue,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
@@ -49,6 +47,11 @@
   <select id="queryByUserId" resultMap="UserExtInfoResultMap" parameterType="java.lang.String">
     select <include refid="Base_Column_List"/> from user_ext_info
     where user_id=#{userId, jdbcType=VARCHAR}
+  </select>
+
+  <select id="queryByUserIdAndExtName" resultMap="UserExtInfoResultMap" >
+    select <include refid="Base_Column_List"/> from user_ext_info
+    where user_id=#{userId, jdbcType=VARCHAR}  and ext_name=#{extName, jdbcType=VARCHAR}
   </select>
 
 

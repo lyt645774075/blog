@@ -23,6 +23,9 @@
                                 <a href="/admin/user/iconedit">个人头像</a></li>
                             <li id="menu-item-113"
                                 class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a href="/admin/user/contact">联系方式</a></li>
+                            <li id="menu-item-113"
+                                class="menu-item menu-item-type-custom menu-item-object-custom">
                                 <a href="/admin/user/baseinfo">基本信息</a></li>
                             <li id="menu-item-97"
                                 class="menu-item menu-item-type-post_type menu-item-object-page"><a
@@ -64,10 +67,10 @@
                     <ul id="menu-main-menu" class="menu">
                         <li id="menu-item-113"
                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-113">
-                            <a href="/user/$!user.id">公开的</a></li>
+                            <a href="/user/$!loginUser.id">公开的</a></li>
                         <li id="menu-item-97"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a
-                                href="/user/$!user.id/aboutme">私人的</a></li>
+                                href="/user/$!loginUser.id/aboutme">私人的</a></li>
                         <li id="menu-item-114"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-114">
                             <a href="#">草稿</a>

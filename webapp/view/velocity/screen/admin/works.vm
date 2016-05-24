@@ -4,12 +4,14 @@
     <div class="primary-inner">
         <div id="content" class="site-content" role="main">
 
+            <header class="page-header" style="border-bottom: 5px solid #333333; margin-bottom: 40px;">
+                <h1 class="page-title" style="font-size: 38px; line-height: 1.3;color: #333333">个人作品
+                    <small><a data-toggle="modal" data-target="#addWorkModal">新增</a></small>
+                </h1>
+            </header>
+
             <aside id="meta-2" class="widget widget_meta">
-                <div class="widget-title">
-                    <h5>个人作品<small style="margin-left: 40px;">
-                        <a data-toggle="modal" data-target="#addWorkModal">新增</a>
-                    </small></h5>
-                </div>
+
 
                 <ul>
 
@@ -32,7 +34,7 @@
 
 
 
-            #*添加作品模态框*#
+        #*添加作品模态框*#
             <div class="modal fade" id="addWorkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog">
                     <div class="modal-content">
