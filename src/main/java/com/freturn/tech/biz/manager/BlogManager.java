@@ -2,6 +2,7 @@ package com.freturn.tech.biz.manager;
 
 import com.freturn.tech.biz.domain.Blog;
 import com.freturn.tech.biz.domain.Comment;
+import com.freturn.tech.biz.domain.PagedResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -54,6 +55,8 @@ public interface BlogManager {
     List<Blog> queryKLatestBlog(String userId, Integer k);
 
 
-    List<Blog> queryByUserIdAndCategory(String useId, String category);
+    List<Blog> queryByUserIdAndCategory(String userId, String category);
+
+    PagedResult<Blog> pageQuery(String userId, Integer pageNo);
 
 }

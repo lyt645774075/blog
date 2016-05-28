@@ -11,5 +11,7 @@ public interface CommonConstant {
 
     String DEFAULT_LOCATION = "中国";
 
+    Integer DEFAULT_PAGE_SIZE = 10;
+
 
 }

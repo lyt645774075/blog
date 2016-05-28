@@ -2,6 +2,7 @@ package com.freturn.tech.biz.manager.impl;
 
 import com.freturn.tech.biz.domain.Blog;
 import com.freturn.tech.biz.domain.Comment;
+import com.freturn.tech.biz.domain.PagedResult;
 import com.freturn.tech.biz.manager.BlogManager;
 import com.freturn.tech.dal.dao.BlogDOMapper;
 import com.freturn.tech.dal.dao.CommentDOMapper;
@@ -285,18 +286,48 @@ public class BlogManagerImpl implements BlogManager {
 
 
     @Override
-    public List<Blog> queryByUserIdAndCategory(String useId, String category) {
-        Preconditions.checkNotNull(useId);
+    public List<Blog> queryByUserIdAndCategory(String userId, String category) {
+        Preconditions.checkNotNull(userId);
         Preconditions.checkNotNull(category);
 
         BlogQuery query = new BlogQuery();
         query.setCategory(category.trim());
-        query.setCreatorId(useId);
+        query.setCreatorId(userId);
         query.setOrderByFieldName("gmt_create");
         query.setDescOrAsc(AdvancedQuery.DESC);
 
         List<BlogDO> blogDOList =blogDOMapper.query(query);
 
         return BlogTransfer.toBOList(blogDOList);
+    }
+
+    @Override
+    public PagedResult<Blog> pageQuery(String userId, Integer pageNo) {
+
+        Preconditions.checkNotNull(userId);
+        Preconditions.checkNotNull(pageNo);
+
+        BlogQuery query = new BlogQuery();
+        query.setCreatorId(userId);
+
+        query.setPageNo(pageNo);
+        query.setDescOrAsc(AdvancedQuery.DESC);
+        query.setOrderByFieldName("gmt_create");
+
+        PagedResult<Blog> pagedResult = new PagedResult<Blog>();
+        pagedResult.setPageNo(pageNo);
+        Integer total = blogDOMapper.count(query);
+        if(total == null || total == 0){
+            pagedResult.setTotalCount(0);
+            return pagedResult;
+        }
+
+        //设置总数
+        pagedResult.setTotalCount(total);
+        //查询记录
+        List<BlogDO> blogDOList =blogDOMapper.query(query);
+        pagedResult.addAll(BlogTransfer.toBOList(blogDOList));
+
+        return pagedResult;
     }
 }

@@ -9,7 +9,7 @@
                     <h3>工作和教育</h3>
                     <p>四川大学研究生毕业,后于阿里巴巴集团,蚂蚁金服集团工作,任职研发工程师.热爱开发,热爱代码;在搜索引擎,推荐系统,web开发都有相关工作经验</p>
                     <ol class="timeline">
-                        <li class="tl-wrap pull-left tl-info">
+                        <li class="tl-wrap pull-left tl-danger">
                             <strong class="tl-title">蚂蚁金服</strong>
                             <span class="tl-content">
                                 <div>Java研发工程师</div>

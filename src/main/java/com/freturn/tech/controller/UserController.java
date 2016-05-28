@@ -2,6 +2,7 @@ package com.freturn.tech.controller;
 
 import com.freturn.tech.biz.domain.Blog;
 import com.freturn.tech.biz.domain.Comment;
+import com.freturn.tech.biz.domain.PagedResult;
 import com.freturn.tech.biz.domain.User;
 import com.freturn.tech.biz.manager.BlogManager;
 import com.freturn.tech.biz.manager.UserManager;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -37,15 +39,21 @@ public class UserController {
 
 
     @RequestMapping("/user/{userId}")
-    public String getUserHome(@PathVariable String userId, ModelMap modelMap) {
+    public String getUserHome(@PathVariable String userId, ModelMap modelMap, @RequestParam(required = false) Integer pageNo) {
 
         User user = userManager.getUserById(userId);
-        List<Blog> kLatestBlog = blogManager.queryKLatestBlog(userId, 5);
         List<Comment> kLatestComment = userManager.queryKLatestComment(userId, 5);
+        List<Blog> kLatestBlog = blogManager.queryKLatestBlog(userId, 5);
+
+        if(pageNo == null){
+            pageNo = 1;
+        }
+        PagedResult pagedResult = blogManager.pageQuery(userId, pageNo);
 
         modelMap.addAttribute("user", user);
-        modelMap.addAttribute("kLatestBlog", kLatestBlog);
         modelMap.addAttribute("kLatestComment", kLatestComment);
+        modelMap.addAttribute("pagedResult", pagedResult);
+        modelMap.addAttribute("kLatestBlog", kLatestBlog);
 
         return PathConstant.USER_HOME;
 

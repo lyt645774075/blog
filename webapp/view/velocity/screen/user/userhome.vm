@@ -2,7 +2,7 @@
     <div class="primary-inner">
         <div id="content" class="site-content content-list" role="main">
 
-            #foreach($blog in $!kLatestBlog)
+            #foreach($blog in $!pagedResult)
 
                 #if($!blog.type.code == 'STANDARD')
 
@@ -213,17 +213,37 @@
             #end
 
 
-
-
-
             <nav role="navigation" id="nav-below" class="paging-navigation pager">
                 <div class="nav-previous">
-                    <span class="btn disabled"><i class="icon-chevron-left"></i></span>
+                    #if($!pagedResult.hasPrePage())
+                        <a href="?pageNo=$!pagedResult.prePageNo">
+                            <span class="btn">
+                                <i class="icon-chevron-left"></i>
+                            </span>
+                        </a>
+                    #else
+                        <span class="btn disabled">
+                            <i class="icon-chevron-left"></i>
+                        </span>
+                    #end
                 </div>
+
                 <div class="nav-next">
-                    <a href="http://demo.designwall.com/dw-minion/page/2/"><span
-                            class="meta-nav btn"><i class="icon-chevron-right"></i></span></a></div>
+                    #if($!pagedResult.hasNextPage())
+                        <a href="?pageNo=$!{pagedResult.nextPageNo}">
+                            <span class="meta-nav btn">
+                                <i class="icon-chevron-right"></i>
+                            </span>
+                        </a>
+                    #else
+                        <span class="meta-nav btn disabled">
+                            <i class="icon-chevron-right"></i>
+                        </span>
+                    #end
+                </div>
             </nav>
+
+
         </div>
     </div>
 </div>

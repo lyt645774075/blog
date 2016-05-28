@@ -1,5 +1,7 @@
 package com.freturn.tech.dal.query;
 
+import com.freturn.tech.support.constant.CommonConstant;
+
 /**
  * @author yangtao.lyt
  * @version $Id: AdvancedQuery, v 0.1 2016-05-03 20:36 yangtao.lyt Exp $
@@ -29,7 +31,7 @@ public abstract class AdvancedQuery {
     /**
      * 单页返回记录上限数    -  分页查询
      */
-    private Integer   pageSize       = 20;
+    private Integer   pageSize       = CommonConstant.DEFAULT_PAGE_SIZE;
     /**
      * 限制返回记录上限数
      * 该值不为null的时候启用，并使用该值作为参数
@@ -100,7 +102,7 @@ public abstract class AdvancedQuery {
     }
 
     public Integer getOffset() {
-        return (pageNo - 1) * pageSize;
+        return pageSize;
     }
 
     public Integer getStartRow() {
