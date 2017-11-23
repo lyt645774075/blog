@@ -11,8 +11,8 @@
 
        <bean id="ossClient" class="com.aliyun.oss.OSSClient">
               <constructor-arg name="endpoint" value="http://oss-cn-hangzhou.aliyuncs.com"/>
-              <constructor-arg name="accessKeyId" value="IMvaEO3Apacs2MNc"/>
-              <constructor-arg name="secretAccessKey" value="XwDumsYaEnUcFmvqULpo0mndBifwW6"/>
+              <constructor-arg name="accessKeyId" value=""/>
+              <constructor-arg name="secretAccessKey" value=""/>
        </bean>
 
 
